@@ -22,80 +22,14 @@
   "tag": "div",
   "max_blocks": 18,
   "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Överrubrik",
-      "default": "Varumärken"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Rubrik",
-      "default": "Välkända märken i sortimentet"
-    }
+    {"type": "text", "id": "eyebrow", "label": "Överrubrik", "default": "Varumärken"},
+    {"type": "text", "id": "heading", "label": "Rubrik", "default": "Välkända märken i sortimentet"}
   ],
   "blocks": [
-    {
-      "type": "brand",
-      "name": "Varumärke",
-      "settings": [
-        {
-          "type": "text",
-          "id": "name",
-          "label": "Namn",
-          "default": "Varumärke"
-        },
-        {
-          "type": "image_picker",
-          "id": "logo",
-          "label": "Logotyp (valfritt)"
-        }
-      ]
-    }
+    {"type": "brand", "name": "Varumärke", "settings": [{"type": "text", "id": "name", "label": "Namn", "default": "Varumärke"}, {"type": "image_picker", "id": "logo", "label": "Logotyp (valfritt)"}]}
   ],
   "presets": [
-    {
-      "name": "Varumärken",
-      "blocks": [
-        {
-          "type": "brand",
-          "settings": {
-            "name": "Samsonite"
-          }
-        },
-        {
-          "type": "brand",
-          "settings": {
-            "name": "Antler"
-          }
-        },
-        {
-          "type": "brand",
-          "settings": {
-            "name": "Wolf1834"
-          }
-        },
-        {
-          "type": "brand",
-          "settings": {
-            "name": "Parat"
-          }
-        },
-        {
-          "type": "brand",
-          "settings": {
-            "name": "Rolser"
-          }
-        },
-        {
-          "type": "brand",
-          "settings": {
-            "name": "Andersen"
-          }
-        }
-      ]
-    }
+    {"name": "Varumärken", "blocks": [{"type": "brand", "settings": {"name": "Samsonite"}}, {"type": "brand", "settings": {"name": "Antler"}}, {"type": "brand", "settings": {"name": "Wolf1834"}}, {"type": "brand", "settings": {"name": "Parat"}}, {"type": "brand", "settings": {"name": "Rolser"}}, {"type": "brand", "settings": {"name": "Andersen"}}]}
   ]
 }
 {% endschema %}

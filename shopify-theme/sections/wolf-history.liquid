@@ -27,90 +27,17 @@
   "tag": "div",
   "max_blocks": 6,
   "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Överrubrik",
-      "default": "Ett familjeföretag"
-    },
-    {
-      "type": "text",
-      "id": "heading",
-      "label": "Rubrik",
-      "default": "Hantverk som gått i arv i över 180 år"
-    },
-    {
-      "type": "richtext",
-      "id": "text",
-      "label": "Text",
-      "default": "<p>Familjen Wolf har över 180 års erfarenhet av att tillverka etuier, skrin och väskor. Kunnandet har gått i arv från generation till generation – från en silversmedja i Tyskland till dagens verksamhet i Stockholmsområdet.</p>"
-    },
-    {
-      "type": "text",
-      "id": "link_label",
-      "label": "Länktext",
-      "default": "Läs om familjen Wolf"
-    },
-    {
-      "type": "url",
-      "id": "link",
-      "label": "Länk"
-    }
+    {"type": "text", "id": "eyebrow", "label": "Överrubrik", "default": "Ett familjeföretag"},
+    {"type": "text", "id": "heading", "label": "Rubrik", "default": "Hantverk som gått i arv i över 180 år"},
+    {"type": "richtext", "id": "text", "label": "Text", "default": "<p>Familjen Wolf har över 180 års erfarenhet av att tillverka etuier, skrin och väskor. Kunnandet har gått i arv från generation till generation – från en silversmedja i Tyskland till dagens verksamhet i Stockholmsområdet.</p>"},
+    {"type": "text", "id": "link_label", "label": "Länktext", "default": "Läs om familjen Wolf"},
+    {"type": "url", "id": "link", "label": "Länk"}
   ],
   "blocks": [
-    {
-      "type": "milestone",
-      "name": "Årtal",
-      "settings": [
-        {
-          "type": "text",
-          "id": "year",
-          "label": "Årtal",
-          "default": "1936"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Händelse",
-          "default": "Händelse"
-        }
-      ]
-    }
+    {"type": "milestone", "name": "Årtal", "settings": [{"type": "text", "id": "year", "label": "Årtal", "default": "1936"}, {"type": "text", "id": "title", "label": "Händelse", "default": "Händelse"}]}
   ],
   "presets": [
-    {
-      "name": "Historik (kort)",
-      "blocks": [
-        {
-          "type": "milestone",
-          "settings": {
-            "year": "1896",
-            "title": "Skandinaviska Etuifabriken i Malmö"
-          }
-        },
-        {
-          "type": "milestone",
-          "settings": {
-            "year": "1936",
-            "title": "Stockholms Etui- och koffertfabrik AB"
-          }
-        },
-        {
-          "type": "milestone",
-          "settings": {
-            "year": "1977",
-            "title": "Nästa generation tar över"
-          }
-        },
-        {
-          "type": "milestone",
-          "settings": {
-            "year": "1986",
-            "title": "Butiken på Atlasgatan"
-          }
-        }
-      ]
-    }
+    {"name": "Historik (kort)", "blocks": [{"type": "milestone", "settings": {"year": "1896", "title": "Skandinaviska Etuifabriken i Malmö"}}, {"type": "milestone", "settings": {"year": "1936", "title": "Stockholms Etui- och koffertfabrik AB"}}, {"type": "milestone", "settings": {"year": "1977", "title": "Nästa generation tar över"}}, {"type": "milestone", "settings": {"year": "1986", "title": "Butiken på Atlasgatan"}}]}
   ]
 }
 {% endschema %}
