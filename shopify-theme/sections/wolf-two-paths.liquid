@@ -1,0 +1,215 @@
+<section class="section{% if section.settings.background == 'bone' %} bg-bone border-y{% endif %}" aria-labelledby="H-{{ section.id }}">
+  <div class="page-width">
+      <div class="max-2xl" data-reveal>
+        {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        {%- if section.settings.heading != blank -%}<h2 id="H-{{ section.id }}" class="mt-2">{{ section.settings.heading }}</h2>{%- endif -%}
+        {%- if section.settings.text != blank -%}<div class="lede mt-3 rte">{{ section.settings.text }}</div>{%- endif -%}
+      </div>
+    <div class="paths">
+      {%- for block in section.blocks -%}
+        {%- assign dark = false -%}{%- if block.settings.style == 'dark' -%}{%- assign dark = true -%}{%- endif -%}
+        <a href="{{ block.settings.link }}" class="path{% if dark %} path--dark on-dark{% endif %}" {{ block.shopify_attributes }} data-reveal style="--d: {{ forloop.index0 | times: 120 }}ms">
+          <div class="path__media">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '500, 800, 1200', sizes: '(min-width: 1024px) 50vw, 100vw' }}
+            {%- elsif block.settings.illustration != 'none' -%}
+              {% render 'illustration', name: block.settings.illustration %}
+            {%- endif -%}
+          </div>
+          <div class="path__body">
+            {%- if block.settings.eyebrow != blank -%}<p class="eyebrow">{{ block.settings.eyebrow }}</p>{%- endif -%}
+            <h3>{{ block.settings.heading }}</h3>
+            {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+            {%- if block.settings.brands != blank -%}<p class="path__brands">{{ block.settings.brands }}</p>{%- endif -%}
+            <span class="arrow-link"><span class="link-underline">{{ block.settings.link_label }}</span>{% render 'icon', name: 'arrow' %}</span>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Två vägar in",
+  "tag": "div",
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Överrubrik",
+      "default": "Två vägar in"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Rubrik",
+      "default": "Vad söker ni?"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Ingress",
+      "default": "<p>En väska som är framtagen för just er uppgift – eller en resväska från ett välkänt märke. Välj den väg som passar.</p>"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Bakgrund",
+      "default": "ivory",
+      "options": [
+        {
+          "value": "ivory",
+          "label": "Varmvit"
+        },
+        {
+          "value": "bone",
+          "label": "Benvit"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "path",
+      "name": "Väg",
+      "settings": [
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Stil",
+          "default": "light",
+          "options": [
+            {
+              "value": "light",
+              "label": "Ljus"
+            },
+            {
+              "value": "dark",
+              "label": "Mörk"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Bild"
+        },
+        {
+          "type": "select",
+          "id": "illustration",
+          "label": "Illustration (visas om ingen bild valts)",
+          "options": [
+            {
+              "value": "hardcase",
+              "label": "Hård väska med inredning"
+            },
+            {
+              "value": "demo",
+              "label": "Demoväska"
+            },
+            {
+              "value": "suitcase",
+              "label": "Resväska"
+            },
+            {
+              "value": "wine",
+              "label": "Vinresväska"
+            },
+            {
+              "value": "toolcase",
+              "label": "Serviceväska"
+            },
+            {
+              "value": "winder",
+              "label": "Watch winder"
+            },
+            {
+              "value": "jewelry",
+              "label": "Smyckeskrin"
+            },
+            {
+              "value": "briefcase",
+              "label": "Portfölj"
+            },
+            {
+              "value": "trolley",
+              "label": "Shoppingvagn"
+            },
+            {
+              "value": "none",
+              "label": "Ingen"
+            }
+          ],
+          "default": "demo"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Överrubrik"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Rubrik",
+          "default": "Rubrik"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "brands",
+          "label": "Varumärken (valfritt)"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Länktext",
+          "default": "Läs mer"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Länk"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Två vägar in",
+      "blocks": [
+        {
+          "type": "path",
+          "settings": {
+            "style": "light",
+            "illustration": "demo",
+            "eyebrow": "För företag och privatpersoner",
+            "heading": "Specialtillverkade väskor",
+            "text": "För er som behöver en väska eller ett etui anpassat efter specifika krav – mjukt eller hårt, med inredning efter innehållet.",
+            "link_label": "Om specialtillverkning",
+            "link": "/pages/specialtillverkade-vaskor"
+          }
+        },
+        {
+          "type": "path",
+          "settings": {
+            "style": "dark",
+            "illustration": "suitcase",
+            "eyebrow": "Webbutik",
+            "heading": "Väskor från välkända varumärken",
+            "text": "Resväskor, tillbehör, serviceväskor, klockuppdragare och mer i vår webbutik.",
+            "brands": "Samsonite · Antler · Wolf1834 · Parat · Rolser · Andersen",
+            "link_label": "Besök webbutiken",
+            "link": "/collections/all"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

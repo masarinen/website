@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "hero": {
+      "type": "wolf-page-hero",
+      "settings": {
+        "eyebrow": "Kontakt",
+        "heading": "Välkommen att höra av er",
+        "text": "<p>Har ni frågor om specialtillverkade väskor, vårt sortiment eller en reparation? Ring, mejla eller använd formuläret nedan.</p>"
+      }
+    },
+    "contact": {
+      "type": "wolf-contact",
+      "settings": {
+        "details_heading": "Kontaktuppgifter",
+        "details_text": "<p>Söker ni en resväska eller annan produkt ur sortimentet? Besök <a href=\"/collections/all\" title=\"Webbutik\">webbutiken</a>. Alla produkter kan levereras till adresser i hela Norden.</p>",
+        "form_heading": "Skicka ett meddelande",
+        "form_text": "Vi besvarar förfrågningar via e-post eller telefon.",
+        "subjects": "Specialbeställning\nFråga om sortimentet\nReparation\nÖvrigt"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "contact"
+  ]
+}

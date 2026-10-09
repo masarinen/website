@@ -1,0 +1,84 @@
+<section class="section" aria-label="{{ section.settings.label | escape }}">
+  <div class="page-width grid-12">
+    <div class="col-6" data-reveal>
+      <blockquote class="quote"><p>{{ section.settings.quote }}</p></blockquote>
+    </div>
+    <ul class="rule-list col-5 start-8">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }} data-reveal style="--d: {{ forloop.index0 | times: 90 }}ms">
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Citat och lista",
+  "tag": "div",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Beskrivning för skärmläsare",
+      "default": "Vårt erbjudande"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Citat",
+      "default": "”Vår mångåriga erfarenhet och vårt breda nät av duktiga och pålitliga underleverantörer ger oss unika möjligheter att erbjuda er mjuka eller hårda väskor helt efter era behov och önskemål.”"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Punkt",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Rubrik",
+          "default": "Rubrik"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Citat och lista",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Mångårig erfarenhet",
+            "text": "Etuier, skrin och väskor har varit familjen Wolfs hantverk i över 180 år. Den erfarenheten hjälper oss att förstå vad en väska behöver klara av."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Ett brett nätverk av underleverantörer",
+            "text": "Genom duktiga och pålitliga underleverantörer kan vi ta fram både mjuka och hårda väskor – och välja det utförande som passar uppgiften."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Utformat efter era behov",
+            "text": "Storlek, material, inredning och funktion utgår från det som ska bäras och hur väskan ska användas."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

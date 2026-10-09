@@ -1,0 +1,13 @@
+<article class="section--tight">
+  <div class="page-width">
+    <p class="eyebrow">{{ article.published_at | date: '%Y-%m-%d' }}</p>
+    <h1 class="mt-2 max-4xl">{{ article.title }}</h1>
+    {%- if article.image -%}<div class="mt-5">{{ article.image | image_url: width: 1600 | image_tag: loading: 'eager', widths: '600, 1000, 1600' }}</div>{%- endif -%}
+    <div class="rte mt-5 max-2xl" style="font-size: 1.125rem">{{ article.content }}</div>
+    <p class="mt-5"><a class="arrow-link" href="{{ blog.url }}"><span class="link-underline">Tillbaka till {{ blog.title }}</span>{% render 'icon', name: 'arrow' %}</a></p>
+  </div>
+</article>
+
+{% schema %}
+{ "name": "Blogginlägg", "tag": "div", "settings": [] }
+{% endschema %}

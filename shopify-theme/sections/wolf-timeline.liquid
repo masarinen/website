@@ -1,0 +1,171 @@
+<section class="section" aria-labelledby="H-{{ section.id }}">
+  <div class="page-width grid-12">
+    <div class="col-4">
+      <div class="sticky-lg" data-reveal>
+        {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+        <h2 id="H-{{ section.id }}" class="mt-2">{{ section.settings.heading }}</h2>
+        {%- if section.settings.image != blank -%}
+          <div class="mt-5">{{ section.settings.image | image_url: width: 700 | image_tag: loading: 'lazy' }}</div>
+        {%- elsif section.settings.illustration != 'none' -%}
+          <div class="mt-5" style="max-width: 14rem; color: rgba(23,34,47,.6)">{% render 'illustration', name: section.settings.illustration %}</div>
+        {%- endif -%}
+      </div>
+    </div>
+    <ol class="timeline col-7 start-6">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }} data-reveal>
+          <p class="year">{{ block.settings.year }}</p>
+          <h3>{{ block.settings.title }}</h3>
+          <div class="rte">{{ block.settings.text }}</div>
+        </li>
+      {%- endfor -%}
+    </ol>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Tidslinje",
+  "tag": "div",
+  "max_blocks": 15,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Överrubrik",
+      "default": "Historien"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Rubrik",
+      "default": "Från silversmedja till koffertfabrik"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Bild"
+    },
+    {
+      "type": "select",
+      "id": "illustration",
+      "label": "Illustration (visas om ingen bild valts)",
+      "options": [
+        {
+          "value": "hardcase",
+          "label": "Hård väska med inredning"
+        },
+        {
+          "value": "demo",
+          "label": "Demoväska"
+        },
+        {
+          "value": "suitcase",
+          "label": "Resväska"
+        },
+        {
+          "value": "wine",
+          "label": "Vinresväska"
+        },
+        {
+          "value": "toolcase",
+          "label": "Serviceväska"
+        },
+        {
+          "value": "winder",
+          "label": "Watch winder"
+        },
+        {
+          "value": "jewelry",
+          "label": "Smyckeskrin"
+        },
+        {
+          "value": "briefcase",
+          "label": "Portfölj"
+        },
+        {
+          "value": "trolley",
+          "label": "Shoppingvagn"
+        },
+        {
+          "value": "none",
+          "label": "Ingen"
+        }
+      ],
+      "default": "jewelry"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "Händelse",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Årtal",
+          "default": "1936"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Rubrik",
+          "default": "Rubrik"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tidslinje",
+      "blocks": [
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "Början",
+            "title": "Silversmeden i Hanau",
+            "text": "<p>Den tyska silversmeden Philip Wolf upptäckte att hans silverbestick sålde bättre när de presenterades i vackra etuier. När han sålde fler etuier än bestick började han i stället utveckla etuidesignen och startade företag i Hanau. Han tillverkade även smyckeskrin som både var vackra och skyddade juvelerna.</p>"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "1896",
+            "title": "Skandinaviska Etuifabriken i Malmö",
+            "text": "<p>Philip Wolf II, som gått i lära hos Philip Wolf, flyttade efter en sommar i Sydsverige till Malmö och startade den egna verkstaden Skandinaviska Etuifabriken. Vid industri- och hantverksutställningen i Malmö 1896 fick firman ett särskilt pris för sitt hantverk.</p>"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "1936",
+            "title": "Stockholms Etui- och koffertfabrik AB",
+            "text": "<p>Ernst Wolf flyttade till Stockholm och grundade Stockholms Etui- och koffertfabrik AB, med inriktning på demonstrationsväskor och koffertar. Brodern Philip Wolf III förde familjens etuier ut på nya marknader och reste efter andra världskriget till USA för att sälja etuier för klockor och smycken.</p>"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "1977",
+            "title": "Nästa generation tar över",
+            "text": "<p>Bröderna Lennart och Robert Wolf tog över företaget och förde verksamheten vidare.</p>"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "1986",
+            "title": "Butiken på Atlasgatan",
+            "text": "<p>Lennart och Robert öppnade butiken på Atlasgatan 4 i Stockholm. Även Roberts son Christopher har kommit in i verksamheten – ännu en generation Wolf.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,209 @@
+{
+  "sections": {
+    "hero": {
+      "type": "wolf-page-hero",
+      "settings": {
+        "eyebrow": "Specialtillverkade väskor",
+        "heading": "Väskor och etuier, utformade efter uppgiften",
+        "text": "<p>För företag och kunder som behöver mer än en standardväska. Vi tar fram mjuka eller hårda väskor efter era behov – från en enstaka specialväska till väskor för en hel säljkår.</p>",
+        "button_1_label": "Berätta om ert behov",
+        "button_1_link": "/pages/kontakt?amne=Specialbeställning",
+        "button_2_label": "Så går det till",
+        "button_2_link": "/pages/specialtillverkade-vaskor#sa-gar-det-till"
+      }
+    },
+    "quote": {
+      "type": "wolf-quote-list",
+      "settings": {
+        "label": "Vårt erbjudande",
+        "quote": "”Vår mångåriga erfarenhet och vårt breda nät av duktiga och pålitliga underleverantörer ger oss unika möjligheter att erbjuda er mjuka eller hårda väskor helt efter era behov och önskemål.”"
+      },
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "title": "Mångårig erfarenhet",
+            "text": "Etuier, skrin och väskor har varit familjen Wolfs hantverk i över 180 år. Den erfarenheten hjälper oss att förstå vad en väska behöver klara av."
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "title": "Ett brett nätverk av underleverantörer",
+            "text": "Genom duktiga och pålitliga underleverantörer kan vi ta fram både mjuka och hårda väskor – och välja det utförande som passar uppgiften."
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "title": "Utformat efter era behov",
+            "text": "Storlek, material, inredning och funktion utgår från det som ska bäras och hur väskan ska användas."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "usecases": {
+      "type": "wolf-use-cases",
+      "settings": {
+        "eyebrow": "Användningsområden",
+        "heading": "Väskor för nästan allt som går att bära",
+        "text": "<p>Några exempel på vad vi tar fram. Har ni ett behov som inte syns här är ni välkomna att fråga.</p>",
+        "background": "bone"
+      },
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "illustration": "demo",
+            "title": "Demo- och säljväskor",
+            "text": "Kollektions- och demoväskor som låter säljare visa sina produkter på ett ordnat och representativt sätt – från dammsugare till klockor och knivar."
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "illustration": "hardcase",
+            "title": "Skyddande väskor",
+            "text": "Vattentäta och stöttåliga väskor för känslig utrustning som ska transporteras säkert."
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "illustration": "jewelry",
+            "title": "Etuier och skrin",
+            "text": "Etuier som presenterar och skyddar, i en tradition som sträcker sig tillbaka till familjens första verkstad."
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "illustration": "toolcase",
+            "title": "Service- och verktygsväskor",
+            "text": "Väskor för tekniker och servicepersonal, där verktyg och reservdelar har sin givna plats."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ]
+    },
+    "process": {
+      "type": "wolf-process",
+      "settings": {
+        "eyebrow": "Så går det till",
+        "heading": "Från behov till lösning",
+        "text": "<p>Vi utgår från era krav och undersöker vad som är möjligt. Vilka utföranden som går att ta fram beror på produkt, specifikation och antal.</p>",
+        "button_label": "",
+        "note": "",
+        "background": "ivory",
+        "anchor": "sa-gar-det-till",
+        "step_background": "bone"
+      },
+      "blocks": {
+        "b1": {
+          "type": "step",
+          "settings": {
+            "title": "Berätta om era behov",
+            "text": "Beskriv vad väskan ska innehålla, hur den ska användas och vilka önskemål ni har om exempelvis storlek, material och antal."
+          }
+        },
+        "b2": {
+          "type": "step",
+          "settings": {
+            "title": "Vi diskuterar lösningen",
+            "text": "Vi går igenom era krav tillsammans för att förstå behovet och bedöma vilka utföranden som är rimliga."
+          }
+        },
+        "b3": {
+          "type": "step",
+          "settings": {
+            "title": "En lösning utifrån era krav",
+            "text": "Vi undersöker möjligheterna tillsammans med våra underleverantörer utifrån den önskade produkten och specifikationen."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "checklist": {
+      "type": "wolf-checklist",
+      "settings": {
+        "heading": "Inför er förfrågan",
+        "text": "<p>Ju mer vi vet från början, desto lättare blir det att bedöma vad som passar. Det här är bra att berätta:</p>",
+        "button_label": "Skicka en förfrågan",
+        "button_link": "/pages/kontakt?amne=Specialbeställning"
+      },
+      "blocks": {
+        "b1": {
+          "type": "item",
+          "settings": {
+            "text": "Vad ska väskan eller etuiet innehålla – gärna med mått och vikt"
+          }
+        },
+        "b2": {
+          "type": "item",
+          "settings": {
+            "text": "Hur och var ska den användas, och hur ofta transporteras den"
+          }
+        },
+        "b3": {
+          "type": "item",
+          "settings": {
+            "text": "Mjukt eller hårt utförande, och eventuella krav på skydd"
+          }
+        },
+        "b4": {
+          "type": "item",
+          "settings": {
+            "text": "Önskad inredning, färg, märkning eller logotyp"
+          }
+        },
+        "b5": {
+          "type": "item",
+          "settings": {
+            "text": "Ungefärligt antal och när ni behöver väskorna"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    },
+    "cta": {
+      "type": "wolf-contact-cta",
+      "settings": {
+        "eyebrow": "Förfrågningar",
+        "heading": "Låt oss diskutera ert behov",
+        "text": "Beskriv vad väskan eller etuiet ska användas till, så återkommer vi för att diskutera möjliga lösningar.",
+        "button_label": "Kontakta oss",
+        "show_contact": true,
+        "show_art": true,
+        "button_link": "/pages/kontakt"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "quote",
+    "usecases",
+    "process",
+    "checklist",
+    "cta"
+  ]
+}

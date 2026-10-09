@@ -1,0 +1,90 @@
+<section class="section{% if section.settings.background == 'bone' %} bg-bone border-y{% endif %}" aria-labelledby="H-{{ section.id }}">
+  <div class="page-width grid-12">
+    <div class="col-5" data-reveal>
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 id="H-{{ section.id }}" class="mt-2">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="col-6 start-7" data-reveal>
+      {%- if section.settings.lead != blank -%}<p class="serif-italic" style="font-size: 1.5rem; line-height: 1.35; color: var(--navy)">{{ section.settings.lead }}</p>{%- endif -%}
+      <div class="rte muted{% if section.settings.lead != blank %} mt-3{% endif %}">{{ section.settings.text }}</div>
+      {%- if section.settings.button_1_label != blank or section.settings.button_2_label != blank -%}
+        <div class="btn-row mt-5">
+          {%- if section.settings.button_1_label != blank -%}<a href="{{ section.settings.button_1_link }}" class="btn btn--primary">{{ section.settings.button_1_label }}{% render 'icon', name: 'arrow' %}</a>{%- endif -%}
+          {%- if section.settings.button_2_label != blank -%}<a href="{{ section.settings.button_2_link }}" class="btn btn--secondary">{{ section.settings.button_2_label }}{% render 'icon', name: 'arrow' %}</a>{%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Rubrik och text",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Överrubrik"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Rubrik",
+      "default": "Rubrik"
+    },
+    {
+      "type": "textarea",
+      "id": "lead",
+      "label": "Inledning (kursiv)"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Text</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_1_label",
+      "label": "Knapp 1, text"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Knapp 1, länk"
+    },
+    {
+      "type": "text",
+      "id": "button_2_label",
+      "label": "Knapp 2, text"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Knapp 2, länk"
+    },
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Bakgrund",
+      "default": "ivory",
+      "options": [
+        {
+          "value": "ivory",
+          "label": "Varmvit"
+        },
+        {
+          "value": "bone",
+          "label": "Benvit"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rubrik och text"
+    }
+  ]
+}
+{% endschema %}

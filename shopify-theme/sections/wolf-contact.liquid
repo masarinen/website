@@ -1,0 +1,127 @@
+<section class="section--tight" aria-label="Kontaktuppgifter och formulär">
+  <div class="page-width grid-12">
+    <div class="col-4" data-reveal>
+      <h2 class="h3" style="font-size: 2rem">{{ section.settings.details_heading }}</h2>
+      <ul class="contact-list">
+        {%- if settings.phone != blank -%}
+          <li>{% render 'icon', name: 'phone' %}<div><p class="label">Telefon</p><a class="value link-underline" href="tel:{{ settings.phone_link }}">{{ settings.phone }}</a></div></li>
+        {%- endif -%}
+        {%- if settings.email != blank -%}
+          <li>{% render 'icon', name: 'mail' %}<div><p class="label">E-post</p><a class="value link-underline" href="mailto:{{ settings.email }}">{{ settings.email }}</a></div></li>
+        {%- endif -%}
+        <li>{% render 'icon', name: 'pin' %}<div><p class="label">Adress</p>
+          <address>{{ settings.company_name | default: shop.name }}<br>{{ settings.address_street }}<br>{{ settings.address_zip }} {{ settings.address_city }}</address></div></li>
+      </ul>
+      {%- if section.settings.details_text != blank -%}<div class="rte small muted mt-4">{{ section.settings.details_text }}</div>{%- endif -%}
+    </div>
+
+    <div class="col-7 start-6" data-reveal style="--d: 120ms">
+      <h2 class="h3" style="font-size: 2rem">{{ section.settings.form_heading }}</h2>
+      {%- if section.settings.form_text != blank -%}<p class="muted mt-1">{{ section.settings.form_text }}</p>{%- endif -%}
+
+      <div class="mt-4">
+        {%- form 'contact', id: 'ContactForm', class: 'form', data-validate: '' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="notice notice--success" role="status" tabindex="-1" data-focus-on-load>
+              <h2>Tack för ert meddelande</h2>
+              <p class="muted mt-1">Vi har tagit emot er förfrågan och återkommer så snart vi kan. Brådskar det går det bra att ringa oss på {{ settings.phone }}.</p>
+            </div>
+          {%- else -%}
+            {%- if form.errors -%}
+              <div class="notice notice--error" role="alert" tabindex="-1" data-focus-on-load>
+                <p><strong>Meddelandet kunde inte skickas.</strong></p>
+                <ul class="mt-1">
+                  {%- for field in form.errors -%}
+                    <li>
+                      {%- case field -%}
+                        {%- when 'email' -%}E-post: ange en giltig e-postadress.
+                        {%- when 'body' -%}Meddelande: skriv ett meddelande.
+                        {%- when 'form' -%}{{ form.errors.messages[field] }}
+                        {%- else -%}{{ form.errors.translated_fields[field] | capitalize }} {{ form.errors.messages[field] }}
+                      {%- endcase -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+
+            <p class="field__error" data-error-summary role="alert" hidden></p>
+
+            <div class="form__row">
+              <div class="field">
+                <label for="ContactForm-name">Namn <span aria-hidden="true">*</span></label>
+                <input id="ContactForm-name" type="text" name="contact[name]" autocomplete="name" required minlength="2" maxlength="100"
+                  value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                  aria-describedby="ContactForm-name-error" data-missing="Ange ditt namn.">
+                <p id="ContactForm-name-error" class="field__error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="ContactForm-email">E-post <span aria-hidden="true">*</span></label>
+                <input id="ContactForm-email" type="email" name="contact[email]" autocomplete="email" inputmode="email" required maxlength="200"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  aria-describedby="ContactForm-email-error" data-missing="Ange din e-postadress."
+                  {% if form.errors contains 'email' %}aria-invalid="true"{% endif %}>
+                <p id="ContactForm-email-error" class="field__error" hidden></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="ContactForm-subject">Ämne <span aria-hidden="true">*</span></label>
+              <select id="ContactForm-subject" name="contact[subject]" required aria-describedby="ContactForm-subject-error" data-missing="Välj ett ämne.">
+                <option value="" disabled selected>Välj ämne</option>
+                {%- assign subjects = section.settings.subjects | newline_to_br | split: '<br />' -%}
+                {%- for s in subjects -%}
+                  {%- assign subject = s | strip -%}
+                  {%- if subject != blank -%}<option value="{{ subject | escape }}">{{ subject }}</option>{%- endif -%}
+                {%- endfor -%}
+              </select>
+              <p id="ContactForm-subject-error" class="field__error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="ContactForm-body">Meddelande <span aria-hidden="true">*</span></label>
+              <textarea id="ContactForm-body" name="contact[body]" rows="7" required minlength="10" maxlength="5000"
+                aria-describedby="ContactForm-body-error ContactForm-body-hint" data-missing="Skriv ett meddelande."
+                placeholder="Beskriv gärna vad väskan ska innehålla, hur den ska användas och ungefärligt antal.">{{ form.body }}</textarea>
+              <p id="ContactForm-body-error" class="field__error" hidden></p>
+              <p id="ContactForm-body-hint" class="field__hint" data-counter></p>
+            </div>
+
+            <div class="form__footer">
+              <p class="small muted"><span aria-hidden="true">*</span> Obligatoriska fält. Uppgifterna används endast för att besvara er förfrågan.</p>
+              <button type="submit" class="btn btn--primary">Skicka meddelande {% render 'icon', name: 'arrow' %}</button>
+            </div>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  /* Förvälj ämne via ?amne=… i adressen, t.ex. /pages/kontakt?amne=Reparation */
+  (function () {
+    var select = document.getElementById('ContactForm-subject');
+    var wanted = new URLSearchParams(location.search).get('amne');
+    if (!select || !wanted) return;
+    Array.prototype.forEach.call(select.options, function (o) {
+      if (o.value.toLowerCase() === wanted.toLowerCase()) o.selected = true;
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Kontaktformulär",
+  "tag": "div",
+  "settings": [
+    { "type": "paragraph", "content": "Meddelanden skickas till butikens e-postadress (Inställningar → Butiksinformation). Kontaktuppgifterna hämtas från Temainställningar → Företagsuppgifter." },
+    { "type": "text", "id": "details_heading", "label": "Rubrik, kontaktuppgifter", "default": "Kontaktuppgifter" },
+    { "type": "richtext", "id": "details_text", "label": "Text under kontaktuppgifterna", "default": "<p>Söker ni en resväska eller annan produkt ur sortimentet? Besök <a href=\"/collections/all\" title=\"Webbutik\">webbutiken</a>. Alla produkter kan levereras till adresser i hela Norden.</p>" },
+    { "type": "text", "id": "form_heading", "label": "Rubrik, formulär", "default": "Skicka ett meddelande" },
+    { "type": "text", "id": "form_text", "label": "Text, formulär", "default": "Vi besvarar förfrågningar via e-post eller telefon." },
+    { "type": "textarea", "id": "subjects", "label": "Ämnen (ett per rad)", "default": "Specialbeställning\nFråga om sortimentet\nReparation\nÖvrigt" }
+  ],
+  "presets": [{ "name": "Kontaktformulär" }]
+}
+{% endschema %}

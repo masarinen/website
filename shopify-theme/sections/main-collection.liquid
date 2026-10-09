@@ -1,0 +1,41 @@
+{%- paginate collection.products by section.settings.per_page -%}
+<section class="section--tight">
+  <div class="page-width">
+    <p class="eyebrow">Webbutik</p>
+    <h1 class="mt-2">{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}<div class="lede rte mt-3 max-2xl">{{ collection.description }}</div>{%- endif -%}
+
+    {%- if collection.products.size > 0 -%}
+      <ul class="products">
+        {%- for product in collection.products -%}
+          <li>{% render 'product-card', product: product %}</li>
+        {%- endfor -%}
+      </ul>
+      {%- if paginate.pages > 1 -%}
+        <nav class="pagination" aria-label="Sidnumrering">
+          {%- for part in paginate.parts -%}
+            {%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>
+            {%- elsif part.title == paginate.current_page -%}<span class="current" aria-current="page">{{ part.title }}</span>
+            {%- else -%}<span>{{ part.title }}</span>{%- endif -%}
+          {%- endfor -%}
+        </nav>
+      {%- endif -%}
+    {%- else -%}
+      <div class="empty-state mt-5">
+        <p>Det finns inga produkter i den här kategorin just nu.</p>
+        <p class="mt-2"><a class="arrow-link" href="{{ routes.all_products_collection_url }}"><span class="link-underline">Se alla produkter</span>{% render 'icon', name: 'arrow' %}</a></p>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Kollektion",
+  "tag": "div",
+  "settings": [
+    { "type": "range", "id": "per_page", "label": "Produkter per sida", "min": 8, "max": 48, "step": 4, "default": 24 }
+  ]
+}
+{% endschema %}

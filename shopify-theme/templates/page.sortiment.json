@@ -1,0 +1,245 @@
+{
+  "sections": {
+    "hero": {
+      "type": "wolf-page-hero",
+      "settings": {
+        "eyebrow": "Sortiment",
+        "heading": "Väskor för resan, arbetet och vardagen",
+        "text": "<p>Här är våra produktkategorier. Specialväskor tar vi fram efter era behov – övriga produkter finns i webbutiken, där ni ser aktuellt utbud.</p>",
+        "button_1_label": "Gå till webbutiken",
+        "button_1_link": "/collections/all",
+        "button_2_label": "Specialtillverkning",
+        "button_2_link": "/pages/specialtillverkade-vaskor"
+      }
+    },
+    "categories": {
+      "type": "wolf-categories",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "text": "",
+        "link_label": "",
+        "background": "ivory"
+      },
+      "blocks": {
+        "b1": {
+          "type": "category",
+          "settings": {
+            "title": "Specialväskor",
+            "tag": "Specialtillverkning",
+            "illustration": "hardcase",
+            "text": "Väskor för nästan allt som går att bära – även vattentäta och stöttåliga utföranden, mjuka eller hårda efter behov.",
+            "brands": "",
+            "link": "/pages/specialtillverkade-vaskor",
+            "link_label": "Läs mer"
+          }
+        },
+        "b2": {
+          "type": "category",
+          "settings": {
+            "title": "Demoväskor",
+            "tag": "Webbutik",
+            "illustration": "demo",
+            "text": "Kollektions-, försäljnings- och demoväskor för säljare. Vi har tillverkat dem i över 60 år, för allt från dammsugare till klockor och knivar.",
+            "brands": "",
+            "link": "/collections/demovaskor",
+            "link_label": "Se i webbutiken"
+          }
+        },
+        "b3": {
+          "type": "category",
+          "settings": {
+            "title": "Resväskor",
+            "tag": "Webbutik",
+            "illustration": "suitcase",
+            "text": "Resväskor från välkända märken, samt tillbehör som nackkuddar, bagageremmar och klädväskor för resan.",
+            "brands": "Samsonite · Antler",
+            "link": "/collections/resvaskor",
+            "link_label": "Se i webbutiken"
+          }
+        },
+        "b4": {
+          "type": "category",
+          "settings": {
+            "title": "Vinresväskor",
+            "tag": "Webbutik",
+            "illustration": "wine",
+            "text": "Resväska för tolv flaskor med skal i polypropylen, hjul, utdragbart handtag och kombinationslås.",
+            "brands": "Samsonite",
+            "link": "/collections/vinresvaskor",
+            "link_label": "Se i webbutiken"
+          }
+        },
+        "b5": {
+          "type": "category",
+          "settings": {
+            "title": "Serviceväskor",
+            "tag": "Webbutik",
+            "illustration": "toolcase",
+            "text": "Ett brett urval av service- och verktygsväskor för tekniker och hantverkare.",
+            "brands": "Parat",
+            "link": "/collections/servicevaskor",
+            "link_label": "Se i webbutiken"
+          }
+        },
+        "b6": {
+          "type": "category",
+          "settings": {
+            "title": "Watch winders",
+            "tag": "Webbutik",
+            "illustration": "winder",
+            "text": "Klockuppdragare som håller automatiska armbandsur i gång när de inte bärs.",
+            "brands": "Wolf1834",
+            "link": "/collections/watch-winders",
+            "link_label": "Se i webbutiken"
+          }
+        },
+        "b7": {
+          "type": "category",
+          "settings": {
+            "title": "Smyckeskrin",
+            "tag": "Webbutik",
+            "illustration": "jewelry",
+            "text": "Skrin som både presenterar och skyddar smycken – en tradition som går tillbaka till familjens första verkstad.",
+            "brands": "Wolf1834",
+            "link": "/collections/smyckeskrin",
+            "link_label": "Se i webbutiken"
+          }
+        },
+        "b8": {
+          "type": "category",
+          "settings": {
+            "title": "Portföljer",
+            "tag": "Webbutik",
+            "illustration": "briefcase",
+            "text": "Portföljer för arbetsdagen och mötet. Se aktuellt utbud i webbutiken.",
+            "brands": "",
+            "link": "/collections/portfoljer",
+            "link_label": "Se i webbutiken"
+          }
+        },
+        "b9": {
+          "type": "category",
+          "settings": {
+            "title": "Shoppingvagnar",
+            "tag": "Webbutik",
+            "illustration": "trolley",
+            "text": "Shoppingvagnar för vardagens inköp, från välkända tillverkare.",
+            "brands": "Rolser · Andersen",
+            "link": "/collections/shoppingvagnar",
+            "link_label": "Se i webbutiken"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7",
+        "b8",
+        "b9"
+      ]
+    },
+    "brands": {
+      "type": "wolf-brands",
+      "settings": {
+        "eyebrow": "Varumärken",
+        "heading": "Välkända märken i sortimentet"
+      },
+      "blocks": {
+        "b1": {
+          "type": "brand",
+          "settings": {
+            "name": "Samsonite"
+          }
+        },
+        "b2": {
+          "type": "brand",
+          "settings": {
+            "name": "Antler"
+          }
+        },
+        "b3": {
+          "type": "brand",
+          "settings": {
+            "name": "Wolf1834"
+          }
+        },
+        "b4": {
+          "type": "brand",
+          "settings": {
+            "name": "Parat"
+          }
+        },
+        "b5": {
+          "type": "brand",
+          "settings": {
+            "name": "Rolser"
+          }
+        },
+        "b6": {
+          "type": "brand",
+          "settings": {
+            "name": "Andersen"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6"
+      ]
+    },
+    "info": {
+      "type": "wolf-text-columns",
+      "settings": {
+        "background": "ivory"
+      },
+      "blocks": {
+        "b1": {
+          "type": "column",
+          "settings": {
+            "heading": "Leverans inom Norden",
+            "text": "<p>Alla produkter kan levereras till adresser i hela Norden. Ring eller mejla oss för mer information.</p>"
+          }
+        },
+        "b2": {
+          "type": "column",
+          "settings": {
+            "heading": "Reparationer",
+            "text": "<p>Vi utför även reparationer av väskor, till exempel flygskador på Samsonite-väskor. <a href=\"/pages/kontakt\" title=\"Kontakt\">Kontakta oss</a> och beskriv skadan, så berättar vi hur ni går vidare.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2"
+      ]
+    },
+    "cta": {
+      "type": "wolf-contact-cta",
+      "settings": {
+        "eyebrow": "Förfrågningar",
+        "heading": "Hittar ni inte det ni söker?",
+        "text": "Kontakta oss så hjälper vi er vidare – eller diskuterar en väska som tas fram efter era behov.",
+        "button_label": "Kontakta oss",
+        "show_contact": true,
+        "show_art": true,
+        "button_link": "/pages/kontakt"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "categories",
+    "brands",
+    "info",
+    "cta"
+  ]
+}

@@ -1,0 +1,70 @@
+{%- liquid
+  assign company = settings.company_name | default: shop.name
+  assign menu_a = linklists[section.settings.menu_a]
+  assign menu_b = linklists[section.settings.menu_b]
+-%}
+<footer class="site-footer on-dark">
+  <div class="page-width site-footer__grid">
+    <div>
+      {% render 'logo', tone: 'light' %}
+      {%- if section.settings.about != blank -%}
+        <div class="site-footer__about rte">{{ section.settings.about }}</div>
+      {%- endif -%}
+    </div>
+
+    <div>
+      <h2>Kontakt</h2>
+      <address>
+        <p>{{ company }}<br>{{ settings.address_street }}<br>{{ settings.address_zip }} {{ settings.address_city }}</p>
+        <p class="mt-2">
+          {%- if settings.phone != blank -%}<a class="link-underline" href="tel:{{ settings.phone_link }}">{{ settings.phone }}</a><br>{%- endif -%}
+          {%- if settings.email != blank -%}<a class="link-underline" href="mailto:{{ settings.email }}">{{ settings.email }}</a>{%- endif -%}
+        </p>
+      </address>
+    </div>
+
+    {%- if menu_a.links.size > 0 -%}
+      <nav aria-label="{{ section.settings.heading_a | escape }}">
+        <h2>{{ section.settings.heading_a }}</h2>
+        <ul>
+          {%- for link in menu_a.links -%}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+    {%- if menu_b.links.size > 0 -%}
+      <nav aria-label="{{ section.settings.heading_b | escape }}">
+        <h2>{{ section.settings.heading_b }}</h2>
+        <ul>
+          {%- for link in menu_b.links -%}<li><a href="{{ link.url }}">{{ link.title }}</a></li>{%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="page-width">
+      <p>© {{ 'now' | date: '%Y' }} {{ company }}{% if settings.org_number != blank %} · Org.nr {{ settings.org_number }}{% endif %}</p>
+      <ul>
+        {%- if settings.social_facebook != blank -%}<li><a href="{{ settings.social_facebook }}" rel="noopener">Facebook</a></li>{%- endif -%}
+        {%- if settings.social_instagram != blank -%}<li><a href="{{ settings.social_instagram }}" rel="noopener">Instagram</a></li>{%- endif -%}
+        {%- if settings.social_linkedin != blank -%}<li><a href="{{ settings.social_linkedin }}" rel="noopener">LinkedIn</a></li>{%- endif -%}
+        {%- for policy in shop.policies -%}<li><a href="{{ policy.url }}">{{ policy.title }}</a></li>{%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Sidfot",
+  "class": "section-footer",
+  "settings": [
+    { "type": "richtext", "id": "about", "label": "Kort om företaget", "default": "<p>Ett familjeföretag med över 180 års erfarenhet av etuier, skrin och väskor. Specialtillverkade lösningar och resväskor från välkända märken.</p>" },
+    { "type": "text", "id": "heading_a", "label": "Rubrik, meny 1", "default": "Webbplatsen" },
+    { "type": "link_list", "id": "menu_a", "label": "Meny 1", "default": "main-menu" },
+    { "type": "text", "id": "heading_b", "label": "Rubrik, meny 2", "default": "Webbutik" },
+    { "type": "link_list", "id": "menu_b", "label": "Meny 2", "default": "footer", "info": "T.ex. länkar till era kollektioner." }
+  ]
+}
+{% endschema %}

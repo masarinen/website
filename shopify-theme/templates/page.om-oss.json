@@ -1,0 +1,134 @@
+{
+  "sections": {
+    "hero": {
+      "type": "wolf-page-hero",
+      "settings": {
+        "eyebrow": "Om oss",
+        "heading": "Familjen Wolf – etuier, skrin och väskor i generationer",
+        "text": "<p>Familjen Wolf har över 180 års erfarenhet av att tillverka etuier, skrin och väskor. Kunnandet har gått i arv från generation till generation – från en silversmedja i Tyskland till dagens verksamhet i Stockholmsområdet.</p>"
+      }
+    },
+    "facts": {
+      "type": "wolf-facts",
+      "settings": {},
+      "blocks": {
+        "b1": {
+          "type": "fact",
+          "settings": {
+            "value": "180+",
+            "label": "års erfarenhet i familjen Wolf"
+          }
+        },
+        "b2": {
+          "type": "fact",
+          "settings": {
+            "value": "1936",
+            "label": "grundades företaget i Stockholm"
+          }
+        },
+        "b3": {
+          "type": "fact",
+          "settings": {
+            "value": "60+",
+            "label": "år av demo- och säljväskor"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "timeline": {
+      "type": "wolf-timeline",
+      "settings": {
+        "eyebrow": "Historien",
+        "heading": "Från silversmedja till koffertfabrik",
+        "illustration": "jewelry"
+      },
+      "blocks": {
+        "b1": {
+          "type": "milestone",
+          "settings": {
+            "year": "Början",
+            "title": "Silversmeden i Hanau",
+            "text": "<p>Den tyska silversmeden Philip Wolf upptäckte att hans silverbestick sålde bättre när de presenterades i vackra etuier. När han sålde fler etuier än bestick började han i stället utveckla etuidesignen och startade företag i Hanau. Han tillverkade även smyckeskrin som både var vackra och skyddade juvelerna.</p>"
+          }
+        },
+        "b2": {
+          "type": "milestone",
+          "settings": {
+            "year": "1896",
+            "title": "Skandinaviska Etuifabriken i Malmö",
+            "text": "<p>Philip Wolf II, som gått i lära hos Philip Wolf, flyttade efter en sommar i Sydsverige till Malmö och startade den egna verkstaden Skandinaviska Etuifabriken. Vid industri- och hantverksutställningen i Malmö 1896 fick firman ett särskilt pris för sitt hantverk.</p>"
+          }
+        },
+        "b3": {
+          "type": "milestone",
+          "settings": {
+            "year": "1936",
+            "title": "Stockholms Etui- och koffertfabrik AB",
+            "text": "<p>Ernst Wolf flyttade till Stockholm och grundade Stockholms Etui- och koffertfabrik AB, med inriktning på demonstrationsväskor och koffertar. Brodern Philip Wolf III förde familjens etuier ut på nya marknader och reste efter andra världskriget till USA för att sälja etuier för klockor och smycken.</p>"
+          }
+        },
+        "b4": {
+          "type": "milestone",
+          "settings": {
+            "year": "1977",
+            "title": "Nästa generation tar över",
+            "text": "<p>Bröderna Lennart och Robert Wolf tog över företaget och förde verksamheten vidare.</p>"
+          }
+        },
+        "b5": {
+          "type": "milestone",
+          "settings": {
+            "year": "1986",
+            "title": "Butiken på Atlasgatan",
+            "text": "<p>Lennart och Robert öppnade butiken på Atlasgatan 4 i Stockholm. Även Roberts son Christopher har kommit in i verksamheten – ännu en generation Wolf.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5"
+      ]
+    },
+    "today": {
+      "type": "wolf-split-text",
+      "settings": {
+        "heading": "Samma hantverkstradition, nya behov",
+        "text": "<p>I dag tar vi fram specialväskor och demoväskor efter kundens behov, och säljer resväskor, serviceväskor, klockuppdragare, smyckeskrin och mer från välkända märken. Vi utför även reparationer av väskor.</p><p>Familjens etuitradition lever också vidare i varumärket Wolf1834, med etuier för klockor och smycken samt klockuppdragare – produkter som finns i vårt sortiment.</p>",
+        "background": "bone",
+        "eyebrow": "I dag",
+        "lead": "Vår mångåriga erfarenhet och vårt breda nät av duktiga och pålitliga underleverantörer ger oss unika möjligheter att erbjuda er mjuka eller hårda väskor helt efter era behov och önskemål.",
+        "button_1_label": "Specialtillverkade väskor",
+        "button_1_link": "/pages/specialtillverkade-vaskor",
+        "button_2_label": "Se sortimentet",
+        "button_2_link": "/pages/sortiment"
+      }
+    },
+    "cta": {
+      "type": "wolf-contact-cta",
+      "settings": {
+        "eyebrow": "Förfrågningar",
+        "heading": "Har ni ett projekt i åtanke?",
+        "text": "Berätta om vad som ska förvaras, bäras eller presenteras. Kontakta oss så diskuterar vi väskor och etuier anpassade efter era behov.",
+        "button_label": "Kontakta oss",
+        "show_contact": true,
+        "show_art": true,
+        "button_link": "/pages/kontakt"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "facts",
+    "timeline",
+    "today",
+    "cta"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {}
+    },
+    "cta": {
+      "type": "wolf-contact-cta",
+      "settings": {
+        "eyebrow": "Förfrågningar",
+        "heading": "Har ni ett projekt i åtanke?",
+        "text": "Berätta om vad som ska förvaras, bäras eller presenteras. Kontakta oss så diskuterar vi väskor och etuier anpassade efter era behov.",
+        "button_label": "Kontakta oss",
+        "show_contact": true,
+        "show_art": true,
+        "button_link": "/pages/kontakt"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "cta"
+  ]
+}

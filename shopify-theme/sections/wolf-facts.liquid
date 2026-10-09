@@ -1,0 +1,66 @@
+<section class="border-y" aria-label="I korthet">
+  <dl class="page-width facts">
+    {%- for block in section.blocks -%}
+      <div {{ block.shopify_attributes }} data-reveal style="--d: {{ forloop.index0 | modulo: 3 | times: 90 }}ms">
+        <dt>{{ block.settings.label }}</dt>
+        <dd>{{ block.settings.value }}</dd>
+      </div>
+    {%- endfor -%}
+  </dl>
+</section>
+
+{% schema %}
+{
+  "name": "Nyckeltal",
+  "tag": "div",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "fact",
+      "name": "Nyckeltal",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Värde",
+          "default": "180+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Beskrivning",
+          "default": "års erfarenhet i familjen Wolf"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Nyckeltal",
+      "blocks": [
+        {
+          "type": "fact",
+          "settings": {
+            "value": "180+",
+            "label": "års erfarenhet i familjen Wolf"
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "value": "1936",
+            "label": "grundades företaget i Stockholm"
+          }
+        },
+        {
+          "type": "fact",
+          "settings": {
+            "value": "60+",
+            "label": "år av demo- och säljväskor"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,17 @@
+{%- comment -%}
+  Logotyp: laddas upp under Temainställningar → Logotyp. Utan uppladdad
+  logotyp visas företagsnamnet typografiskt.
+{%- endcomment -%}
+<a href="{{ routes.root_url }}" class="logo" aria-label="{{ settings.company_name | default: shop.name | escape }} – till startsidan">
+  {%- assign logo_img = settings.logo -%}
+  {%- if tone == 'light' and settings.logo_light != blank -%}{%- assign logo_img = settings.logo_light -%}{%- endif -%}
+  {%- if logo_img != blank -%}
+    {%- assign logo_style = '--logo-width: ' | append: settings.logo_width | append: 'px' -%}
+    {{ logo_img | image_url: width: 600 | image_tag: alt: '', loading: 'eager', style: logo_style, widths: '200, 300, 400, 600' }}
+  {%- else -%}
+    <span class="logo__text">
+      <span class="logo__name">{{ settings.logo_text | default: 'WOLF' }}</span>
+      {%- if settings.logo_subtext != blank -%}<span class="logo__sub">{{ settings.logo_subtext }}</span>{%- endif -%}
+    </span>
+  {%- endif -%}
+</a>

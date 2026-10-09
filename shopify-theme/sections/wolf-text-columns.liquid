@@ -1,0 +1,77 @@
+<section class="section--tight{% if section.settings.background == 'bone' %} bg-bone border-y{% endif %}" aria-label="{{ section.blocks.first.settings.heading | escape }}">
+  <div class="page-width text-columns" style="--cols: {{ section.blocks.size | at_most: 3 | at_least: 1 }}">
+    {%- for block in section.blocks -%}
+      <div {{ block.shopify_attributes }} data-reveal style="--d: {{ forloop.index0 | times: 100 }}ms">
+        <h2>{{ block.settings.heading }}</h2>
+        <div class="muted mt-2 rte">{{ block.settings.text }}</div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Textkolumner",
+  "tag": "div",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "select",
+      "id": "background",
+      "label": "Bakgrund",
+      "default": "ivory",
+      "options": [
+        {
+          "value": "ivory",
+          "label": "Varmvit"
+        },
+        {
+          "value": "bone",
+          "label": "Benvit"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "column",
+      "name": "Kolumn",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Rubrik",
+          "default": "Rubrik"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Text</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Textkolumner",
+      "blocks": [
+        {
+          "type": "column",
+          "settings": {
+            "heading": "Leverans inom Norden",
+            "text": "<p>Alla produkter kan levereras till adresser i hela Norden. Ring eller mejla oss för mer information.</p>"
+          }
+        },
+        {
+          "type": "column",
+          "settings": {
+            "heading": "Reparationer",
+            "text": "<p>Vi utför även reparationer av väskor, till exempel flygskador på Samsonite-väskor. <a href=\"/pages/kontakt\" title=\"Kontakt\">Kontakta oss</a> och beskriv skadan, så berättar vi hur ni går vidare.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

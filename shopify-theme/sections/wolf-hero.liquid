@@ -1,0 +1,164 @@
+<section class="hero" aria-labelledby="Hero-{{ section.id }}">
+  <div class="page-width hero__grid">
+    <div class="hero__text">
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow" data-reveal>{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h1 id="Hero-{{ section.id }}" class="hero__title" data-reveal style="--d: 80ms">
+        {{- section.settings.heading -}}
+        {%- if section.settings.heading_accent != blank %} <em>{{ section.settings.heading_accent }}</em>{% endif -%}
+      </h1>
+      {%- if section.settings.text != blank -%}
+        <div class="lede mt-4 max-xl rte" data-reveal style="--d: 160ms">{{ section.settings.text }}</div>
+      {%- endif -%}
+      <div class="btn-row mt-5" data-reveal style="--d: 240ms">
+        {%- if section.settings.button_1_label != blank -%}
+          <a href="{{ section.settings.button_1_link }}" class="btn btn--primary">{{ section.settings.button_1_label }}{% render 'icon', name: 'arrow' %}</a>
+        {%- endif -%}
+        {%- if section.settings.button_2_label != blank -%}
+          <a href="{{ section.settings.button_2_link | default: routes.all_products_collection_url }}" class="btn btn--secondary">{{ section.settings.button_2_label }}{% render 'icon', name: 'external' %}</a>
+        {%- endif -%}
+      </div>
+    </div>
+    <div data-reveal style="--d: 200ms">
+      <div class="hero__media on-dark{% if section.settings.image != blank %} hero__media--has-image{% endif %}">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1600', sizes: '(min-width: 1024px) 50vw, 100vw' }}
+        {%- elsif section.settings.illustration != 'none' -%}
+          {% render 'illustration', name: section.settings.illustration, stroke: 1.1 %}
+        {%- endif -%}
+        <span class="hero__frame" aria-hidden="true"></span>
+        {%- if section.settings.label != blank -%}<p class="hero__label">{{ section.settings.label }}</p>{%- endif -%}
+        {%- if section.settings.caption != blank -%}<p class="hero__caption">{{ section.settings.caption | newline_to_br }}</p>{%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero (startsida)",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Överrubrik",
+      "default": "Stockholms Etui- & Koffertfabrik Wolf AB"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Rubrik",
+      "default": "Väskor efter era behov."
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Rubrik, kursiv fortsättning",
+      "default": "Erfarenhet sedan generationer."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Ingress",
+      "default": "<p>Vi tar fram mjuka eller hårda väskor och etuier efter era önskemål – med mångårig erfarenhet och ett nätverk av pålitliga underleverantörer. I vår webbutik finner ni även resväskor från välkända märken.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_1_label",
+      "label": "Knapp 1, text",
+      "default": "Utforska våra lösningar"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Knapp 1, länk"
+    },
+    {
+      "type": "text",
+      "id": "button_2_label",
+      "label": "Knapp 2, text",
+      "default": "Besök webbutiken"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Knapp 2, länk",
+      "info": "Tom = alla produkter."
+    },
+    {
+      "type": "header",
+      "content": "Bild"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Bild"
+    },
+    {
+      "type": "select",
+      "id": "illustration",
+      "label": "Illustration (visas om ingen bild valts)",
+      "options": [
+        {
+          "value": "hardcase",
+          "label": "Hård väska med inredning"
+        },
+        {
+          "value": "demo",
+          "label": "Demoväska"
+        },
+        {
+          "value": "suitcase",
+          "label": "Resväska"
+        },
+        {
+          "value": "wine",
+          "label": "Vinresväska"
+        },
+        {
+          "value": "toolcase",
+          "label": "Serviceväska"
+        },
+        {
+          "value": "winder",
+          "label": "Watch winder"
+        },
+        {
+          "value": "jewelry",
+          "label": "Smyckeskrin"
+        },
+        {
+          "value": "briefcase",
+          "label": "Portfölj"
+        },
+        {
+          "value": "trolley",
+          "label": "Shoppingvagn"
+        },
+        {
+          "value": "none",
+          "label": "Ingen"
+        }
+      ],
+      "default": "hardcase"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Etikett uppe till vänster",
+      "default": "Etuier · Skrin · Väskor"
+    },
+    {
+      "type": "textarea",
+      "id": "caption",
+      "label": "Text nere till höger",
+      "default": "I Stockholm\nsedan 1936"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero (startsida)"
+    }
+  ]
+}
+{% endschema %}

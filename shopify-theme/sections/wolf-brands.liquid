@@ -1,0 +1,101 @@
+<section class="section--tight bg-bone border-y" aria-labelledby="H-{{ section.id }}">
+  <div class="page-width grid-12">
+    <div class="col-4" data-reveal>
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 id="H-{{ section.id }}" class="mt-2" style="font-size: clamp(2.25rem, 3.5vw, 2.5rem)">{{ section.settings.heading }}</h2>
+    </div>
+    <ul class="brands col-8" data-reveal>
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          {%- if block.settings.logo != blank -%}
+            {{ block.settings.logo | image_url: width: 400 | image_tag: loading: 'lazy', alt: block.settings.name }}
+          {%- else -%}{{ block.settings.name }}{%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Varumärken",
+  "tag": "div",
+  "max_blocks": 18,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Överrubrik",
+      "default": "Varumärken"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Rubrik",
+      "default": "Välkända märken i sortimentet"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Varumärke",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Namn",
+          "default": "Varumärke"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logotyp (valfritt)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Varumärken",
+      "blocks": [
+        {
+          "type": "brand",
+          "settings": {
+            "name": "Samsonite"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "name": "Antler"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "name": "Wolf1834"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "name": "Parat"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "name": "Rolser"
+          }
+        },
+        {
+          "type": "brand",
+          "settings": {
+            "name": "Andersen"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

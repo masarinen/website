@@ -1,0 +1,104 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+<section class="section--tight">
+  <div class="page-width">
+    <nav aria-label="Brödsmulor" class="small muted">
+      <a href="{{ routes.root_url }}" class="link-underline">Startsida</a> /
+      {% if collection %}<a href="{{ collection.url }}" class="link-underline">{{ collection.title }}</a> /{% endif %}
+      <span aria-current="page">{{ product.title }}</span>
+    </nav>
+
+    <div class="product mt-4">
+      <div class="product__gallery">
+        {%- for media in product.media -%}
+          {%- if media.media_type == 'image' -%}
+            {%- liquid
+              assign loading = 'lazy'
+              if forloop.first
+                assign loading = 'eager'
+              endif
+            -%}
+            <figure>
+              {{ media | image_url: width: 1400 | image_tag: loading: loading, widths: '400, 700, 1000, 1400', sizes: '(min-width: 1024px) 55vw, 100vw', alt: media.alt | default: product.title }}
+            </figure>
+          {%- endif -%}
+        {%- else -%}
+          <figure>{% render 'illustration', name: 'suitcase' %}</figure>
+        {%- endfor -%}
+      </div>
+
+      <div class="product__info">
+        {%- if product.vendor != blank -%}<p class="eyebrow">{{ product.vendor }}</p>{%- endif -%}
+        <h1 class="product__title mt-2">{{ product.title }}</h1>
+        <p class="price mt-3" id="Price-{{ section.id }}">
+          {{ current_variant.price | money }}
+          {%- if current_variant.compare_at_price > current_variant.price %}<s>{{ current_variant.compare_at_price | money }}</s>{% endif -%}
+        </p>
+        {%- if cart.taxes_included -%}<p class="small muted">Inklusive moms.</p>{%- endif -%}
+
+        {%- form 'product', product, class: 'product__form', id: 'ProductForm' -%}
+          {%- unless product.has_only_default_variant -%}
+            <div class="field">
+              <label for="Variant-{{ section.id }}">{{ product.options | join: ' / ' }}</label>
+              <select id="Variant-{{ section.id }}" name="id">
+                {%- for variant in product.variants -%}
+                  <option value="{{ variant.id }}"{% if variant == current_variant %} selected{% endif %}{% unless variant.available %} disabled{% endunless %} data-price="{{ variant.price | money | escape }}">
+                    {{ variant.title }}{% unless variant.available %} – slutsåld{% endunless %}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- else -%}
+            <input type="hidden" name="id" value="{{ current_variant.id }}">
+          {%- endunless -%}
+
+          <div class="field">
+            <label for="Quantity-{{ section.id }}">Antal</label>
+            <div class="qty mt-1">
+              <button type="button" data-qty="-1" aria-label="Minska antal">−</button>
+              <input id="Quantity-{{ section.id }}" type="number" name="quantity" value="1" min="1" inputmode="numeric">
+              <button type="button" data-qty="1" aria-label="Öka antal">+</button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn--primary" {% unless current_variant.available %}disabled{% endunless %}>
+            {%- if current_variant.available -%}Lägg i varukorgen{%- else -%}Slutsåld{%- endif -%}
+          </button>
+        {%- endform -%}
+
+        {%- if product.description != blank -%}
+          <div class="product__desc rte">{{ product.description }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.contact_note != blank -%}
+          <div class="notice mt-4 small">{{ section.settings.contact_note }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var select = document.getElementById('Variant-{{ section.id }}');
+    if (!select) return;
+    var price = document.getElementById('Price-{{ section.id }}');
+    var submit = document.querySelector('#ProductForm [type=submit]');
+    select.addEventListener('change', function () {
+      var opt = select.options[select.selectedIndex];
+      price.textContent = opt.dataset.price;
+      submit.disabled = opt.disabled;
+      var url = new URL(location.href); url.searchParams.set('variant', opt.value);
+      history.replaceState(null, '', url);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Produkt",
+  "tag": "div",
+  "settings": [
+    { "type": "richtext", "id": "contact_note", "label": "Informationsruta", "default": "<p>Frågor om produkten eller leverans inom Norden? Ring eller mejla oss.</p>" }
+  ]
+}
+{% endschema %}

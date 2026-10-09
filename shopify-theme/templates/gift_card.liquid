@@ -1,0 +1,29 @@
+{%- layout none -%}
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Presentkort – {{ shop.name }}</title>
+    {{ 'wolf.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body>
+    <main class="section">
+      <div class="page-width" style="max-width: 36rem">
+        <p class="eyebrow">{{ shop.name }}</p>
+        <h1 class="mt-2">Presentkort</h1>
+        <p class="lede mt-3">Värde: {{ gift_card.initial_value | money }}{% if gift_card.balance != gift_card.initial_value %} · Kvar: {{ gift_card.balance | money }}{% endif %}</p>
+        {%- if gift_card.expired or gift_card.enabled == false -%}
+          <p class="notice notice--error mt-4">Presentkortet är inte längre giltigt.</p>
+        {%- else -%}
+          <p class="mt-4">Kod: <strong style="font-size: 1.5rem; letter-spacing: .1em">{{ gift_card.code | format_code }}</strong></p>
+          <p class="btn-row mt-5">
+            <a class="btn btn--primary" href="{{ shop.url }}">Börja handla</a>
+            <button class="btn btn--secondary" type="button" onclick="window.print()">Skriv ut</button>
+          </p>
+        {%- endif -%}
+      </div>
+    </main>
+  </body>
+</html>

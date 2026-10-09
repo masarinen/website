@@ -1,0 +1,20 @@
+<section class="section--tight">
+  <div class="page-width">
+    {%- if section.settings.show_title -%}<h1 class="max-4xl">{{ page.title }}</h1>{%- endif -%}
+    {%- if page.content != blank -%}
+      <div class="rte max-2xl{% if section.settings.show_title %} mt-4{% endif %}" style="font-size: 1.125rem">{{ page.content }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Sidans innehåll",
+  "tag": "div",
+  "settings": [
+    { "type": "checkbox", "id": "show_title", "label": "Visa sidans titel", "default": true },
+    { "type": "paragraph", "content": "Visar texten från Innehåll → Sidor. Lämna sidans text tom om sidan bara ska bestå av sektioner." }
+  ],
+  "presets": [{ "name": "Sidans innehåll" }]
+}
+{% endschema %}

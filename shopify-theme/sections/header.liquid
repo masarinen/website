@@ -1,0 +1,81 @@
+{%- liquid
+  assign menu = linklists[section.settings.menu]
+  assign shop_link = settings.shop_link | default: routes.all_products_collection_url
+  assign shop_external = false
+  if shop_link contains '://'
+    unless shop_link contains request.host
+      assign shop_external = true
+    endunless
+  endif
+-%}
+<header class="site-header" data-header>
+  <div class="page-width site-header__inner">
+    {% render 'logo' %}
+
+    <nav class="nav-desktop" aria-label="Huvudmeny">
+      <ul>
+        {%- for link in menu.links -%}
+          <li>
+            <a href="{{ link.url }}" class="nav-link"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+          </li>
+        {%- endfor -%}
+        {%- if settings.shop_label != blank -%}
+          <li>
+            <a href="{{ shop_link }}" class="nav-shop">
+              {{ settings.shop_label }}
+              {% render 'icon', name: 'external' %}
+              {%- if shop_external %}<span class="visually-hidden">(extern webbplats)</span>{% endif -%}
+            </a>
+          </li>
+        {%- endif -%}
+        {%- if settings.show_cart -%}
+          <li>
+            <a href="{{ routes.cart_url }}" class="header-cart">
+              {% render 'icon', name: 'bag' %}
+              <span class="visually-hidden">Varukorg, {{ cart.item_count }} artiklar</span>
+              {%- if cart.item_count > 0 %}<span class="header-cart__count" aria-hidden="true">{{ cart.item_count }}</span>{% endif -%}
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+    </nav>
+
+    <div class="header-actions" style="display: contents">
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="MobileMenu" data-menu-toggle>
+        {% render 'icon', name: 'menu', class: 'icon-menu' %}
+        {% render 'icon', name: 'close', class: 'icon-close' %}
+        <span class="visually-hidden" data-menu-label>Öppna menyn</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="MobileMenu" class="nav-mobile" hidden>
+    <nav class="page-width nav-mobile__inner" aria-label="Mobilmeny">
+      <ul>
+        {%- for link in menu.links -%}
+          <li><a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+        {%- endfor -%}
+        {%- if settings.show_cart -%}
+          <li><a href="{{ routes.cart_url }}">Varukorg{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a></li>
+        {%- endif -%}
+      </ul>
+      {%- if settings.shop_label != blank -%}
+        <a href="{{ shop_link }}" class="btn btn--primary">Besök webbutiken {% render 'icon', name: 'external' %}</a>
+      {%- endif -%}
+      {%- if settings.phone != blank -%}
+        <a href="tel:{{ settings.phone_link }}" class="nav-mobile__phone">{% render 'icon', name: 'phone' %}{{ settings.phone }}</a>
+      {%- endif -%}
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Sidhuvud",
+  "class": "section-header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Meny", "default": "main-menu", "info": "Skapa menyn under Innehåll → Menyer. Rekommenderad ordning: Startsida, Specialtillverkade väskor, Sortiment, Om oss, Kontakt." },
+    { "type": "paragraph", "content": "Knappen ”Webbutik”, telefon och logotyp ändras under Temainställningar." }
+  ]
+}
+{% endschema %}

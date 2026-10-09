@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code | default: 'sv' }}" class="no-js{% if request.design_mode %} shopify-design-mode{% endif %}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f5ef">
+    <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">
+    {%- endif -%}
+
+    <title>
+      {{- page_title -}}
+      {%- if current_tags %} – {{ current_tags | join: ', ' }}{% endif -%}
+      {%- if current_page != 1 %} – sida {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} | {{ shop.name }}{% endunless -%}
+    </title>
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {% render 'meta-tags' %}
+
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+
+    {{ 'cormorant-500.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+    {{ 'hanken-grotesk.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+    <style>
+      @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 500; font-display: swap; src: url("{{ 'cormorant-500.woff2' | asset_url }}") format("woff2"); }
+      @font-face { font-family: "Cormorant Garamond"; font-style: normal; font-weight: 600; font-display: swap; src: url("{{ 'cormorant-600.woff2' | asset_url }}") format("woff2"); }
+      @font-face { font-family: "Cormorant Garamond"; font-style: italic; font-weight: 500; font-display: swap; src: url("{{ 'cormorant-500-italic.woff2' | asset_url }}") format("woff2"); }
+      @font-face { font-family: "Hanken Grotesk"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("{{ 'hanken-grotesk.woff2' | asset_url }}") format("woff2-variations"); }
+    </style>
+    {{ 'wolf.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'wolf.js' | asset_url }}" defer></script>
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="template-{{ template.name }}">
+    <a class="skip-link" href="#MainContent">Hoppa till innehållet</a>
+    {% sections 'header-group' %}
+
+    <main id="MainContent" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+  </body>
+</html>

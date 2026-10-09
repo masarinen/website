@@ -1,0 +1,19 @@
+{%- comment -%} Användning: {% render 'product-card', product: product %} {%- endcomment -%}
+<div class="product-card">
+  <div class="product-card__media">
+    {%- if product.available == false -%}<span class="badge">Slutsåld</span>
+    {%- elsif product.compare_at_price > product.price -%}<span class="badge">Rea</span>{%- endif -%}
+    {%- if product.featured_media -%}
+      {{ product.featured_media | image_url: width: 800 | image_tag: loading: 'lazy', widths: '300, 400, 600, 800', sizes: '(min-width: 1200px) 25vw, (min-width: 768px) 33vw, 50vw', alt: product.featured_media.alt | default: product.title }}
+    {%- else -%}
+      {% render 'illustration', name: 'suitcase' %}
+    {%- endif -%}
+  </div>
+  {%- if product.vendor != blank -%}<p class="product-card__vendor">{{ product.vendor }}</p>{%- endif -%}
+  <h3 class="product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+  <p class="product-card__price">
+    {%- if product.price_varies -%}Från {% endif -%}
+    {{ product.price | money }}
+    {%- if product.compare_at_price > product.price %} <s class="muted">{{ product.compare_at_price | money }}</s>{% endif -%}
+  </p>
+</div>

@@ -1,0 +1,58 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Wolf",
+    "theme_version": "1.0.0",
+    "theme_author": "Stockholms Etui- & Koffertfabrik Wolf AB",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com"
+  },
+  {
+    "name": "Logotyp",
+    "settings": [
+      { "type": "image_picker", "id": "logo", "label": "Logotyp (mörk, för ljus bakgrund)" },
+      { "type": "image_picker", "id": "logo_light", "label": "Logotyp (ljus, för sidfoten)", "info": "Valfri. Används i den mörka sidfoten." },
+      { "type": "range", "id": "logo_width", "min": 80, "max": 300, "step": 10, "unit": "px", "label": "Logotypens bredd", "default": 160 },
+      { "type": "text", "id": "logo_text", "label": "Textlogotyp", "default": "WOLF", "info": "Visas när ingen logotyp har laddats upp." },
+      { "type": "text", "id": "logo_subtext", "label": "Text under textlogotypen", "default": "Stockholms Etui- & Koffertfabrik" },
+      { "type": "image_picker", "id": "favicon", "label": "Favicon", "info": "Kvadratisk bild, minst 32 × 32 px." }
+    ]
+  },
+  {
+    "name": "Företagsuppgifter",
+    "settings": [
+      { "type": "paragraph", "content": "Uppgifterna används i sidhuvud, sidfot, kontaktsektioner och sökmotorernas strukturerade data." },
+      { "type": "text", "id": "company_name", "label": "Företagsnamn", "default": "Stockholms Etui- & Koffertfabrik Wolf AB" },
+      { "type": "text", "id": "address_street", "label": "Gatuadress", "default": "Roslagsvägen 120" },
+      { "type": "text", "id": "address_zip", "label": "Postnummer", "default": "184 91" },
+      { "type": "text", "id": "address_city", "label": "Ort", "default": "Åkersberga" },
+      { "type": "text", "id": "phone", "label": "Telefon", "default": "08-736 08 55" },
+      { "type": "text", "id": "phone_link", "label": "Telefon för länk (internationellt format)", "default": "+4687360855" },
+      { "type": "text", "id": "email", "label": "E-post", "default": "robert@wolf.se" },
+      { "type": "text", "id": "org_number", "label": "Organisationsnummer", "default": "556136-8373" }
+    ]
+  },
+  {
+    "name": "Webbutik",
+    "settings": [
+      { "type": "paragraph", "content": "Knappen ”Webbutik” i sidhuvudet. Lämna länken tom för att använda butikens alla produkter (/collections/all)." },
+      { "type": "text", "id": "shop_label", "label": "Knapptext", "default": "Webbutik" },
+      { "type": "url", "id": "shop_link", "label": "Länk" },
+      { "type": "checkbox", "id": "show_cart", "label": "Visa varukorgsikon i sidhuvudet", "default": true }
+    ]
+  },
+  {
+    "name": "Sociala medier",
+    "settings": [
+      { "type": "text", "id": "social_facebook", "label": "Facebook", "default": "https://www.facebook.com/sthlmsetui/" },
+      { "type": "text", "id": "social_instagram", "label": "Instagram" },
+      { "type": "text", "id": "social_linkedin", "label": "LinkedIn" }
+    ]
+  },
+  {
+    "name": "Delning",
+    "settings": [
+      { "type": "image_picker", "id": "share_image", "label": "Bild vid delning i sociala medier", "info": "1200 × 630 px rekommenderas." }
+    ]
+  }
+]

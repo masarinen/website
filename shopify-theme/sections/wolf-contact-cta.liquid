@@ -1,0 +1,72 @@
+<section class="section bg-navy on-dark cta" aria-labelledby="H-{{ section.id }}">
+  {%- if section.settings.show_art -%}<div class="cta__art">{% render 'illustration', name: 'hardcase', stroke: 0.9 %}</div>{%- endif -%}
+  <div class="page-width">
+    <div class="cta__inner" data-reveal>
+      {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+      <h2 id="H-{{ section.id }}">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
+      <div class="cta__actions">
+        {%- if section.settings.button_label != blank -%}<a href="{{ section.settings.button_link }}" class="btn btn--light">{{ section.settings.button_label }}{% render 'icon', name: 'arrow' %}</a>{%- endif -%}
+        {%- if section.settings.show_contact -%}
+          {%- if settings.phone != blank -%}<a class="cta__contact" href="tel:{{ settings.phone_link }}">{% render 'icon', name: 'phone' %}<span class="link-underline">{{ settings.phone }}</span></a>{%- endif -%}
+          {%- if settings.email != blank -%}<a class="cta__contact" href="mailto:{{ settings.email }}">{% render 'icon', name: 'mail' %}<span class="link-underline">{{ settings.email }}</span></a>{%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kontakt-uppmaning",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Överrubrik",
+      "default": "Förfrågningar"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Rubrik",
+      "default": "Har ni ett projekt i åtanke?"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Berätta om vad som ska förvaras, bäras eller presenteras. Kontakta oss så diskuterar vi väskor och etuier anpassade efter era behov."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Knapptext",
+      "default": "Kontakta oss"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Knapplänk"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact",
+      "label": "Visa telefon och e-post",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_art",
+      "label": "Visa illustration i bakgrunden",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kontakt-uppmaning"
+    }
+  ]
+}
+{% endschema %}
