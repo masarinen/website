@@ -19,19 +19,25 @@
       </div>
     </div>
     <div data-reveal style="--d: 200ms">
-      <div class="hero__media on-dark{% if section.settings.image != blank %} hero__media--has-image{% endif %}">
+      <div id="HeroMedia-{{ section.id }}" class="hero__media on-dark{% if section.settings.image != blank %} hero__media--has-image{% endif %}">
         {%- if section.settings.image != blank -%}
           {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '600, 900, 1200, 1600', sizes: '(min-width: 1024px) 50vw, 100vw' }}
         {%- elsif section.settings.illustration != 'none' -%}
           {% render 'illustration', name: section.settings.illustration, stroke: 1.1 %}
         {%- endif -%}
-        <span class="hero__frame" aria-hidden="true"></span>
+        {%- if section.settings.show_frame -%}<span class="hero__frame" aria-hidden="true"></span>{%- endif -%}
         {%- if section.settings.label != blank -%}<p class="hero__label">{{ section.settings.label }}</p>{%- endif -%}
         {%- if section.settings.caption != blank -%}<p class="hero__caption">{{ section.settings.caption | newline_to_br }}</p>{%- endif -%}
       </div>
     </div>
   </div>
 </section>
+
+{%- assign inset = section.settings.text_inset -%}
+{% style %}
+  #HeroMedia-{{ section.id }} .hero__label { left: {{ inset }}px; top: {{ inset }}px; }
+  #HeroMedia-{{ section.id }} .hero__caption { right: {{ inset }}px; bottom: {{ inset }}px; }
+{% endstyle %}
 
 {% schema %}
 {
@@ -141,6 +147,22 @@
         }
       ],
       "default": "hardcase"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_frame",
+      "label": "Visa tunn ram i bilden",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "text_inset",
+      "label": "Textens avstånd från bildens kant",
+      "min": 8,
+      "max": 64,
+      "step": 4,
+      "unit": "px",
+      "default": 20
     },
     {
       "type": "text",

@@ -10,6 +10,8 @@
         "button_1_label": "Utforska våra lösningar",
         "button_2_label": "Besök webbutiken",
         "illustration": "hardcase",
+        "show_frame": false,
+        "text_inset": 20,
         "label": "Etuier · Skrin · Väskor",
         "caption": "I Stockholm\nsedan 1936",
         "button_1_link": "/pages/specialtillverkade-vaskor",
