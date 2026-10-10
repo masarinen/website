@@ -1,6 +1,18 @@
 {
-  "current": "Default",
-  "presets": {
-    "Default": {}
+  "current": {
+    "company_name": "Stockholms Etui- & Koffertfabrik Wolf AB",
+    "address_street": "Roslagsvägen 120",
+    "address_zip": "184 91",
+    "address_city": "Åkersberga",
+    "phone": "08-736 08 55",
+    "phone_link": "+4687360855",
+    "email": "robert@wolf.se",
+    "org_number": "556136-8373",
+    "social_facebook": "https://www.facebook.com/sthlmsetui/",
+    "logo_text": "WOLF",
+    "logo_subtext": "Stockholms Etui- & Koffertfabrik",
+    "logo_width": 160,
+    "shop_label": "Webbutik",
+    "show_cart": true
   }
 }

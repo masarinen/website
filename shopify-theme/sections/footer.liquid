@@ -1,5 +1,13 @@
 {%- liquid
-  assign company = settings.company_name | default: shop.name
+  assign company = settings.company_name | default: 'Stockholms Etui- & Koffertfabrik Wolf AB'
+  assign street = settings.address_street | default: 'Roslagsvägen 120'
+  assign zip = settings.address_zip | default: '184 91'
+  assign city = settings.address_city | default: 'Åkersberga'
+  assign phone = settings.phone | default: '08-736 08 55'
+  assign phone_link = settings.phone_link | default: '+4687360855'
+  assign email = settings.email | default: 'robert@wolf.se'
+-%}
+{%- liquid
   assign menu_a = linklists[section.settings.menu_a]
   assign menu_b = linklists[section.settings.menu_b]
 -%}
@@ -15,10 +23,10 @@
     <div>
       <h2>Kontakt</h2>
       <address>
-        <p>{{ company }}<br>{{ settings.address_street }}<br>{{ settings.address_zip }} {{ settings.address_city }}</p>
+        <p>{{ company }}<br>{{ street }}<br>{{ zip }} {{ city }}</p>
         <p class="mt-2">
-          {%- if settings.phone != blank -%}<a class="link-underline" href="tel:{{ settings.phone_link }}">{{ settings.phone }}</a><br>{%- endif -%}
-          {%- if settings.email != blank -%}<a class="link-underline" href="mailto:{{ settings.email }}">{{ settings.email }}</a>{%- endif -%}
+          Tele: <a class="link-underline" href="tel:{{ phone_link }}">{{ phone }}</a><br>
+          E-post: <a class="link-underline" href="mailto:{{ email }}">{{ email }}</a>
         </p>
       </address>
     </div>

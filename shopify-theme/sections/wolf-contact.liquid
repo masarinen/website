@@ -1,16 +1,21 @@
+{%- liquid
+  assign company = settings.company_name | default: 'Stockholms Etui- & Koffertfabrik Wolf AB'
+  assign street = settings.address_street | default: 'Roslagsvägen 120'
+  assign zip = settings.address_zip | default: '184 91'
+  assign city = settings.address_city | default: 'Åkersberga'
+  assign phone = settings.phone | default: '08-736 08 55'
+  assign phone_link = settings.phone_link | default: '+4687360855'
+  assign email = settings.email | default: 'robert@wolf.se'
+-%}
 <section class="section--tight" aria-label="Kontaktuppgifter och formulär">
   <div class="page-width grid-12">
     <div class="col-4" data-reveal>
       <h2 class="h3" style="font-size: 2rem">{{ section.settings.details_heading }}</h2>
       <ul class="contact-list">
-        {%- if settings.phone != blank -%}
-          <li>{% render 'icon', name: 'phone' %}<div><p class="label">Telefon</p><a class="value link-underline" href="tel:{{ settings.phone_link }}">{{ settings.phone }}</a></div></li>
-        {%- endif -%}
-        {%- if settings.email != blank -%}
-          <li>{% render 'icon', name: 'mail' %}<div><p class="label">E-post</p><a class="value link-underline" href="mailto:{{ settings.email }}">{{ settings.email }}</a></div></li>
-        {%- endif -%}
+        <li>{% render 'icon', name: 'phone' %}<div><p class="label">Tele</p><a class="value link-underline" href="tel:{{ phone_link }}">{{ phone }}</a></div></li>
+        <li>{% render 'icon', name: 'mail' %}<div><p class="label">E-post</p><a class="value link-underline" href="mailto:{{ email }}">{{ email }}</a></div></li>
         <li>{% render 'icon', name: 'pin' %}<div><p class="label">Adress</p>
-          <address>{{ settings.company_name | default: shop.name }}<br>{{ settings.address_street }}<br>{{ settings.address_zip }} {{ settings.address_city }}</address></div></li>
+          <address>{{ company }}<br>{{ street }}<br>{{ zip }} {{ city }}</address></div></li>
       </ul>
       {%- if section.settings.details_text != blank -%}<div class="rte small muted mt-4">{{ section.settings.details_text }}</div>{%- endif -%}
     </div>
@@ -24,7 +29,7 @@
           {%- if form.posted_successfully? -%}
             <div class="notice notice--success" role="status" tabindex="-1" data-focus-on-load>
               <h2>Tack för ert meddelande</h2>
-              <p class="muted mt-1">Vi har tagit emot er förfrågan och återkommer så snart vi kan. Brådskar det går det bra att ringa oss på {{ settings.phone }}.</p>
+              <p class="muted mt-1">Vi har tagit emot er förfrågan och återkommer så snart vi kan. Brådskar det går det bra att ringa oss på {{ phone }}.</p>
             </div>
           {%- else -%}
             {%- if form.errors -%}
