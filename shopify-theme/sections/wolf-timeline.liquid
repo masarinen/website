@@ -1,17 +1,30 @@
+{%- liquid
+  case section.settings.layout
+    when 'wide'
+      assign left = 'col-6'
+      assign right = 'col-5 start-8'
+    when 'medium'
+      assign left = 'col-5'
+      assign right = 'col-6 start-7'
+    else
+      assign left = 'col-4'
+      assign right = 'col-7 start-6'
+  endcase
+-%}
 <section class="section" aria-labelledby="H-{{ section.id }}">
   <div class="page-width grid-12">
-    <div class="col-4">
+    <div class="{{ left }}">
       <div class="sticky-lg" data-reveal>
         {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
         <h2 id="H-{{ section.id }}" class="mt-2">{{ section.settings.heading }}</h2>
         {%- if section.settings.image != blank -%}
-          <div class="mt-5">{{ section.settings.image | image_url: width: 700 | image_tag: loading: 'lazy' }}</div>
+          <div class="mt-5" style="width: {{ section.settings.image_width }}%">{{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '400, 700, 1000, 1400', sizes: '(min-width: 1024px) 50vw, 100vw', style: 'width: 100%; height: auto' }}</div>
         {%- elsif section.settings.illustration != 'none' -%}
-          <div class="mt-5" style="max-width: 14rem; color: rgba(23,34,47,.6)">{% render 'illustration', name: section.settings.illustration %}</div>
+          <div class="mt-5" style="width: {{ section.settings.image_width }}%; color: rgba(23,34,47,.6)">{% render 'illustration', name: section.settings.illustration %}</div>
         {%- endif -%}
       </div>
     </div>
-    <ol class="timeline col-7 start-6">
+    <ol class="timeline {{ right }}">
       {%- for block in section.blocks -%}
         <li {{ block.shopify_attributes }} data-reveal>
           <p class="year">{{ block.settings.year }}</p>
@@ -32,7 +45,9 @@
     {"type": "text", "id": "eyebrow", "label": "Överrubrik", "default": "Historien"},
     {"type": "text", "id": "heading", "label": "Rubrik", "default": "Från silversmedja till koffertfabrik"},
     {"type": "image_picker", "id": "image", "label": "Bild"},
-    {"type": "select", "id": "illustration", "label": "Illustration (visas om ingen bild valts)", "options": [{"value": "hardcase", "label": "Hård väska med inredning"}, {"value": "demo", "label": "Demoväska"}, {"value": "suitcase", "label": "Resväska"}, {"value": "wine", "label": "Vinresväska"}, {"value": "toolcase", "label": "Serviceväska"}, {"value": "winder", "label": "Watch winder"}, {"value": "jewelry", "label": "Smyckeskrin"}, {"value": "briefcase", "label": "Portfölj"}, {"value": "trolley", "label": "Shoppingvagn"}, {"value": "none", "label": "Ingen"}], "default": "jewelry"}
+    {"type": "select", "id": "illustration", "label": "Illustration (visas om ingen bild valts)", "options": [{"value": "hardcase", "label": "Hård väska med inredning"}, {"value": "demo", "label": "Demoväska"}, {"value": "suitcase", "label": "Resväska"}, {"value": "wine", "label": "Vinresväska"}, {"value": "toolcase", "label": "Serviceväska"}, {"value": "winder", "label": "Watch winder"}, {"value": "jewelry", "label": "Smyckeskrin"}, {"value": "briefcase", "label": "Portfölj"}, {"value": "trolley", "label": "Shoppingvagn"}, {"value": "none", "label": "Ingen"}], "default": "jewelry"},
+    {"type": "select", "id": "layout", "label": "Bildkolumnens bredd (dator)", "default": "narrow", "options": [{"value": "narrow", "label": "Smal (1/3)"}, {"value": "medium", "label": "Mellan (ca 40 %)"}, {"value": "wide", "label": "Bred (halva sidan)"}]},
+    {"type": "range", "id": "image_width", "label": "Bildens storlek i kolumnen", "min": 30, "max": 100, "step": 5, "unit": "%", "default": 100}
   ],
   "blocks": [
     {"type": "milestone", "name": "Händelse", "settings": [{"type": "text", "id": "year", "label": "Årtal", "default": "1936"}, {"type": "text", "id": "title", "label": "Rubrik", "default": "Rubrik"}, {"type": "richtext", "id": "text", "label": "Text"}]}
