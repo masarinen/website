@@ -93,8 +93,11 @@
             </div>
 
             <div class="form__footer">
-              <p class="small muted"><span aria-hidden="true">*</span> Obligatoriska fält. Uppgifterna används endast för att besvara er förfrågan.</p>
-              <button type="submit" class="btn btn--primary">Skicka meddelande {% render 'icon', name: 'arrow' %}</button>
+              <p class="small muted" id="ContactForm-privacy">
+                <span aria-hidden="true">*</span> Obligatoriska fält. Uppgifterna används endast för att besvara er förfrågan och sparas inte längre än nödvändigt.
+                {%- if shop.privacy_policy %} Läs mer i vår <a class="link-underline" href="{{ shop.privacy_policy.url }}">integritetspolicy</a>.{% endif %}
+              </p>
+              <button type="submit" class="btn btn--primary" aria-describedby="ContactForm-privacy">Skicka meddelande {% render 'icon', name: 'arrow' %}</button>
             </div>
           {%- endif -%}
         {%- endform -%}

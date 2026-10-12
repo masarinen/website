@@ -6,6 +6,7 @@
   assign phone = settings.phone | default: '08-736 08 55'
   assign phone_link = settings.phone_link | default: '+4687360855'
   assign email = settings.email | default: 'robert@wolf.se'
+  assign org_number = settings.org_number | default: '556136-8373'
 -%}
 {%- liquid
   assign menu_a = linklists[section.settings.menu_a]
@@ -52,7 +53,7 @@
 
   <div class="site-footer__bottom">
     <div class="page-width">
-      <p>© {{ 'now' | date: '%Y' }} {{ company }}{% if settings.org_number != blank %} · Org.nr {{ settings.org_number }}{% endif %}</p>
+      <p>© {{ 'now' | date: '%Y' }} {{ company }} · Org.nr {{ org_number }}</p>
       <ul>
         {%- if settings.social_facebook != blank -%}<li><a href="{{ settings.social_facebook }}" rel="noopener">Facebook</a></li>{%- endif -%}
         {%- if settings.social_instagram != blank -%}<li><a href="{{ settings.social_instagram }}" rel="noopener">Instagram</a></li>{%- endif -%}
