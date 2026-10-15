@@ -1,5 +1,7 @@
+{% render 'section-style', s: section.settings, id: section.id %}
 <section class="hero" aria-labelledby="Hero-{{ section.id }}">
-  <div class="page-width hero__grid">
+  {%- assign show_media = section.settings.show_media -%}
+  <div class="page-width hero__grid wolf-sec{% if section.settings.media_position == 'left' %} hero__grid--flip{% endif %}{% unless show_media %} hero__grid--text{% endunless %}" style="--hero-text: {{ section.settings.text_share }}fr; --hero-media: {{ 100 | minus: section.settings.text_share }}fr">
     <div class="hero__text">
       {%- if section.settings.eyebrow != blank -%}<p class="eyebrow" data-reveal>{{ section.settings.eyebrow }}</p>{%- endif -%}
       <h1 id="Hero-{{ section.id }}" class="hero__title" data-reveal style="--d: 80ms">
@@ -18,6 +20,7 @@
         {%- endif -%}
       </div>
     </div>
+    {%- if show_media -%}
     <div data-reveal style="--d: 200ms">
       <div id="HeroMedia-{{ section.id }}" class="hero__media on-dark{% if section.settings.image != blank %} hero__media--has-image{% endif %}">
         {%- if section.settings.image != blank -%}
@@ -30,6 +33,7 @@
         {%- if section.settings.caption != blank -%}<p class="hero__caption">{{ section.settings.caption | newline_to_br }}</p>{%- endif -%}
       </div>
     </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -37,6 +41,8 @@
 {% style %}
   #HeroMedia-{{ section.id }} .hero__label { left: {{ inset }}px; top: {{ inset }}px; }
   #HeroMedia-{{ section.id }} .hero__caption { right: {{ inset }}px; bottom: {{ inset }}px; }
+  #HeroMedia-{{ section.id }} img { object-fit: {{ section.settings.image_fit }}; }
+  @media (min-width: 1024px) { #HeroMedia-{{ section.id }} { min-height: {{ section.settings.media_height }}px; } }
 {% endstyle %}
 
 {% schema %}
@@ -53,12 +59,25 @@
     {"type": "text", "id": "button_2_label", "label": "Knapp 2, text", "default": "Besök webbutiken"},
     {"type": "url", "id": "button_2_link", "label": "Knapp 2, länk", "info": "Tom = alla produkter."},
     {"type": "header", "content": "Bild"},
+    {"type": "checkbox", "id": "show_media", "label": "Visa bildrutan", "default": true},
     {"type": "image_picker", "id": "image", "label": "Bild"},
+    {"type": "select", "id": "media_position", "label": "Bildens placering", "default": "right", "options": [{"value": "right", "label": "Höger"}, {"value": "left", "label": "Vänster"}]},
+    {"type": "range", "id": "text_share", "label": "Textens andel av bredden (dator)", "min": 30, "max": 70, "step": 5, "unit": "%", "default": 50},
+    {"type": "range", "id": "media_height", "label": "Bildens minsta höjd (dator)", "min": 300, "max": 900, "step": 20, "unit": "px", "default": 480},
+    {"type": "select", "id": "image_fit", "label": "Bildens anpassning", "default": "cover", "options": [{"value": "cover", "label": "Fyll rutan (beskärs)"}, {"value": "contain", "label": "Visa hela bilden"}]},
     {"type": "select", "id": "illustration", "label": "Illustration (visas om ingen bild valts)", "options": [{"value": "hardcase", "label": "Hård väska med inredning"}, {"value": "demo", "label": "Demoväska"}, {"value": "suitcase", "label": "Resväska"}, {"value": "wine", "label": "Vinresväska"}, {"value": "toolcase", "label": "Serviceväska"}, {"value": "winder", "label": "Watch winder"}, {"value": "jewelry", "label": "Smyckeskrin"}, {"value": "briefcase", "label": "Portfölj"}, {"value": "trolley", "label": "Shoppingvagn"}, {"value": "none", "label": "Ingen"}], "default": "hardcase"},
     {"type": "checkbox", "id": "show_frame", "label": "Visa tunn ram i bilden", "default": false},
     {"type": "range", "id": "text_inset", "label": "Textens avstånd från bildens kant", "min": 8, "max": 64, "step": 4, "unit": "px", "default": 20},
     {"type": "text", "id": "label", "label": "Etikett uppe till vänster", "default": "Etuier · Skrin · Väskor"},
-    {"type": "textarea", "id": "caption", "label": "Text nere till höger", "default": "I Stockholm\nsedan 1936"}
+    {"type": "textarea", "id": "caption", "label": "Text nere till höger", "default": "I Stockholm\nsedan 1936"},
+    {"type": "header", "content": "Layout"},
+    {"type": "select", "id": "spacing_top", "label": "Avstånd ovanför", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "spacing_bottom", "label": "Avstånd under", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "bg", "label": "Bakgrundsfärg", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "ivory", "label": "Varmvit"}, {"value": "bone", "label": "Benvit"}, {"value": "sand", "label": "Sand"}, {"value": "navy", "label": "Mörkblå"}]},
+    {"type": "select", "id": "content_width", "label": "Innehållets bredd", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "narrow", "label": "Smal"}, {"value": "wide", "label": "Bred"}, {"value": "full", "label": "Hela skärmen"}]},
+    {"type": "select", "id": "heading_size", "label": "Rubrikstorlek", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "s", "label": "Liten"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stor"}, {"value": "xl", "label": "Extra stor"}]},
+    {"type": "checkbox", "id": "hide_mobile", "label": "Dölj på mobil", "default": false},
+    {"type": "checkbox", "id": "hide_desktop", "label": "Dölj på dator", "default": false}
   ],
   "presets": [
     {"name": "Hero (startsida)"}

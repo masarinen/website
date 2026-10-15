@@ -1,0 +1,53 @@
+{%- comment -%}
+  Gemensamma layoutinställningar för alla Wolf-sektioner.
+  Användning: {% render 'section-style', s: section.settings, id: section.id %}
+  Sektionens yttre element med standardavstånd har klassen "wolf-sec".
+{%- endcomment -%}
+{%- liquid
+  assign sel = '#shopify-section-' | append: id
+  assign sizes = 'none:0,s:32,m:64,l:112,xl:160' | split: ','
+  assign pt = ''
+  assign pb = ''
+  for pair in sizes
+    assign kv = pair | split: ':'
+    if s.spacing_top == kv[0]
+      assign pt = kv[1]
+    endif
+    if s.spacing_bottom == kv[0]
+      assign pb = kv[1]
+    endif
+  endfor
+-%}
+{% style %}
+  {%- if pt != '' %}
+    {{ sel }} .wolf-sec { padding-top: {{ pt | times: 0.6 | round }}px !important; }
+    @media (min-width: 768px) { {{ sel }} .wolf-sec { padding-top: {{ pt }}px !important; } }
+  {%- endif %}
+  {%- if pb != '' %}
+    {{ sel }} .wolf-sec { padding-bottom: {{ pb | times: 0.6 | round }}px !important; }
+    @media (min-width: 768px) { {{ sel }} .wolf-sec { padding-bottom: {{ pb }}px !important; } }
+  {%- endif %}
+  {%- case s.bg %}
+    {%- when 'ivory' %}{{ sel }} > * { background: var(--ivory) !important; }
+    {%- when 'bone' %}{{ sel }} > * { background: var(--bone) !important; }
+    {%- when 'sand' %}{{ sel }} > * { background: var(--sand) !important; }
+    {%- when 'navy' %}
+      {{ sel }} > * { background: var(--navy) !important; color: var(--ivory); }
+      {{ sel }} :is(h1, h2, h3, .card__title, .path__body h3) { color: var(--ivory); }
+      {{ sel }} :is(.lede, .muted, p) { color: rgba(248, 245, 239, .8); }
+      {{ sel }} .eyebrow { color: var(--leather-light); }
+  {%- endcase %}
+  {%- case s.content_width %}
+    {%- when 'narrow' %}{{ sel }} .page-width { max-width: 60rem; }
+    {%- when 'wide' %}{{ sel }} .page-width { max-width: 100rem; }
+    {%- when 'full' %}{{ sel }} .page-width { max-width: none; }
+  {%- endcase %}
+  {%- case s.heading_size %}
+    {%- when 's' %}{{ sel }} :is(h1, h2) { font-size: clamp(1.75rem, 2.6vw, 2.25rem) !important; }
+    {%- when 'm' %}{{ sel }} :is(h1, h2) { font-size: clamp(2.25rem, 4vw, 3.25rem) !important; }
+    {%- when 'l' %}{{ sel }} :is(h1, h2) { font-size: clamp(2.75rem, 5.5vw, 4.5rem) !important; }
+    {%- when 'xl' %}{{ sel }} :is(h1, h2) { font-size: clamp(3rem, 7.5vw, 6rem) !important; }
+  {%- endcase %}
+  {%- if s.hide_mobile %}@media (max-width: 767px) { {{ sel }} { display: none; } }{% endif %}
+  {%- if s.hide_desktop %}@media (min-width: 768px) { {{ sel }} { display: none; } }{% endif %}
+{% endstyle %}

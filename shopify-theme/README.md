@@ -52,6 +52,33 @@ med motsvarande handle, eller välj en kollektion direkt på varje kort i temare
 - **Varje sektion** har ett bildfält. Utan bild visas en linjeillustration.
 - Sektioner kan flyttas, döljas, dupliceras och läggas till på alla sidor.
 
+## Bygga och ändra layout själv
+
+**Alla sektioner** har under rubriken *Layout* i sina inställningar:
+avstånd ovanför och under, bakgrundsfärg, innehållets bredd, rubrikstorlek samt
+"Dölj på mobil" / "Dölj på dator".
+
+**Flexibel sektion** (Lägg till sektion → Flexibel sektion) byggs av block som
+kan dras, tas bort och läggas i varandra:
+
+| Block | Inställningar |
+|---|---|
+| Grupp | Rad eller kolumn, avstånd, justering, bredd, minsta höjd, bakgrund, inre marginal |
+| Rubrik | Text, kursiv fortsättning, storlek, rubriknivå, justering, färg, bredd |
+| Överrubrik | Text, justering, färg |
+| Text | Formaterad text, storlek, radlängd, justering, färg, bredd |
+| Bild | Bild, storlek i %, bildformat eller fast höjd, anpassning, rundade hörn, bildtext, länk |
+| Knapp | Text, länk, stil (mörk, ram, ljus, textlänk), justering |
+| Mellanrum | Höjd |
+| Linje | Tjocklek, färg, bredd |
+
+Färdiga startlägen: *Bild med text*, *Text och knapp*, *Tre kolumner*,
+*Bild i full bredd* och *Tom sektion*. Lägg block bredvid varandra genom att
+använda en Grupp med riktningen Rad och ge blocken en bredd (t.ex. 50 %).
+
+**Hero (startsida)** har dessutom: visa/dölj bildrutan, bild till vänster/höger,
+textens andel av bredden, bildens minsta höjd och om bilden ska fylla rutan.
+
 ## 6. Kontaktformuläret
 
 Fungerar direkt. Meddelanden skickas till butikens e-postadress

@@ -1,4 +1,5 @@
-<section class="section bg-navy on-dark cta" aria-labelledby="H-{{ section.id }}">
+{% render 'section-style', s: section.settings, id: section.id %}
+<section class="section wolf-sec bg-navy on-dark cta" aria-labelledby="H-{{ section.id }}">
   {%- if section.settings.show_art -%}<div class="cta__art">{% render 'illustration', name: 'hardcase', stroke: 0.9 %}</div>{%- endif -%}
   <div class="page-width">
     <div class="cta__inner" data-reveal>
@@ -27,7 +28,15 @@
     {"type": "text", "id": "button_label", "label": "Knapptext", "default": "Kontakta oss"},
     {"type": "url", "id": "button_link", "label": "Knapplänk"},
     {"type": "checkbox", "id": "show_contact", "label": "Visa telefon och e-post", "default": true},
-    {"type": "checkbox", "id": "show_art", "label": "Visa illustration i bakgrunden", "default": true}
+    {"type": "checkbox", "id": "show_art", "label": "Visa illustration i bakgrunden", "default": true},
+    {"type": "header", "content": "Layout"},
+    {"type": "select", "id": "spacing_top", "label": "Avstånd ovanför", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "spacing_bottom", "label": "Avstånd under", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "bg", "label": "Bakgrundsfärg", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "ivory", "label": "Varmvit"}, {"value": "bone", "label": "Benvit"}, {"value": "sand", "label": "Sand"}, {"value": "navy", "label": "Mörkblå"}]},
+    {"type": "select", "id": "content_width", "label": "Innehållets bredd", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "narrow", "label": "Smal"}, {"value": "wide", "label": "Bred"}, {"value": "full", "label": "Hela skärmen"}]},
+    {"type": "select", "id": "heading_size", "label": "Rubrikstorlek", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "s", "label": "Liten"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stor"}, {"value": "xl", "label": "Extra stor"}]},
+    {"type": "checkbox", "id": "hide_mobile", "label": "Dölj på mobil", "default": false},
+    {"type": "checkbox", "id": "hide_desktop", "label": "Dölj på dator", "default": false}
   ],
   "presets": [
     {"name": "Kontakt-uppmaning"}

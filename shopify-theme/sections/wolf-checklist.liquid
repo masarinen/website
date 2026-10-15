@@ -1,4 +1,5 @@
-<section class="section--tight" aria-labelledby="H-{{ section.id }}">
+{% render 'section-style', s: section.settings, id: section.id %}
+<section class="section--tight wolf-sec" aria-labelledby="H-{{ section.id }}">
   <div class="page-width grid-12 border-t" style="padding-top: 3.5rem">
     <div class="col-5" data-reveal>
       <h2 id="H-{{ section.id }}" class="h3" style="font-size: 2rem">{{ section.settings.heading }}</h2>
@@ -22,7 +23,15 @@
     {"type": "text", "id": "heading", "label": "Rubrik", "default": "Inför er förfrågan"},
     {"type": "richtext", "id": "text", "label": "Text", "default": "<p>Ju mer vi vet från början, desto lättare blir det att bedöma vad som passar. Det här är bra att berätta:</p>"},
     {"type": "text", "id": "button_label", "label": "Knapptext", "default": "Skicka en förfrågan"},
-    {"type": "url", "id": "button_link", "label": "Knapplänk"}
+    {"type": "url", "id": "button_link", "label": "Knapplänk"},
+    {"type": "header", "content": "Layout"},
+    {"type": "select", "id": "spacing_top", "label": "Avstånd ovanför", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "spacing_bottom", "label": "Avstånd under", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "bg", "label": "Bakgrundsfärg", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "ivory", "label": "Varmvit"}, {"value": "bone", "label": "Benvit"}, {"value": "sand", "label": "Sand"}, {"value": "navy", "label": "Mörkblå"}]},
+    {"type": "select", "id": "content_width", "label": "Innehållets bredd", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "narrow", "label": "Smal"}, {"value": "wide", "label": "Bred"}, {"value": "full", "label": "Hela skärmen"}]},
+    {"type": "select", "id": "heading_size", "label": "Rubrikstorlek", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "s", "label": "Liten"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stor"}, {"value": "xl", "label": "Extra stor"}]},
+    {"type": "checkbox", "id": "hide_mobile", "label": "Dölj på mobil", "default": false},
+    {"type": "checkbox", "id": "hide_desktop", "label": "Dölj på dator", "default": false}
   ],
   "blocks": [
     {"type": "item", "name": "Punkt", "settings": [{"type": "text", "id": "text", "label": "Text", "default": "Punkt"}]}

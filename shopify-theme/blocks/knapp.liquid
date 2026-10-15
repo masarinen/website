@@ -1,0 +1,27 @@
+<div class="blk blk-button txt-{{ block.settings.align }}"{% if block.settings.width != 'auto' %} data-w style="--w: {{ block.settings.width }}%"{% endif %} {{ block.shopify_attributes }}>
+  {%- liquid
+    assign b = block.settings
+    assign href = b.link | default: routes.root_url
+  -%}
+  {%- if b.style == 'link' -%}
+    <a href="{{ href }}" class="arrow-link"><span class="link-underline">{{ b.label }}</span>{% render 'icon', name: 'arrow' %}</a>
+  {%- else -%}
+    <a href="{{ href }}" class="btn btn--{{ b.style }}">{{ b.label }}{% render 'icon', name: 'arrow' %}</a>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Knapp",
+  "settings": [
+    {"type": "text", "id": "label", "label": "Knapptext", "default": "Läs mer"},
+    {"type": "url", "id": "link", "label": "Länk"},
+    {"type": "select", "id": "style", "label": "Stil", "default": "primary", "options": [{"value": "primary", "label": "Mörk knapp"}, {"value": "secondary", "label": "Knapp med ram"}, {"value": "light", "label": "Ljus knapp (för mörk bakgrund)"}, {"value": "link", "label": "Textlänk med pil"}]},
+    {"type": "select", "id": "align", "label": "Justering", "default": "left", "options": [{"value": "left", "label": "Vänster"}, {"value": "center", "label": "Mitten"}, {"value": "right", "label": "Höger"}]},
+    {"type": "select", "id": "width", "label": "Bredd", "default": "auto", "info": "Används när blocket ligger i en rad eller kolumn.", "options": [{"value": "auto", "label": "Automatisk"}, {"value": "25", "label": "25 %"}, {"value": "33", "label": "33 %"}, {"value": "40", "label": "40 %"}, {"value": "50", "label": "50 %"}, {"value": "60", "label": "60 %"}, {"value": "66", "label": "66 %"}, {"value": "75", "label": "75 %"}, {"value": "100", "label": "100 %"}]}
+  ],
+  "presets": [
+    {"name": "Knapp"}
+  ]
+}
+{% endschema %}

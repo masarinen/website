@@ -1,0 +1,38 @@
+{% render 'section-style', s: section.settings, id: section.id %}
+<section class="section wolf-sec flex-sec" aria-label="{{ section.settings.label | escape }}">
+  <div class="page-width flex-root" style="--gap: {{ section.settings.gap }}px; text-align: {{ section.settings.text_align }}">
+    {% content_for 'blocks' %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Flexibel sektion",
+  "tag": "div",
+  "settings": [
+    {"type": "paragraph", "content": "Bygg fritt med block: rubrik, text, bild, knapp, mellanrum, linje och grupper. Använd en Grupp med riktningen Rad för att lägga saker bredvid varandra. Dra blocken för att ändra ordning."},
+    {"type": "text", "id": "label", "label": "Beskrivning för skärmläsare", "default": "Innehåll"},
+    {"type": "range", "id": "gap", "label": "Avstånd mellan blocken", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24},
+    {"type": "select", "id": "text_align", "label": "Textjustering", "default": "left", "options": [{"value": "left", "label": "Vänster"}, {"value": "center", "label": "Mitten"}]},
+    {"type": "header", "content": "Layout"},
+    {"type": "select", "id": "spacing_top", "label": "Avstånd ovanför", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "spacing_bottom", "label": "Avstånd under", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "bg", "label": "Bakgrundsfärg", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "ivory", "label": "Varmvit"}, {"value": "bone", "label": "Benvit"}, {"value": "sand", "label": "Sand"}, {"value": "navy", "label": "Mörkblå"}]},
+    {"type": "select", "id": "content_width", "label": "Innehållets bredd", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "narrow", "label": "Smal"}, {"value": "wide", "label": "Bred"}, {"value": "full", "label": "Hela skärmen"}]},
+    {"type": "select", "id": "heading_size", "label": "Rubrikstorlek", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "s", "label": "Liten"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stor"}, {"value": "xl", "label": "Extra stor"}]},
+    {"type": "checkbox", "id": "hide_mobile", "label": "Dölj på mobil", "default": false},
+    {"type": "checkbox", "id": "hide_desktop", "label": "Dölj på dator", "default": false}
+  ],
+  "blocks": [
+    {"type": "@theme"},
+    {"type": "@app"}
+  ],
+  "presets": [
+    {"name": "Bild med text", "blocks": {"row": {"type": "grupp", "settings": {"direction": "row", "gap": 64, "align_v": "center"}, "blocks": {"image": {"type": "bild", "settings": {"width": "50", "ratio": "landscape", "illustration": "hardcase"}}, "content": {"type": "grupp", "settings": {"direction": "col", "gap": 16, "width": "50"}, "blocks": {"eyebrow": {"type": "overrubrik", "settings": {"text": "Överrubrik"}}, "heading": {"type": "rubrik", "settings": {"text": "Rubrik för avsnittet", "size": "l"}}, "text": {"type": "text", "settings": {"text": "<p>Beskriv något här. Byt bild, flytta blocken eller ändra storlek i inställningarna.</p>", "size": "l"}}, "button": {"type": "knapp", "settings": {"label": "Läs mer", "style": "primary"}}}, "block_order": ["eyebrow", "heading", "text", "button"]}}, "block_order": ["image", "content"]}}, "block_order": ["row"]},
+    {"name": "Text och knapp", "blocks": {"eyebrow": {"type": "overrubrik", "settings": {"text": "Överrubrik", "align": "center"}}, "heading": {"type": "rubrik", "settings": {"text": "Rubrik", "size": "l", "align": "center"}}, "text": {"type": "text", "settings": {"text": "<p>Kort text som förklarar vad besökaren ska göra.</p>", "size": "l", "align": "center", "max_width": 60}}, "button": {"type": "knapp", "settings": {"label": "Kontakta oss", "align": "center"}}}, "block_order": ["eyebrow", "heading", "text", "button"], "settings": {"text_align": "center"}},
+    {"name": "Tre kolumner", "blocks": {"heading": {"type": "rubrik", "settings": {"text": "Rubrik", "size": "m"}}, "row": {"type": "grupp", "settings": {"direction": "row", "gap": 32, "align_v": "stretch"}, "blocks": {"col1": {"type": "grupp", "settings": {"direction": "col", "gap": 12}, "blocks": {"img1": {"type": "bild", "settings": {"ratio": "landscape", "illustration": "demo"}}, "h1": {"type": "rubrik", "settings": {"text": "Första", "size": "s", "tag": "h3"}}, "t1": {"type": "text", "settings": {"text": "<p>Kort beskrivning.</p>", "size": "s"}}}, "block_order": ["img1", "h1", "t1"]}, "col2": {"type": "grupp", "settings": {"direction": "col", "gap": 12}, "blocks": {"img2": {"type": "bild", "settings": {"ratio": "landscape", "illustration": "suitcase"}}, "h2": {"type": "rubrik", "settings": {"text": "Andra", "size": "s", "tag": "h3"}}, "t2": {"type": "text", "settings": {"text": "<p>Kort beskrivning.</p>", "size": "s"}}}, "block_order": ["img2", "h2", "t2"]}, "col3": {"type": "grupp", "settings": {"direction": "col", "gap": 12}, "blocks": {"img3": {"type": "bild", "settings": {"ratio": "landscape", "illustration": "toolcase"}}, "h3": {"type": "rubrik", "settings": {"text": "Tredje", "size": "s", "tag": "h3"}}, "t3": {"type": "text", "settings": {"text": "<p>Kort beskrivning.</p>", "size": "s"}}}, "block_order": ["img3", "h3", "t3"]}}, "block_order": ["col1", "col2", "col3"]}}, "block_order": ["heading", "row"]},
+    {"name": "Bild i full bredd", "blocks": {"image": {"type": "bild", "settings": {"ratio": "wide", "illustration": "hardcase"}}}, "block_order": ["image"], "settings": {"content_width": "full"}},
+    {"name": "Tom sektion", "blocks": {}, "block_order": []}
+  ]
+}
+{% endschema %}

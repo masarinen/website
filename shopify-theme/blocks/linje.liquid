@@ -1,0 +1,17 @@
+<div class="blk blk-line"{% if block.settings.width != 'auto' %} data-w style="--w: {{ block.settings.width }}%"{% endif %} {{ block.shopify_attributes }}>
+  <hr class="divider" style="border-top-width: {{ block.settings.thickness }}px;{% if block.settings.color == 'leather' %} border-color: var(--leather);{% endif %}">
+</div>
+
+{% schema %}
+{
+  "name": "Linje",
+  "settings": [
+    {"type": "range", "id": "thickness", "label": "Tjocklek", "min": 1, "max": 4, "step": 1, "unit": "px", "default": 1},
+    {"type": "select", "id": "color", "label": "Färg", "default": "line", "options": [{"value": "line", "label": "Diskret"}, {"value": "leather", "label": "Brun"}]},
+    {"type": "select", "id": "width", "label": "Bredd", "default": "auto", "info": "Används när blocket ligger i en rad eller kolumn.", "options": [{"value": "auto", "label": "Automatisk"}, {"value": "25", "label": "25 %"}, {"value": "33", "label": "33 %"}, {"value": "40", "label": "40 %"}, {"value": "50", "label": "50 %"}, {"value": "60", "label": "60 %"}, {"value": "66", "label": "66 %"}, {"value": "75", "label": "75 %"}, {"value": "100", "label": "100 %"}]}
+  ],
+  "presets": [
+    {"name": "Linje"}
+  ]
+}
+{% endschema %}

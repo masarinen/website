@@ -1,0 +1,57 @@
+{%- liquid
+  assign b = block.settings
+  assign ratio = ''
+  case b.ratio
+    when 'square'
+      assign ratio = '1 / 1'
+    when 'landscape'
+      assign ratio = '4 / 3'
+    when 'wide'
+      assign ratio = '16 / 9'
+    when 'portrait'
+      assign ratio = '3 / 4'
+    when 'tall'
+      assign ratio = '2 / 3'
+  endcase
+  assign media_style = 'width: ' | append: b.image_size | append: '%; border-radius: ' | append: b.radius | append: 'px;'
+  if b.ratio == 'fixed'
+    assign media_style = media_style | append: ' height: ' | append: b.height | append: 'px;'
+  elsif ratio != ''
+    assign media_style = media_style | append: ' aspect-ratio: ' | append: ratio | append: ';'
+  endif
+-%}
+<div class="blk blk-image blk-image--{{ b.align }}"{% if block.settings.width != 'auto' %} data-w style="--w: {{ block.settings.width }}%"{% endif %} {{ block.shopify_attributes }}>
+  {%- if b.link != blank -%}<a href="{{ b.link }}" class="blk-image__link">{%- endif -%}
+  <div class="blk-image__media{% if b.ratio == 'auto' %} blk-image__media--auto{% endif %}" style="{{ media_style }}">
+    {%- if b.image != blank -%}
+      {%- assign img_style = 'object-fit: ' | append: b.fit -%}
+      {{ b.image | image_url: width: 2000 | image_tag: loading: 'lazy', widths: '400, 700, 1000, 1400, 2000', sizes: '(min-width: 1024px) 60vw, 100vw', style: img_style }}
+    {%- elsif b.illustration != 'none' -%}
+      <div class="blk-image__placeholder">{% render 'illustration', name: b.illustration %}</div>
+    {%- endif -%}
+  </div>
+  {%- if b.link != blank -%}</a>{%- endif -%}
+  {%- if b.caption != blank -%}<p class="blk-image__caption small muted">{{ b.caption }}</p>{%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Bild",
+  "settings": [
+    {"type": "image_picker", "id": "image", "label": "Bild", "info": "Fyll i bildens alternativtext i Filer, så att den kan läsas upp för synskadade."},
+    {"type": "select", "id": "illustration", "label": "Illustration (om ingen bild valts)", "options": [{"value": "hardcase", "label": "Hård väska med inredning"}, {"value": "demo", "label": "Demoväska"}, {"value": "suitcase", "label": "Resväska"}, {"value": "wine", "label": "Vinresväska"}, {"value": "toolcase", "label": "Serviceväska"}, {"value": "winder", "label": "Watch winder"}, {"value": "jewelry", "label": "Smyckeskrin"}, {"value": "briefcase", "label": "Portfölj"}, {"value": "trolley", "label": "Shoppingvagn"}, {"value": "none", "label": "Ingen"}], "default": "suitcase"},
+    {"type": "range", "id": "image_size", "label": "Bildens storlek", "min": 10, "max": 100, "step": 5, "unit": "%", "default": 100},
+    {"type": "select", "id": "ratio", "label": "Bildformat", "default": "auto", "options": [{"value": "auto", "label": "Originalformat"}, {"value": "square", "label": "Kvadrat (1:1)"}, {"value": "landscape", "label": "Liggande (4:3)"}, {"value": "wide", "label": "Bred (16:9)"}, {"value": "portrait", "label": "Stående (3:4)"}, {"value": "tall", "label": "Hög (2:3)"}, {"value": "fixed", "label": "Fast höjd (välj nedan)"}]},
+    {"type": "range", "id": "height", "label": "Fast höjd", "min": 100, "max": 1000, "step": 20, "unit": "px", "default": 400},
+    {"type": "select", "id": "fit", "label": "Anpassning", "default": "cover", "options": [{"value": "cover", "label": "Fyll ytan (beskärs)"}, {"value": "contain", "label": "Visa hela bilden"}]},
+    {"type": "range", "id": "radius", "label": "Rundade hörn", "min": 0, "max": 40, "step": 2, "unit": "px", "default": 0},
+    {"type": "select", "id": "align", "label": "Justering", "default": "left", "options": [{"value": "left", "label": "Vänster"}, {"value": "center", "label": "Mitten"}, {"value": "right", "label": "Höger"}]},
+    {"type": "text", "id": "caption", "label": "Bildtext (valfri)"},
+    {"type": "url", "id": "link", "label": "Länk (valfri)"},
+    {"type": "select", "id": "width", "label": "Bredd", "default": "auto", "info": "Används när blocket ligger i en rad eller kolumn.", "options": [{"value": "auto", "label": "Automatisk"}, {"value": "25", "label": "25 %"}, {"value": "33", "label": "33 %"}, {"value": "40", "label": "40 %"}, {"value": "50", "label": "50 %"}, {"value": "60", "label": "60 %"}, {"value": "66", "label": "66 %"}, {"value": "75", "label": "75 %"}, {"value": "100", "label": "100 %"}]}
+  ],
+  "presets": [
+    {"name": "Bild"}
+  ]
+}
+{% endschema %}

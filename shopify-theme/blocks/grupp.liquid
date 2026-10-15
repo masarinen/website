@@ -1,0 +1,43 @@
+{%- liquid
+  assign b = block.settings
+  assign style = '--gap: ' | append: b.gap | append: 'px;'
+  if b.padding > 0
+    assign style = style | append: ' padding: ' | append: b.padding | append: 'px;'
+  endif
+  if b.width != 'auto'
+    assign style = style | append: ' --w: ' | append: b.width | append: '%;'
+  endif
+  if b.min_height > 0
+    assign style = style | append: ' min-height: ' | append: b.min_height | append: 'px;'
+  endif
+-%}
+<div class="blk grp grp--{{ b.direction }} grp--h-{{ b.align_h }} grp--v-{{ b.align_v }} grp--bg-{{ b.background }}{% if b.keep_row %} grp--keep{% endif %}"
+  {%- if b.width != 'auto' %} data-w{% endif %} style="{{ style }}" {{ block.shopify_attributes }}>
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Grupp (rad/kolumn)",
+  "settings": [
+    {"type": "paragraph", "content": "Lägg block i gruppen. Välj Rad för att placera dem bredvid varandra."},
+    {"type": "select", "id": "direction", "label": "Riktning", "default": "col", "options": [{"value": "col", "label": "Kolumn (under varandra)"}, {"value": "row", "label": "Rad (bredvid varandra)"}]},
+    {"type": "range", "id": "gap", "label": "Avstånd mellan blocken", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24},
+    {"type": "select", "id": "align_h", "label": "Vågrät justering", "default": "start", "options": [{"value": "start", "label": "Vänster"}, {"value": "center", "label": "Mitten"}, {"value": "end", "label": "Höger"}, {"value": "between", "label": "Jämnt fördelat"}]},
+    {"type": "select", "id": "align_v", "label": "Lodrät justering", "default": "start", "options": [{"value": "start", "label": "Överst"}, {"value": "center", "label": "Mitten"}, {"value": "end", "label": "Nederst"}, {"value": "stretch", "label": "Lika höga"}]},
+    {"type": "select", "id": "width", "label": "Bredd", "default": "auto", "info": "Används när blocket ligger i en rad eller kolumn.", "options": [{"value": "auto", "label": "Automatisk"}, {"value": "25", "label": "25 %"}, {"value": "33", "label": "33 %"}, {"value": "40", "label": "40 %"}, {"value": "50", "label": "50 %"}, {"value": "60", "label": "60 %"}, {"value": "66", "label": "66 %"}, {"value": "75", "label": "75 %"}, {"value": "100", "label": "100 %"}]},
+    {"type": "range", "id": "min_height", "label": "Minsta höjd", "min": 0, "max": 900, "step": 20, "unit": "px", "default": 0},
+    {"type": "select", "id": "background", "label": "Bakgrund", "default": "none", "options": [{"value": "none", "label": "Ingen"}, {"value": "bone", "label": "Benvit"}, {"value": "sand", "label": "Sand"}, {"value": "navy", "label": "Mörkblå"}]},
+    {"type": "range", "id": "padding", "label": "Inre marginal", "min": 0, "max": 96, "step": 4, "unit": "px", "default": 0},
+    {"type": "checkbox", "id": "keep_row", "label": "Behåll rad på mobil", "default": false, "info": "Annars läggs blocken under varandra på mobil."}
+  ],
+  "blocks": [
+    {"type": "@theme"},
+    {"type": "@app"}
+  ],
+  "presets": [
+    {"name": "Grupp – kolumn", "settings": {"direction": "col"}},
+    {"name": "Grupp – rad", "settings": {"direction": "row", "align_v": "center"}}
+  ]
+}
+{% endschema %}

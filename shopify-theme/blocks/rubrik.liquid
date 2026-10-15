@@ -1,0 +1,27 @@
+<div class="blk blk-heading"{% if block.settings.width != 'auto' %} data-w style="--w: {{ block.settings.width }}%"{% endif %} {{ block.shopify_attributes }}>
+  {%- liquid
+    assign tag = block.settings.tag
+  -%}
+  <{{ tag }} class="hd hd--{{ block.settings.size }} txt-{{ block.settings.align }} col-{{ block.settings.color }}">
+    {{- block.settings.text -}}
+    {%- if block.settings.accent != blank %} <em>{{ block.settings.accent }}</em>{% endif -%}
+  </{{ tag }}>
+</div>
+
+{% schema %}
+{
+  "name": "Rubrik",
+  "settings": [
+    {"type": "text", "id": "text", "label": "Rubrik", "default": "Rubrik"},
+    {"type": "text", "id": "accent", "label": "Kursiv fortsättning (brun)"},
+    {"type": "select", "id": "size", "label": "Storlek", "default": "m", "options": [{"value": "s", "label": "Liten"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stor"}, {"value": "xl", "label": "Extra stor"}]},
+    {"type": "select", "id": "tag", "label": "Rubriknivå (för sökmotorer)", "default": "h2", "options": [{"value": "h1", "label": "H1 – sidans huvudrubrik"}, {"value": "h2", "label": "H2"}, {"value": "h3", "label": "H3"}, {"value": "p", "label": "Ingen rubrik"}]},
+    {"type": "select", "id": "align", "label": "Justering", "default": "left", "options": [{"value": "left", "label": "Vänster"}, {"value": "center", "label": "Mitten"}, {"value": "right", "label": "Höger"}]},
+    {"type": "select", "id": "color", "label": "Färg", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "leather", "label": "Brun"}, {"value": "muted", "label": "Grå"}, {"value": "ivory", "label": "Vit (för mörk bakgrund)"}]},
+    {"type": "select", "id": "width", "label": "Bredd", "default": "auto", "info": "Används när blocket ligger i en rad eller kolumn.", "options": [{"value": "auto", "label": "Automatisk"}, {"value": "25", "label": "25 %"}, {"value": "33", "label": "33 %"}, {"value": "40", "label": "40 %"}, {"value": "50", "label": "50 %"}, {"value": "60", "label": "60 %"}, {"value": "66", "label": "66 %"}, {"value": "75", "label": "75 %"}, {"value": "100", "label": "100 %"}]}
+  ],
+  "presets": [
+    {"name": "Rubrik"}
+  ]
+}
+{% endschema %}

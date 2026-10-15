@@ -7,7 +7,8 @@
   assign phone_link = settings.phone_link | default: '+4687360855'
   assign email = settings.email | default: 'robert@wolf.se'
 -%}
-<section class="section--tight" aria-label="Kontaktuppgifter och formulär">
+{% render 'section-style', s: section.settings, id: section.id %}
+<section class="section--tight wolf-sec" aria-label="Kontaktuppgifter och formulär">
   <div class="page-width grid-12">
     <div class="col-4" data-reveal>
       <h2 class="h3" style="font-size: 2rem">{{ section.settings.details_heading }}</h2>
@@ -123,13 +124,23 @@
   "name": "Kontaktformulär",
   "tag": "div",
   "settings": [
-    { "type": "paragraph", "content": "Meddelanden skickas till butikens e-postadress (Inställningar → Butiksinformation). Kontaktuppgifterna hämtas från Temainställningar → Företagsuppgifter." },
-    { "type": "text", "id": "details_heading", "label": "Rubrik, kontaktuppgifter", "default": "Kontaktuppgifter" },
-    { "type": "richtext", "id": "details_text", "label": "Text under kontaktuppgifterna", "default": "<p>Söker ni en resväska eller annan produkt ur sortimentet? Besök <a href=\"/collections/all\" title=\"Webbutik\">webbutiken</a>. Alla produkter kan levereras till adresser i hela Norden.</p>" },
-    { "type": "text", "id": "form_heading", "label": "Rubrik, formulär", "default": "Skicka ett meddelande" },
-    { "type": "text", "id": "form_text", "label": "Text, formulär", "default": "Vi besvarar förfrågningar via e-post eller telefon." },
-    { "type": "textarea", "id": "subjects", "label": "Ämnen (ett per rad)", "default": "Specialbeställning\nFråga om sortimentet\nReparation\nÖvrigt" }
+    {"type": "paragraph", "content": "Meddelanden skickas till butikens e-postadress (Inställningar → Butiksinformation). Kontaktuppgifterna hämtas från Temainställningar → Företagsuppgifter."},
+    {"type": "text", "id": "details_heading", "label": "Rubrik, kontaktuppgifter", "default": "Kontaktuppgifter"},
+    {"type": "richtext", "id": "details_text", "label": "Text under kontaktuppgifterna", "default": "<p>Söker ni en resväska eller annan produkt ur sortimentet? Besök <a href=\"/collections/all\" title=\"Webbutik\">webbutiken</a>. Alla produkter kan levereras till adresser i hela Norden.</p>"},
+    {"type": "text", "id": "form_heading", "label": "Rubrik, formulär", "default": "Skicka ett meddelande"},
+    {"type": "text", "id": "form_text", "label": "Text, formulär", "default": "Vi besvarar förfrågningar via e-post eller telefon."},
+    {"type": "textarea", "id": "subjects", "label": "Ämnen (ett per rad)", "default": "Specialbeställning\nFråga om sortimentet\nReparation\nÖvrigt"},
+    {"type": "header", "content": "Layout"},
+    {"type": "select", "id": "spacing_top", "label": "Avstånd ovanför", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "spacing_bottom", "label": "Avstånd under", "options": [{"value": "default", "label": "Standard"}, {"value": "none", "label": "Inget"}, {"value": "s", "label": "Litet"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stort"}, {"value": "xl", "label": "Extra stort"}], "default": "default"},
+    {"type": "select", "id": "bg", "label": "Bakgrundsfärg", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "ivory", "label": "Varmvit"}, {"value": "bone", "label": "Benvit"}, {"value": "sand", "label": "Sand"}, {"value": "navy", "label": "Mörkblå"}]},
+    {"type": "select", "id": "content_width", "label": "Innehållets bredd", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "narrow", "label": "Smal"}, {"value": "wide", "label": "Bred"}, {"value": "full", "label": "Hela skärmen"}]},
+    {"type": "select", "id": "heading_size", "label": "Rubrikstorlek", "default": "default", "options": [{"value": "default", "label": "Standard"}, {"value": "s", "label": "Liten"}, {"value": "m", "label": "Mellan"}, {"value": "l", "label": "Stor"}, {"value": "xl", "label": "Extra stor"}]},
+    {"type": "checkbox", "id": "hide_mobile", "label": "Dölj på mobil", "default": false},
+    {"type": "checkbox", "id": "hide_desktop", "label": "Dölj på dator", "default": false}
   ],
-  "presets": [{ "name": "Kontaktformulär" }]
+  "presets": [
+    {"name": "Kontaktformulär"}
+  ]
 }
 {% endschema %}
