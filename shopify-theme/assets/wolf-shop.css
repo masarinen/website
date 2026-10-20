@@ -1,0 +1,107 @@
+/* =================================================================
+   Wolf – rullgardinsmeny och produktgruppssidor (kollektioner)
+   ================================================================= */
+
+/* ---------- Rullgardinsmeny (dator) ---------- */
+.nav-dd { position: relative; }
+.nav-dd__toggle { display: inline-flex; align-items: center; gap: .3rem; background: none; border: 0; padding: .5rem 0; cursor: pointer; font: inherit; font-size: .875rem; }
+.nav-dd__toggle.is-active { color: var(--navy); }
+.nav-dd__chev { width: .9rem; height: .9rem; transition: transform .25s var(--ease); }
+.nav-dd.is-open .nav-dd__chev { transform: rotate(180deg); }
+.nav-dd__panel {
+  position: absolute; top: calc(100% + 1.1rem); left: 50%; z-index: 60; min-width: 16rem;
+  display: none; padding: 1.5rem 1.75rem; background: var(--ivory); border: 1px solid var(--line);
+  box-shadow: 0 18px 40px -24px rgba(23, 34, 47, .35); transform: translateX(-50%);
+}
+/* Osynlig brygga så att menyn inte stängs när muspekaren rör sig ner mot panelen */
+.nav-dd__panel::before { content: ""; position: absolute; left: 0; right: 0; top: -1.2rem; height: 1.2rem; }
+.nav-dd.is-open .nav-dd__panel,
+html.no-js .nav-dd:focus-within .nav-dd__panel { display: block; animation: nav-dd-in .2s var(--ease); }
+@keyframes nav-dd-in { from { opacity: 0; transform: translate(-50%, -6px); } to { opacity: 1; transform: translateX(-50%); } }
+.nav-dd__list { display: grid; gap: .25rem; }
+.nav-dd__list--cols { grid-template-columns: repeat(2, minmax(11rem, 1fr)); column-gap: 2rem; }
+.nav-dd__link { display: block; padding: .4rem 0; font-family: var(--serif); font-size: 1.3rem; line-height: 1.2; color: var(--navy); transition: color .2s; }
+.nav-dd__link:hover, .nav-dd__link[aria-current="page"] { color: var(--leather); }
+.nav-dd__sub { margin: .1rem 0 .5rem; }
+.nav-dd__sub a { display: block; padding: .2rem 0; font-size: .875rem; color: var(--muted); }
+.nav-dd__sub a:hover { color: var(--navy); }
+.nav-dd__all { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line); width: 100%; font-size: .8125rem; }
+
+/* ---------- Rullgardinsmeny (mobil) ---------- */
+.nav-mobile__toggle {
+  display: flex; width: 100%; align-items: center; justify-content: space-between; padding: 1rem 0;
+  background: none; border: 0; cursor: pointer; font-family: var(--serif); font-size: 1.75rem; color: var(--navy); text-align: left;
+}
+.nav-mobile__toggle svg { width: 1.25rem; height: 1.25rem; transition: transform .25s var(--ease); }
+.nav-mobile__toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+.nav-mobile .nav-mobile__sub { border: 0; padding: 0 0 1rem 1rem; }
+.nav-mobile .nav-mobile__sub li + li { border: 0; }
+.nav-mobile .nav-mobile__sub a { padding: .45rem 0; font-family: var(--sans); font-size: 1.0625rem; color: var(--muted); }
+.nav-mobile .nav-mobile__sub a[aria-current="page"] { color: var(--leather); }
+
+/* ---------- Produktgruppssida ---------- */
+.coll__crumbs { display: flex; flex-wrap: wrap; gap: .5rem; }
+.coll__head { display: grid; gap: 2.5rem; margin-top: 2rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); }
+@media (min-width: 1024px) {
+  .coll__head--image { grid-template-columns: 1.2fr 1fr; align-items: center; gap: 4rem; }
+}
+.coll__title { font-size: clamp(2.75rem, 6vw, 4.75rem); }
+.coll__desc { position: relative; max-width: 44rem; max-height: 9.5em; overflow: hidden; }
+.coll__desc.is-open { max-height: none; }
+.coll__desc:not(.is-open)::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3em; background: linear-gradient(to bottom, rgba(248, 245, 239, 0), var(--ivory)); }
+html.no-js .coll__desc { max-height: none; }
+html.no-js .coll__desc::after { display: none; }
+.coll__more { margin-top: .75rem; padding: 0; background: none; border: 0; cursor: pointer; font-size: .9375rem; font-weight: 500; color: var(--navy); text-decoration: underline; text-underline-offset: 4px; }
+.coll__image { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--bone); }
+.coll__image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.coll__chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+.chip {
+  display: inline-flex; align-items: center; gap: .4rem; min-height: 2.5rem; padding: .45rem 1.1rem;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--ivory);
+  font-size: .875rem; color: var(--ink); transition: border-color .2s, background-color .2s, color .2s;
+}
+.chip:hover { border-color: var(--navy); }
+.chip.is-active { background: var(--navy); border-color: var(--navy); color: var(--ivory); }
+
+.coll__toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2rem; padding-block: 1rem; border-block: 1px solid var(--line); }
+.coll__controls { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
+.coll__btn {
+  display: inline-flex; align-items: center; gap: .5rem; min-height: 2.75rem; padding: .5rem 1.25rem;
+  border: 1px solid var(--navy); border-radius: 999px; cursor: pointer; list-style: none; font-size: .875rem; font-weight: 500; color: var(--navy);
+}
+.coll__btn::-webkit-details-marker { display: none; }
+.coll__btn:hover { background: var(--navy); color: var(--ivory); }
+.coll__badge { display: inline-flex; min-width: 1.35rem; height: 1.35rem; align-items: center; justify-content: center; border-radius: 999px; background: var(--leather); color: var(--ivory); font-size: .75rem; }
+.coll__filters { position: relative; }
+.coll__panel {
+  position: absolute; top: calc(100% + .75rem); right: 0; z-index: 20; width: min(26rem, calc(100vw - 2.5rem));
+  max-height: 70vh; overflow: auto; padding: 1.5rem; background: var(--ivory); border: 1px solid var(--line);
+  box-shadow: 0 18px 40px -24px rgba(23, 34, 47, .35);
+}
+@media (max-width: 639px) { .coll__panel { position: static; width: 100%; margin-top: .75rem; box-shadow: none; } .coll__filters { width: 100%; } }
+.coll__group { margin: 0; padding: 0 0 1.25rem; border: 0; }
+.coll__group + .coll__group { padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.coll__group legend { float: left; width: 100%; margin-bottom: .75rem; padding: 0; font-size: .75rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--navy); }
+.coll__group > :not(legend) { clear: both; }
+.coll__check { display: flex; align-items: center; gap: .6rem; padding: .3rem 0; font-size: .9375rem; cursor: pointer; }
+.coll__check input { width: 1.05rem; height: 1.05rem; accent-color: var(--navy); }
+.coll__check.is-disabled { opacity: .45; cursor: not-allowed; }
+.coll__price { display: flex; align-items: center; gap: .6rem; }
+.coll__price input { width: 6.5rem; padding: .6rem .75rem; border: 1px solid var(--line); background: var(--ivory); }
+.coll__panel-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: .5rem; }
+.coll__sort { display: inline-flex; align-items: center; gap: .6rem; }
+.coll__sort select {
+  min-height: 2.75rem; padding: .5rem 2.5rem .5rem 1rem; border: 1px solid var(--line); border-radius: 999px; appearance: none; cursor: pointer;
+  background: var(--ivory) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317222f' stroke-width='1.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right .9rem center / 1rem;
+  font-size: .875rem; color: var(--navy);
+}
+.coll__active { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+
+/* Produktrutnät: 2 kolumner på mobil, 3 på surfplatta, 3–4 på dator */
+@media (min-width: 1200px) { .products--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Huvudmenyns regel för ul får inte påverka rullgardinens listor */
+.nav-desktop .nav-dd__list { display: grid; gap: .25rem; align-items: start; }
+.nav-desktop .nav-dd__list--cols { grid-template-columns: repeat(2, minmax(11rem, 1fr)); column-gap: 2rem; }
+.nav-desktop .nav-dd__sub { display: block; }

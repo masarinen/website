@@ -8,6 +8,7 @@
     endunless
   endif
 -%}
+{{ 'wolf-shop.css' | asset_url | stylesheet_tag }}
 <header class="site-header" data-header>
   <div class="page-width site-header__inner">
     {% render 'logo' %}
@@ -15,9 +16,43 @@
     <nav class="nav-desktop" aria-label="Huvudmeny">
       <ul>
         {%- for link in menu.links -%}
-          <li>
-            <a href="{{ link.url }}" class="nav-link"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
-          </li>
+          {%- if link.links.size > 0 -%}
+            {%- liquid
+              assign dd_active = false
+              if link.active or link.child_active
+                assign dd_active = true
+              endif
+            -%}
+            <li class="nav-dd" data-dropdown>
+              <button type="button" class="nav-link nav-dd__toggle{% if dd_active %} is-active{% endif %}" aria-expanded="false" aria-controls="NavDd-{{ forloop.index }}">
+                {{ link.title }}
+                <svg class="nav-dd__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <div id="NavDd-{{ forloop.index }}" class="nav-dd__panel">
+                <ul class="nav-dd__list{% if link.links.size > 6 %} nav-dd__list--cols{% endif %}">
+                  {%- for child in link.links -%}
+                    <li>
+                      <a href="{{ child.url }}" class="nav-dd__link"{% if child.current %} aria-current="page"{% endif %}>{{ child.title }}</a>
+                      {%- if child.links.size > 0 -%}
+                        <ul class="nav-dd__sub">
+                          {%- for grandchild in child.links -%}
+                            <li><a href="{{ grandchild.url }}"{% if grandchild.current %} aria-current="page"{% endif %}>{{ grandchild.title }}</a></li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+                {%- if link.url != blank and link.url != '#' -%}
+                  <a class="arrow-link nav-dd__all" href="{{ link.url }}"><span class="link-underline">Visa alla {{ link.title | downcase }}</span>{% render 'icon', name: 'arrow' %}</a>
+                {%- endif -%}
+              </div>
+            </li>
+          {%- else -%}
+            <li>
+              <a href="{{ link.url }}" class="nav-link"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+            </li>
+          {%- endif -%}
         {%- endfor -%}
         {%- if settings.shop_label != blank -%}
           <li>
@@ -53,7 +88,24 @@
     <nav class="page-width nav-mobile__inner" aria-label="Mobilmeny">
       <ul>
         {%- for link in menu.links -%}
-          <li><a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+          {%- if link.links.size > 0 -%}
+            <li class="nav-mobile__group">
+              <button type="button" class="nav-mobile__toggle" aria-expanded="false" aria-controls="MobDd-{{ forloop.index }}">
+                {{ link.title }}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+              <ul id="MobDd-{{ forloop.index }}" class="nav-mobile__sub" hidden>
+                {%- for child in link.links -%}
+                  <li><a href="{{ child.url }}"{% if child.current %} aria-current="page"{% endif %}>{{ child.title }}</a></li>
+                {%- endfor -%}
+                {%- if link.url != blank and link.url != '#' -%}
+                  <li><a href="{{ link.url }}">Visa alla</a></li>
+                {%- endif -%}
+              </ul>
+            </li>
+          {%- else -%}
+            <li><a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+          {%- endif -%}
         {%- endfor -%}
         {%- if settings.show_cart -%}
           <li><a href="{{ routes.cart_url }}">Varukorg{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a></li>
@@ -69,12 +121,50 @@
   </div>
 </header>
 
+<script>
+  /* Rullgardinsmenyer: klick, hovring, Escape och klick utanför stänger. */
+  (function () {
+    var items = document.querySelectorAll('[data-dropdown]');
+    var hover = window.matchMedia('(hover: hover) and (min-width: 1024px)');
+    function setOpen(item, open) {
+      item.classList.toggle('is-open', open);
+      item.querySelector('.nav-dd__toggle').setAttribute('aria-expanded', String(open));
+      if (open) void item.querySelector('.nav-dd__panel').offsetHeight; /* gör länkarna fokuserbara direkt */
+    }
+    items.forEach(function (item) {
+      var toggle = item.querySelector('.nav-dd__toggle');
+      var timer;
+      toggle.addEventListener('click', function () {
+        var open = !item.classList.contains('is-open');
+        items.forEach(function (other) { if (other !== item) setOpen(other, false); });
+        setOpen(item, open);
+      });
+      item.addEventListener('mouseenter', function () { if (hover.matches) { clearTimeout(timer); setOpen(item, true); } });
+      item.addEventListener('mouseleave', function () { if (hover.matches) { timer = setTimeout(function () { setOpen(item, false); }, 150); } });
+      item.addEventListener('focusout', function (e) { if (!item.contains(e.relatedTarget)) setOpen(item, false); });
+      item.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && item.classList.contains('is-open')) { setOpen(item, false); toggle.focus(); }
+      });
+    });
+    document.addEventListener('click', function (e) {
+      items.forEach(function (item) { if (!item.contains(e.target)) setOpen(item, false); });
+    });
+    document.querySelectorAll('.nav-mobile__toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var open = btn.getAttribute('aria-expanded') !== 'true';
+        btn.setAttribute('aria-expanded', String(open));
+        document.getElementById(btn.getAttribute('aria-controls')).hidden = !open;
+      });
+    });
+  })();
+</script>
+
 {% schema %}
 {
   "name": "Sidhuvud",
   "class": "section-header",
   "settings": [
-    { "type": "link_list", "id": "menu", "label": "Meny", "default": "main-menu", "info": "Skapa menyn under Innehåll → Menyer. Rekommenderad ordning: Startsida, Specialtillverkade väskor, Sortiment, Om oss, Kontakt." },
+    { "type": "link_list", "id": "menu", "label": "Meny", "default": "main-menu", "info": "Skapa menyn under Innehåll → Menyer. Lägg menyalternativ under ett annat (t.ex. Vinväskor under Produkter) för att få en rullgardinsmeny." },
     { "type": "paragraph", "content": "Knappen ”Webbutik”, telefon och logotyp ändras under Temainställningar." }
   ]
 }

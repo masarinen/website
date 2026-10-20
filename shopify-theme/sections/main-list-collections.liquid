@@ -1,9 +1,12 @@
-<section class="section--tight">
+{% render 'section-style', s: section.settings, id: section.id %}
+<section class="section--tight wolf-sec" aria-labelledby="ListTitle-{{ section.id }}">
   <div class="page-width">
-    <p class="eyebrow">Webbutik</p>
-    <h1 class="mt-2">Kategorier</h1>
-    <ul class="cards">
+    {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    <h1 id="ListTitle-{{ section.id }}" class="mt-2">{{ section.settings.heading }}</h1>
+    {%- if section.settings.text != blank -%}<div class="lede rte mt-3 max-2xl">{{ section.settings.text }}</div>{%- endif -%}
+    <ul class="cards" style="--cols: {{ section.settings.columns }}">
       {%- for collection in collections -%}
+        {%- if collection.handle == 'frontpage' or collection.products_count == 0 and section.settings.hide_empty -%}{%- continue -%}{%- endif -%}
         <li class="card">
           <div class="card__media">
             {%- if collection.featured_image -%}
@@ -11,8 +14,12 @@
             {%- else -%}{% render 'illustration', name: 'suitcase' %}{%- endif -%}
           </div>
           <div class="card__body">
-            <h2 class="card__title h3"><a href="{{ collection.url }}">{{ collection.title }}</a></h2>
-            <p class="card__text">{{ collection.products_count }} produkter</p>
+            <div class="card__top">
+              <h2 class="card__title h3"><a href="{{ collection.url }}">{{ collection.title }}</a></h2>
+              <span class="card__tag">{{ collection.products_count }} st</span>
+            </div>
+            {%- if collection.description != blank -%}<p class="card__text">{{ collection.description | strip_html | truncatewords: 22 }}</p>{%- endif -%}
+            <span class="card__more" aria-hidden="true"><span class="link-underline">Se produkterna</span><span>→</span></span>
           </div>
         </li>
       {%- endfor -%}
@@ -21,5 +28,17 @@
 </section>
 
 {% schema %}
-{ "name": "Alla kollektioner", "tag": "div", "settings": [] }
+{
+  "name": "Alla kollektioner",
+  "tag": "div",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Överrubrik", "default": "Webbutik" },
+    { "type": "text", "id": "heading", "label": "Rubrik", "default": "Produkter" },
+    { "type": "richtext", "id": "text", "label": "Ingress", "default": "<p>Välj en kategori eller ett märke för att se produkterna.</p>" },
+    { "type": "select", "id": "columns", "label": "Kolumner (dator)", "default": "3", "options": [
+      { "value": "2", "label": "2" }, { "value": "3", "label": "3" }, { "value": "4", "label": "4" }
+    ] },
+    { "type": "checkbox", "id": "hide_empty", "label": "Dölj tomma kollektioner", "default": true }
+  ]
+}
 {% endschema %}

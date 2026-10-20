@@ -79,6 +79,24 @@ använda en Grupp med riktningen Rad och ge blocken en bredd (t.ex. 50 %).
 **Hero (startsida)** har dessutom: visa/dölj bildrutan, bild till vänster/höger,
 textens andel av bredden, bildens minsta höjd och om bilden ska fylla rutan.
 
+## Produktsidor och menyn "Produkter"
+
+**Egen sida per produktgrupp.** Varje kollektion i Shopify får automatiskt en
+egen sida i Wolf-stil: brödsmula, rubrik, presentationstext (med "Läs mer"),
+bild, snabbval, filter, sortering och produktrutnät.
+
+1. Produkter → Kollektioner → Skapa kollektion, t.ex. *Wolf1834*, *Vinväskor*,
+   *Watch winders*. Använd gärna "Automatiserad" med villkor som
+   *Leverantör är lika med Wolf1834* eller *Produkttyp är lika med Watch winder*.
+2. Skriv en presentation i beskrivningsfältet och ladda upp en bild.
+3. Filter och snabbval: installera Shopifys gratisapp **Search & Discovery** och
+   aktivera filter för Produkttyp, Pris (och t.ex. Färg).
+
+**Rullgardinsmenyn.** Innehåll → Menyer → Huvudmeny: lägg till *Produkter*
+(länk: Kollektioner → Alla kollektioner) och dra sedan in kollektionerna
+*under* Produkter (dra dem lite åt höger). Då blir det en rullgardinsmeny på
+dator och en utfällbar lista i mobilmenyn.
+
 ## 6. Kontaktformuläret
 
 Fungerar direkt. Meddelanden skickas till butikens e-postadress
