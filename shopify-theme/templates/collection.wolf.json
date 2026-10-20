@@ -1,0 +1,137 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "eyebrow": "Märke",
+        "parent_label": "Produkter",
+        "show_description": true,
+        "show_image": true,
+        "quick_filter": "filter.p.product_type",
+        "show_filters": true,
+        "show_sort": true,
+        "per_page": 24,
+        "columns": "4"
+      }
+    },
+    "about": {
+      "type": "wolf-flex",
+      "settings": {
+        "label": "Om WOLF",
+        "gap": 24,
+        "bg": "bone"
+      },
+      "blocks": {
+        "about": {
+          "type": "grupp",
+          "settings": {
+            "direction": "row",
+            "gap": 64,
+            "align_v": "center"
+          },
+          "blocks": {
+            "img": {
+              "type": "bild",
+              "settings": {
+                "width": "50",
+                "ratio": "landscape",
+                "illustration": "winder"
+              }
+            },
+            "content": {
+              "type": "grupp",
+              "settings": {
+                "direction": "col",
+                "gap": 16,
+                "width": "50"
+              },
+              "blocks": {
+                "eyebrow": {
+                  "type": "overrubrik",
+                  "settings": {
+                    "text": "Om märket"
+                  }
+                },
+                "heading": {
+                  "type": "rubrik",
+                  "settings": {
+                    "text": "WOLF",
+                    "accent": "sedan 1834",
+                    "size": "l"
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "settings": {
+                    "size": "l",
+                    "text": "<p>WOLF har sina rötter i samma familjetradition som vi – etuier och skrin som började med silversmeden Philip Wolf i Hanau. Under namnet WOLF tillverkas i dag etuier för klockor och smycken samt klockuppdragare (watch winders) för automatiska armbandsur.</p><p>Hos oss hittar du ett urval av WOLFs smyckeskrin och watch winders. Söker du en modell som inte finns i webbutiken är du välkommen att kontakta oss.</p>"
+                  }
+                },
+                "buttons": {
+                  "type": "grupp",
+                  "settings": {
+                    "direction": "row",
+                    "gap": 16,
+                    "keep_row": true
+                  },
+                  "blocks": {
+                    "b1": {
+                      "type": "knapp",
+                      "settings": {
+                        "label": "Läs om familjen Wolf",
+                        "link": "/pages/om-oss",
+                        "style": "secondary"
+                      }
+                    },
+                    "b2": {
+                      "type": "knapp",
+                      "settings": {
+                        "label": "Kontakta oss",
+                        "link": "/pages/kontakt",
+                        "style": "link"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "b1",
+                    "b2"
+                  ]
+                }
+              },
+              "block_order": [
+                "eyebrow",
+                "heading",
+                "text",
+                "buttons"
+              ]
+            }
+          },
+          "block_order": [
+            "img",
+            "content"
+          ]
+        }
+      },
+      "block_order": [
+        "about"
+      ]
+    },
+    "cta": {
+      "type": "wolf-contact-cta",
+      "settings": {
+        "heading": "Frågor om en WOLF-produkt?",
+        "text": "Vi hjälper dig gärna att hitta rätt watch winder eller smyckeskrin – eller beställa en modell som inte finns i webbutiken.",
+        "button_label": "Kontakta oss",
+        "button_link": "/pages/kontakt",
+        "eyebrow": "Rådgivning",
+        "show_contact": true,
+        "show_art": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about",
+    "cta"
+  ]
+}

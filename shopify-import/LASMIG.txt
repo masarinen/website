@@ -1,0 +1,22 @@
+IMPORTMALL FÖR WOLF-PRODUKTER
+
+1. Öppna wolf-produkter-mall.csv i Excel, Numbers eller Google Kalkylark.
+2. En rad per produkt. Kopiera en exempelrad och fyll i:
+   - Handle: kort adress utan mellanslag, t.ex. wolf-british-racing-single
+   - Title: produktnamn
+   - Body (HTML): beskrivning (från WOLF eller egen text)
+   - Type: Watch winder, Smyckeskrin, Klocklåda ... (används för snabbvalen)
+   - Variant SKU: WOLFs artikelnummer
+   - Variant Price: pris inkl. moms, t.ex. 3999
+   - Variant Inventory Qty: antal i lager
+   - Image Src: en webbadress till bilden (från WOLFs bildbank). Fler bilder:
+     lägg till en extra rad med samma Handle och bara Image Src + Image Position 2, 3 ...
+   - Image Alt Text: kort beskrivning av bilden
+   - Status: draft (utkast) – byt till active när produkten ska synas
+3. Ta bort exempelraderna och spara som CSV (UTF-8).
+4. Shopify: Produkter → Importera → välj filen.
+5. Produkterna hamnar automatiskt i kollektionen WOLF om den har villkoret
+   "Leverantör är lika med WOLF".
+
+Använd bara bilder och texter ni har rätt att använda, t.ex. material som
+WOLF tillhandahåller till återförsäljare.
