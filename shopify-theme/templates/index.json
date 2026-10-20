@@ -11,12 +11,24 @@
         "button_1_link": "/pages/specialtillverkade-vaskor",
         "button_2_label": "Besök webbutiken",
         "button_2_link": "/collections/all",
-        "image": "shopify://shop_images/leather-duffle-bag-handle.jpg",
+        "show_media": true,
+        "image": "shopify://shop_images/chiarugi-768x489_2.jpg",
+        "media_position": "right",
+        "text_share": 50,
+        "media_height": 480,
+        "image_fit": "cover",
         "illustration": "hardcase",
         "show_frame": false,
         "text_inset": 20,
         "label": "Etuier · Skrin · Väskor",
-        "caption": "I Stockholm\nsedan 1936"
+        "caption": "I Stockholm\nsedan 1936",
+        "spacing_top": "default",
+        "spacing_bottom": "default",
+        "bg": "default",
+        "content_width": "default",
+        "heading_size": "default",
+        "hide_mobile": false,
+        "hide_desktop": false
       }
     },
     "facts": {
@@ -49,7 +61,15 @@
         "b2",
         "b3"
       ],
-      "settings": {}
+      "settings": {
+        "spacing_top": "default",
+        "spacing_bottom": "default",
+        "bg": "default",
+        "content_width": "default",
+        "heading_size": "default",
+        "hide_mobile": false,
+        "hide_desktop": false
+      }
     },
     "paths": {
       "type": "wolf-two-paths",
@@ -57,7 +77,7 @@
         "b1": {
           "type": "path",
           "settings": {
-            "style": "light",
+            "style": "dark",
             "image": "shopify://shop_images/3731f940-10de-44bd-bb9d-9d3a82e46b79.png",
             "illustration": "demo",
             "eyebrow": "För företag och privatpersoner",
@@ -71,13 +91,13 @@
         "b2": {
           "type": "path",
           "settings": {
-            "style": "dark",
-            "image": "shopify://shop_images/SAM_067_06-26_STRAND_02_Featured-Content-Slider_1.webp",
+            "style": "light",
+            "image": "shopify://shop_images/Lyxig_klockuppdragare_i_roseguld.png",
             "illustration": "suitcase",
             "eyebrow": "Webbutik",
             "heading": "Väskor från välkända varumärken",
             "text": "Vinresväskor, serviceväskor, klockuppdragare och smyckeskrin i vår webbutik.",
-            "brands": "Samsonite · Wolf1834 · Parat",
+            "brands": "Wolf1834 · Samsonite · Parat",
             "link_label": "Besök webbutiken",
             "link": "/collections/all"
           }
@@ -91,7 +111,14 @@
         "eyebrow": "Två vägar in",
         "heading": "Vad söker ni?",
         "text": "<p>En väska som är framtagen för just er uppgift – eller en väska från ett välkänt märke. Välj den väg som passar.</p>",
-        "background": "ivory"
+        "background": "ivory",
+        "spacing_top": "default",
+        "spacing_bottom": "default",
+        "bg": "default",
+        "content_width": "default",
+        "heading_size": "default",
+        "hide_mobile": false,
+        "hide_desktop": false
       }
     },
     "history": {
@@ -137,7 +164,14 @@
         "heading": "Hantverk som gått i arv i över 180 år",
         "text": "<p>Familjen Wolf har över 180 års erfarenhet av att tillverka etuier, skrin och väskor. Kunnandet har gått i arv från generation till generation – från en silversmedja i Tyskland till dagens verksamhet i Stockholmsområdet.</p>",
         "link_label": "Läs om familjen Wolf",
-        "link": "/pages/om-oss"
+        "link": "/pages/om-oss",
+        "spacing_top": "default",
+        "spacing_bottom": "default",
+        "bg": "default",
+        "content_width": "default",
+        "heading_size": "default",
+        "hide_mobile": false,
+        "hide_desktop": false
       }
     },
     "categories": {
@@ -206,7 +240,7 @@
             "title": "Watch winders",
             "tag": "Webbutik",
             "text": "Klockuppdragare som håller automatiska armbandsur i gång när de inte bärs.",
-            "brands": "WOLF",
+            "brands": "Wolf1834",
             "image": "shopify://shop_images/WOLF-British-Racing-Single-Watch-Winder-with-Storage-792102-2.avif",
             "illustration": "winder",
             "link": "/collections/wolf",
@@ -220,7 +254,7 @@
             "title": "Smyckeskrin",
             "tag": "Webbutik",
             "text": "Skrin som både presenterar och skyddar smycken – en tradition som går tillbaka till familjens första verkstad.",
-            "brands": "WOLF",
+            "brands": "Wolf1834",
             "image": "shopify://shop_images/wolf-1834-heritage-large-jewelry-box-32356389584977_2048x_1.png",
             "illustration": "jewelry",
             "link": "/collections/wolf",
@@ -242,7 +276,15 @@
         "text": "<p>Ett urval av det vi arbetar med. Specialväskor tas fram efter era behov – övriga kategorier finns i webbutiken.</p>",
         "link_label": "Hela sortimentet",
         "link": "/pages/sortiment",
-        "background": "ivory"
+        "background": "ivory",
+        "columns": "3",
+        "spacing_top": "default",
+        "spacing_bottom": "default",
+        "bg": "default",
+        "content_width": "default",
+        "heading_size": "default",
+        "hide_mobile": false,
+        "hide_desktop": false
       }
     },
     "process": {
@@ -284,7 +326,14 @@
         "note": "Vilka lösningar som är möjliga beror på produkt, specifikation och antal – det går vi igenom tillsammans.",
         "background": "bone",
         "anchor": "sa-gar-det-till",
-        "step_background": "ivory"
+        "step_background": "ivory",
+        "spacing_top": "default",
+        "spacing_bottom": "default",
+        "bg": "default",
+        "content_width": "default",
+        "heading_size": "default",
+        "hide_mobile": false,
+        "hide_desktop": false
       }
     },
     "cta": {
@@ -296,7 +345,14 @@
         "button_label": "Kontakta oss",
         "button_link": "/pages/kontakt",
         "show_contact": true,
-        "show_art": true
+        "show_art": true,
+        "spacing_top": "default",
+        "spacing_bottom": "default",
+        "bg": "default",
+        "content_width": "default",
+        "heading_size": "default",
+        "hide_mobile": false,
+        "hide_desktop": false
       }
     }
   },
