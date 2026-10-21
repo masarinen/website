@@ -9,8 +9,8 @@
         "text": "<p>Vi tar fram mjuka eller hårda väskor och etuier efter era önskemål – med mångårig erfarenhet och ett nätverk av pålitliga underleverantörer. I vår webbutik finner ni även vinresväskor, serviceväskor och klockuppdragare från välkända märken.</p>",
         "button_1_label": "Utforska våra lösningar",
         "button_1_link": "/pages/specialtillverkade-vaskor",
-        "button_2_label": "Besök webbutiken",
-        "button_2_link": "/collections/all",
+        "button_2_label": "Se hela sortimentet",
+        "button_2_link": "/pages/sortiment",
         "show_media": true,
         "image": "shopify://shop_images/chiarugi-768x489_2.jpg",
         "media_position": "right",
@@ -98,8 +98,8 @@
             "heading": "Väskor från välkända varumärken",
             "text": "Vinresväskor, serviceväskor, klockuppdragare och smyckeskrin i vår webbutik.",
             "brands": "Wolf1834 · Samsonite · Parat",
-            "link_label": "Besök webbutiken",
-            "link": "/collections/all"
+            "link_label": "Se hela sortimentet",
+            "link": "/pages/sortiment"
           }
         }
       },
@@ -201,7 +201,7 @@
             "brands": "",
             "image": "shopify://shop_images/6d5b9bc8-5136-462b-8aa1-23ff7d4291cb.png",
             "illustration": "demo",
-            "link": "/collections/all",
+            "link": "/pages/sortiment",
             "link_label": "Läs mer"
           }
         },
@@ -215,7 +215,7 @@
             "brands": "Parat",
             "image": "shopify://shop_images/ChatGPT_Image_9_okt._2026_19_34_27.png",
             "illustration": "toolcase",
-            "link": "/collections/all",
+            "link": "/pages/sortiment",
             "link_label": "Läs mer"
           }
         },
@@ -229,8 +229,8 @@
             "brands": "Samsonite",
             "image": "shopify://shop_images/b300ef83-ea09-4eb5-9258-c4b05e742e11_1.png",
             "illustration": "wine",
-            "link": "/collections/all",
-            "link_label": "Se i webbutiken"
+            "link": "/pages/sortiment",
+            "link_label": "Se i sortimentet"
           }
         },
         "b6": {
@@ -244,7 +244,7 @@
             "image": "shopify://shop_images/WOLF-British-Racing-Single-Watch-Winder-with-Storage-792102-2.avif",
             "illustration": "winder",
             "link": "/collections/wolf",
-            "link_label": "Se i webbutiken"
+            "link_label": "Se produkterna"
           }
         },
         "b7": {
@@ -258,7 +258,7 @@
             "image": "shopify://shop_images/wolf-1834-heritage-large-jewelry-box-32356389584977_2048x_1.png",
             "illustration": "jewelry",
             "link": "/collections/wolf",
-            "link_label": "Se i webbutiken"
+            "link_label": "Se produkterna"
           }
         }
       },
@@ -273,7 +273,7 @@
       "settings": {
         "eyebrow": "Våra lösningar",
         "heading": "Från demoväska till klockuppdragare",
-        "text": "<p>Ett urval av det vi arbetar med. Specialväskor tas fram efter era behov – övriga kategorier finns i webbutiken.</p>",
+        "text": "<p>Ett urval av det vi arbetar med. Specialväskor tas fram efter era behov – övriga kategorier finns i vårt sortiment.</p>",
         "link_label": "Hela sortimentet",
         "link": "/pages/sortiment",
         "background": "ivory",

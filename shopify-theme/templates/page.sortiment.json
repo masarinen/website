@@ -5,9 +5,9 @@
       "settings": {
         "eyebrow": "Sortiment",
         "heading": "Väskor och etuier för arbete, resa och förvaring",
-        "text": "<p>Här är våra produktkategorier. Specialväskor tar vi fram efter era behov – övriga produkter finns i webbutiken, där ni ser aktuellt utbud.</p>",
-        "button_1_label": "Gå till webbutiken",
-        "button_1_link": "/collections/all",
+        "text": "<p>Här är våra produktkategorier. Specialväskor tar vi fram efter era behov – övriga produkter beställer ni enkelt hos oss.</p>",
+        "button_1_label": "",
+        "button_1_link": "",
         "button_2_label": "Specialtillverkning",
         "button_2_link": "/pages/specialtillverkade-vaskor"
       }
@@ -39,8 +39,8 @@
             "brands": "",
             "image": "shopify://shop_images/6d5b9bc8-5136-462b-8aa1-23ff7d4291cb.png",
             "illustration": "demo",
-            "link": "/collections/all",
-            "link_label": "Se i webbutiken"
+            "link": "/pages/kontakt",
+            "link_label": "Fråga oss"
           }
         },
         "b4": {
@@ -53,8 +53,8 @@
             "brands": "Samsonite",
             "image": "shopify://shop_images/b300ef83-ea09-4eb5-9258-c4b05e742e11_1.png",
             "illustration": "wine",
-            "link": "/collections/all",
-            "link_label": "Se i webbutiken"
+            "link": "/pages/kontakt",
+            "link_label": "Fråga oss"
           }
         },
         "b5": {
@@ -67,8 +67,8 @@
             "brands": "Parat",
             "image": "shopify://shop_images/ChatGPT_Image_9_okt._2026_19_34_27.png",
             "illustration": "toolcase",
-            "link": "/collections/all",
-            "link_label": "Se i webbutiken"
+            "link": "/pages/kontakt",
+            "link_label": "Fråga oss"
           }
         },
         "b6": {
@@ -82,7 +82,7 @@
             "image": "shopify://shop_images/WOLF-British-Racing-Single-Watch-Winder-with-Storage-792102-2.avif",
             "illustration": "winder",
             "link": "/collections/wolf",
-            "link_label": "Se i webbutiken"
+            "link_label": "Se produkterna"
           }
         },
         "b7": {
@@ -96,7 +96,7 @@
             "image": "shopify://shop_images/wolf-1834-heritage-large-jewelry-box-32356389584977_2048x_1.png",
             "illustration": "jewelry",
             "link": "/collections/wolf",
-            "link_label": "Se i webbutiken"
+            "link_label": "Se produkterna"
           }
         },
         "b8": {
@@ -105,12 +105,12 @@
             "collection": "",
             "title": "Portföljer",
             "tag": "Webbutik",
-            "text": "Portföljer för arbetsdagen och mötet. Se aktuellt utbud i webbutiken.",
+            "text": "Portföljer för arbetsdagen och mötet. Kontakta oss för aktuellt utbud.",
             "brands": "",
             "image": "shopify://shop_images/Svart_Samsonite-lakarvaska_i_studio.png",
             "illustration": "briefcase",
-            "link": "/collections/all",
-            "link_label": "Se i webbutiken"
+            "link": "/pages/kontakt",
+            "link_label": "Fråga oss"
           }
         }
       },

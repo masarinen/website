@@ -12,7 +12,7 @@
       "type": "wolf-contact",
       "settings": {
         "details_heading": "Kontaktuppgifter",
-        "details_text": "<p>Söker ni en produkt ur vårt sortiment? Besök <a href=\"/collections/all\" title=\"Webbutik\">webbutiken</a>. Alla produkter kan levereras till adresser i hela Norden.</p>",
+        "details_text": "<p>Söker ni en produkt ur vårt sortiment? Se <a href=\"/pages/sortiment\" title=\"Sortiment\">hela sortimentet</a>. Alla produkter kan levereras till adresser i hela Norden.</p>",
         "form_heading": "Skicka ett meddelande",
         "form_text": "Vi besvarar förfrågningar via e-post eller telefon.",
         "subjects": "Specialbeställning\nFråga om sortimentet\nReparation\nÖvrigt"
