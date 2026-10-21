@@ -40,7 +40,14 @@
     <header class="coll__head{% if s.show_image and collection.image %} coll__head--image{% endif %}">
       <div class="coll__intro">
         {%- if s.eyebrow != blank -%}<p class="eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
-        <h1 id="CollTitle-{{ section.id }}" class="coll__title mt-2">{{ collection.title }}</h1>
+        <h1 id="CollTitle-{{ section.id }}" class="coll__title mt-2">
+          {%- if s.title_image != blank -%}
+            {%- assign logo_style = 'display: block; height: auto; max-width: 100%; width: ' | append: s.title_image_width | append: 'px' -%}
+            {{ s.title_image | image_url: width: 1200 | image_tag: alt: collection.title, loading: 'eager', widths: '300, 600, 900, 1200', style: logo_style }}
+          {%- else -%}
+            {{ collection.title }}
+          {%- endif -%}
+        </h1>
         {%- if s.show_description and collection.description != blank -%}
           <div class="coll__desc rte lede mt-3" data-collapsible>
             <div class="coll__desc-inner">{{ collection.description }}</div>
@@ -208,6 +215,8 @@
     { "type": "text", "id": "eyebrow", "label": "Överrubrik", "default": "Webbutik" },
     { "type": "text", "id": "parent_label", "label": "Namn i brödsmulan", "default": "Sortiment" },
     { "type": "url", "id": "parent_link", "label": "Länk i brödsmulan", "info": "T.ex. sidan Sortiment. Tom = sidan med alla produktserier." },
+    { "type": "image_picker", "id": "title_image", "label": "Logotyp i stället för rubrik", "info": "T.ex. märkets logotyp. Produktseriens namn används då som beskrivning för sökmotorer och skärmläsare." },
+    { "type": "range", "id": "title_image_width", "label": "Logotypens bredd", "min": 120, "max": 600, "step": 10, "unit": "px", "default": 300 },
     { "type": "checkbox", "id": "show_description", "label": "Visa kollektionens beskrivning", "default": true },
     { "type": "checkbox", "id": "show_image", "label": "Visa kollektionens bild", "default": true },
     { "type": "header", "content": "Snabbval, filter och sortering" },
