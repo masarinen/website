@@ -3,7 +3,9 @@
     "main": {
       "type": "main-collection",
       "settings": {
-        "per_page": 24
+        "per_page": 24,
+        "parent_label": "Sortiment",
+        "parent_link": "/pages/sortiment"
       }
     }
   },

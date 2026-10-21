@@ -32,7 +32,7 @@
     <nav class="coll__crumbs small muted" aria-label="Brödsmulor">
       <a href="{{ routes.root_url }}" class="link-underline">Startsida</a>
       <span aria-hidden="true">/</span>
-      <a href="{{ routes.collections_url }}" class="link-underline">{{ s.parent_label }}</a>
+      <a href="{{ s.parent_link | default: routes.collections_url }}" class="link-underline">{{ s.parent_label }}</a>
       <span aria-hidden="true">/</span>
       <span aria-current="page">{{ collection.title }}</span>
     </nav>
@@ -206,7 +206,8 @@
   "settings": [
     { "type": "paragraph", "content": "Rubrik, presentationstext och bild hämtas från kollektionen under Produkter → Kollektioner. Varje kollektion (t.ex. Wolf1834, Vinväskor, Watch winders) får automatiskt en egen sida med den här layouten." },
     { "type": "text", "id": "eyebrow", "label": "Överrubrik", "default": "Webbutik" },
-    { "type": "text", "id": "parent_label", "label": "Namn i brödsmulan", "default": "Produkter" },
+    { "type": "text", "id": "parent_label", "label": "Namn i brödsmulan", "default": "Sortiment" },
+    { "type": "url", "id": "parent_link", "label": "Länk i brödsmulan", "info": "T.ex. sidan Sortiment. Tom = sidan med alla produktserier." },
     { "type": "checkbox", "id": "show_description", "label": "Visa kollektionens beskrivning", "default": true },
     { "type": "checkbox", "id": "show_image", "label": "Visa kollektionens bild", "default": true },
     { "type": "header", "content": "Snabbval, filter och sortering" },

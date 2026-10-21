@@ -4,14 +4,15 @@
       "type": "main-collection",
       "settings": {
         "eyebrow": "Märke",
-        "parent_label": "Produkter",
+        "parent_label": "Sortiment",
         "show_description": true,
         "show_image": true,
         "quick_filter": "filter.p.product_type",
         "show_filters": true,
         "show_sort": true,
         "per_page": 24,
-        "columns": "4"
+        "columns": "4",
+        "parent_link": "/pages/sortiment"
       }
     },
     "about": {

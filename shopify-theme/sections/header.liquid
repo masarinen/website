@@ -44,7 +44,7 @@
                   {%- endfor -%}
                 </ul>
                 {%- if link.url != blank and link.url != '#' -%}
-                  <a class="arrow-link nav-dd__all" href="{{ link.url }}"><span class="link-underline">Visa alla {{ link.title | downcase }}</span>{% render 'icon', name: 'arrow' %}</a>
+                  <a class="arrow-link nav-dd__all" href="{{ link.url }}"><span class="link-underline">{{ section.settings.dropdown_all_label | default: 'Visa allt' }}</span>{% render 'icon', name: 'arrow' %}</a>
                 {%- endif -%}
               </div>
             </li>
@@ -99,7 +99,7 @@
                   <li><a href="{{ child.url }}"{% if child.current %} aria-current="page"{% endif %}>{{ child.title }}</a></li>
                 {%- endfor -%}
                 {%- if link.url != blank and link.url != '#' -%}
-                  <li><a href="{{ link.url }}">Visa alla</a></li>
+                  <li><a href="{{ link.url }}">{{ section.settings.dropdown_all_label | default: 'Visa allt' }}</a></li>
                 {%- endif -%}
               </ul>
             </li>
@@ -165,6 +165,7 @@
   "class": "section-header",
   "settings": [
     { "type": "link_list", "id": "menu", "label": "Meny", "default": "main-menu", "info": "Skapa menyn under Innehåll → Menyer. Lägg menyalternativ under ett annat (t.ex. Vinväskor under Produkter) för att få en rullgardinsmeny." },
+    { "type": "text", "id": "dropdown_all_label", "label": "Text för länken längst ner i rullgardinsmenyn", "default": "Hela sortimentet", "info": "Länken går till samma sida som huvudvalet (t.ex. Sortiment). Lämna tomt för ”Visa allt”." },
     { "type": "paragraph", "content": "Knappen ”Webbutik”, telefon och logotyp ändras under Temainställningar." }
   ]
 }
