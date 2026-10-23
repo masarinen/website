@@ -1,0 +1,138 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "eyebrow": "Märke",
+        "parent_label": "Sortiment",
+        "show_description": true,
+        "show_image": true,
+        "quick_filter": "filter.p.product_type",
+        "show_filters": true,
+        "show_sort": true,
+        "per_page": 24,
+        "columns": "4",
+        "parent_link": "/pages/sortiment"
+      }
+    },
+    "about": {
+      "type": "wolf-flex",
+      "settings": {
+        "label": "Om Samsonite",
+        "gap": 24,
+        "bg": "bone"
+      },
+      "blocks": {
+        "about": {
+          "type": "grupp",
+          "settings": {
+            "direction": "row",
+            "gap": 64,
+            "align_v": "center"
+          },
+          "blocks": {
+            "img": {
+              "type": "bild",
+              "settings": {
+                "width": "50",
+                "ratio": "landscape",
+                "illustration": "briefcase"
+              }
+            },
+            "content": {
+              "type": "grupp",
+              "settings": {
+                "direction": "col",
+                "gap": 16,
+                "width": "50"
+              },
+              "blocks": {
+                "eyebrow": {
+                  "type": "overrubrik",
+                  "settings": {
+                    "text": "Om märket"
+                  }
+                },
+                "heading": {
+                  "type": "rubrik",
+                  "settings": {
+                    "text": "Samsonite",
+                    "accent": "",
+                    "size": "l"
+                  }
+                },
+                "text": {
+                  "type": "text",
+                  "settings": {
+                    "size": "l",
+                    "text": "<p>Samsonite grundades 1910 i Denver, USA, och är i dag ett av världens mest kända märken för väskor och resetillbehör.</p><p>Priserna på den här sidan är Samsonites rekommenderade utpriser. Kontakta oss för uppdaterade priser och tillgänglighet. Är ni företagskund med avtal kan ni logga in för att se era priser i varukorgen.</p>"
+                  }
+                },
+                "buttons": {
+                  "type": "grupp",
+                  "settings": {
+                    "direction": "row",
+                    "gap": 16,
+                    "keep_row": true
+                  },
+                  "blocks": {
+                    "b1": {
+                      "type": "knapp",
+                      "settings": {
+                        "label": "Kontakta oss för pris",
+                        "link": "/pages/kontakt",
+                        "style": "secondary"
+                      }
+                    },
+                    "b2": {
+                      "type": "knapp",
+                      "settings": {
+                        "label": "Hela sortimentet",
+                        "link": "/pages/sortiment",
+                        "style": "link"
+                      }
+                    }
+                  },
+                  "block_order": [
+                    "b1",
+                    "b2"
+                  ]
+                }
+              },
+              "block_order": [
+                "eyebrow",
+                "heading",
+                "text",
+                "buttons"
+              ]
+            }
+          },
+          "block_order": [
+            "img",
+            "content"
+          ]
+        }
+      },
+      "block_order": [
+        "about"
+      ]
+    },
+    "cta": {
+      "type": "wolf-contact-cta",
+      "settings": {
+        "heading": "Vill du ha ett aktuellt pris?",
+        "text": "Priserna som visas är rekommenderade utpriser. Hör av dig så lämnar vi ett aktuellt pris – även för större beställningar till företag.",
+        "button_label": "Kontakta oss",
+        "button_link": "/pages/kontakt",
+        "eyebrow": "Rådgivning",
+        "show_contact": true,
+        "show_art": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "about",
+    "cta"
+  ]
+}

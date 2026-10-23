@@ -63,6 +63,14 @@
             </a>
           </li>
         {%- endif -%}
+        {%- if shop.customer_accounts_enabled and section.settings.hide_account != true -%}
+          <li>
+            <a href="{{ routes.account_url }}" class="header-cart header-account">
+              {% render 'icon', name: 'user' %}
+              <span class="visually-hidden">{% if customer %}Mitt konto{% else %}Logga in{% endif %}</span>
+            </a>
+          </li>
+        {%- endif -%}
         {%- if settings.show_cart -%}
           <li>
             <a href="{{ routes.cart_url }}" class="header-cart">
@@ -107,6 +115,9 @@
             <li><a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
           {%- endif -%}
         {%- endfor -%}
+        {%- if shop.customer_accounts_enabled and section.settings.hide_account != true -%}
+          <li><a href="{{ routes.account_url }}">{% if customer %}Mitt konto{% else %}Logga in (företagskund){% endif %}</a></li>
+        {%- endif -%}
         {%- if settings.show_cart -%}
           <li><a href="{{ routes.cart_url }}">Varukorg{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</a></li>
         {%- endif -%}
@@ -166,6 +177,7 @@
   "settings": [
     { "type": "link_list", "id": "menu", "label": "Meny", "default": "main-menu", "info": "Skapa menyn under Innehåll → Menyer. Lägg menyalternativ under ett annat (t.ex. Vinväskor under Produkter) för att få en rullgardinsmeny." },
     { "type": "text", "id": "dropdown_all_label", "label": "Text för länken längst ner i rullgardinsmenyn", "default": "Hela sortimentet", "info": "Länken går till samma sida som huvudvalet (t.ex. Sortiment). Lämna tomt för ”Visa allt”." },
+    { "type": "checkbox", "id": "hide_account", "label": "Dölj inloggningsikonen", "default": false, "info": "Ikonen visas bara när kundkonton är aktiverade (Inställningar → Kundkonton)." },
     { "type": "paragraph", "content": "Knappen ”Webbutik”, telefon och logotyp ändras under Temainställningar." }
   ]
 }

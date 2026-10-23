@@ -11,9 +11,10 @@
   </div>
   {%- if product.vendor != blank -%}<p class="product-card__vendor">{{ product.vendor }}</p>{%- endif -%}
   <h3 class="product-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
-  <p class="product-card__price">
+  {%- capture price_html -%}
     {%- if product.price_varies -%}Från {% endif -%}
     {{ product.price | money }}
     {%- if product.compare_at_price > product.price %} <s class="muted">{{ product.compare_at_price | money }}</s>{% endif -%}
-  </p>
+  {%- endcapture -%}
+  {% render 'price-context', product: product, mode: 'card', price_html: price_html %}
 </div>

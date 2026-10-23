@@ -112,6 +112,20 @@
             "link": "/pages/kontakt",
             "link_label": "Fråga oss"
           }
+        },
+        "b9": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "title": "Samsonite",
+            "tag": "Rek. utpris",
+            "text": "Väskor från Samsonite. Priserna är rekommenderade utpriser – kontakta oss för uppdaterade priser.",
+            "brands": "Samsonite",
+            "image": "",
+            "illustration": "briefcase",
+            "link": "/collections/samsonite",
+            "link_label": "Se produkterna"
+          }
         }
       },
       "block_order": [
@@ -121,7 +135,8 @@
         "b5",
         "b6",
         "b7",
-        "b8"
+        "b8",
+        "b9"
       ],
       "settings": {
         "eyebrow": "",

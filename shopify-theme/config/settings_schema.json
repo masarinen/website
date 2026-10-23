@@ -42,6 +42,16 @@
     ]
   },
   {
+    "name": "Priser och företagskunder",
+    "settings": [
+      { "type": "text", "id": "price_vendors", "label": "Märken som visar rekommenderat utpris", "default": "Samsonite", "info": "Skriv märket exakt som i produktens fält Leverantör. Flera märken skiljs med komma." },
+      { "type": "text", "id": "price_label", "label": "Text före priset", "default": "Rek. utpris" },
+      { "type": "text", "id": "price_note", "label": "Text under priset på produktsidan", "default": "Kontakta oss för uppdaterade priser." },
+      { "type": "text", "id": "b2b_tag", "label": "Kundtagg för företagskunder", "default": "foretagskund", "info": "Ge kunden denna tagg under Kunder. Själva rabatten ställs in under Rabatter." },
+      { "type": "text", "id": "b2b_note", "label": "Text till inloggade företagskunder", "default": "Ditt avtalspris visas i varukorgen och kassan." }
+    ]
+  },
+  {
     "name": "Sociala medier",
     "settings": [
       { "type": "text", "id": "social_facebook", "label": "Facebook", "default": "https://www.facebook.com/sthlmsetui/" },

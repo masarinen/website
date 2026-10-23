@@ -1,0 +1,55 @@
+{%- comment -%}
+  Avgör hur ett pris ska visas. Används av product-card och main-product.
+  Användning: {% render 'price-context', product: product, mode: 'card' | 'product', price_html: '...' %}
+
+  - Märken i "Märken som visar rekommenderat utpris" (standard: Samsonite) får
+    etiketten "Rek. utpris" och en uppmaning att kontakta oss för aktuella priser.
+  - Inloggade företagskunder (kundtagg, standard "foretagskund") får i stället
+    beskedet att deras avtalspris dras av i varukorgen och kassan.
+{%- endcomment -%}
+{%- liquid
+  assign vendor_list = settings.price_vendors | default: 'Samsonite' | downcase | split: ','
+  assign vendor = product.vendor | downcase | strip
+  assign is_rrp = false
+  for v in vendor_list
+    assign vv = v | strip
+    if vv != blank and vv == vendor
+      assign is_rrp = true
+    endif
+  endfor
+  assign b2b_tag = settings.b2b_tag | default: 'foretagskund' | downcase
+  assign is_b2b = false
+  if customer
+    for t in customer.tags
+      assign tt = t | downcase
+      if tt == b2b_tag
+        assign is_b2b = true
+      endif
+    endfor
+  endif
+  assign rrp_label = settings.price_label | default: 'Rek. utpris'
+  assign rrp_note = settings.price_note | default: 'Kontakta oss för uppdaterade priser.'
+  assign b2b_note = settings.b2b_note | default: 'Ditt avtalspris visas i varukorgen och kassan.'
+-%}
+{%- if mode == 'card' -%}
+  <p class="product-card__price">
+    {%- if is_rrp -%}<span class="price-label">{{ rrp_label }}</span> {% endif -%}
+    {{ price_html }}
+  </p>
+  {%- if is_b2b -%}
+    <p class="price-note price-note--b2b">Avtalspris i kassan</p>
+  {%- endif -%}
+{%- else -%}
+  {%- if is_rrp -%}<p class="price-label price-label--lg mt-3">{{ rrp_label }}</p>{%- endif -%}
+  <p class="price{% unless is_rrp %} mt-3{% endunless %}" id="Price-{{ section_id }}">{{ price_html }}</p>
+  {%- if cart.taxes_included -%}<p class="small muted">Inklusive moms.</p>{%- endif -%}
+  {%- if is_b2b -%}
+    <p class="price-note price-note--b2b mt-2">{% render 'icon', name: 'check' %} {{ b2b_note }}</p>
+  {%- elsif is_rrp -%}
+    <p class="price-note mt-2">
+      {{ rrp_note }}
+      <a class="link-underline" href="/pages/kontakt?amne=Fråga om sortimentet">Kontakta oss</a>
+      {%- if shop.customer_accounts_enabled and customer == nil %} · <a class="link-underline" href="{{ routes.account_login_url }}">Logga in som företagskund</a>{% endif -%}
+    </p>
+  {%- endif -%}
+{%- endif -%}

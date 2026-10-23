@@ -29,11 +29,11 @@
       <div class="product__info">
         {%- if product.vendor != blank -%}<p class="eyebrow">{{ product.vendor }}</p>{%- endif -%}
         <h1 class="product__title mt-2">{{ product.title }}</h1>
-        <p class="price mt-3" id="Price-{{ section.id }}">
+        {%- capture price_html -%}
           {{ current_variant.price | money }}
           {%- if current_variant.compare_at_price > current_variant.price %}<s>{{ current_variant.compare_at_price | money }}</s>{% endif -%}
-        </p>
-        {%- if cart.taxes_included -%}<p class="small muted">Inklusive moms.</p>{%- endif -%}
+        {%- endcapture -%}
+        {% render 'price-context', product: product, mode: 'product', price_html: price_html, section_id: section.id %}
 
         {%- form 'product', product, class: 'product__form', id: 'ProductForm' -%}
           {%- unless product.has_only_default_variant -%}
