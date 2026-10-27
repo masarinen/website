@@ -3,9 +3,20 @@
     "main": {
       "type": "main-collection",
       "settings": {
-        "per_page": 24,
+        "eyebrow": "Webbutik",
         "parent_label": "Sortiment",
-        "parent_link": "/pages/sortiment"
+        "parent_link": "/pages/sortiment",
+        "title_image": "shopify://shop_images/wolf-logo-1-600x240.png",
+        "title_image_width": 300,
+        "show_description": true,
+        "show_image": true,
+        "quick_filter": "filter.p.product_type",
+        "show_filters": true,
+        "show_sort": true,
+        "per_page": 24,
+        "columns": "4",
+        "spacing_top": "default",
+        "spacing_bottom": "default"
       }
     }
   },
