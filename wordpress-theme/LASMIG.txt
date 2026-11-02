@@ -1,0 +1,58 @@
+WOLF – WORDPRESS-TEMA FÖR ONE.COM
+=================================
+
+Filen wolf-wordpress-tema.zip är temat. Ladda upp den som den är (packa inte upp den).
+
+1. Installera WordPress hos one.com
+   Kontrollpanelen → WordPress → Installera. Välj domänen (t.ex. wolf.se).
+
+2. Svenska
+   WordPress → Inställningar → Allmänt → Webbplatsens språk: Svenska.
+
+3. Ladda upp temat
+   Utseende → Teman → Lägg till nytt tema → Ladda upp tema → välj wolf-wordpress-tema.zip
+   → Installera nu → Aktivera.
+
+4. Skapa sidorna
+   Klicka på länken "Skapa webbplatsens sidor med ett klick" som visas överst
+   (eller Utseende → Wolf: skapa sidor) → Skapa sidorna.
+   Startsida, Specialtillverkade väskor, Sortiment, WOLF, Samsonite, Om oss och Kontakt
+   skapas med samma texter som på Shopify. Policysidorna skapas som utkast.
+
+5. Bilder
+   Bilderna från Shopify följer inte med automatiskt. Spara dem från Shopify
+   (Innehåll → Filer) och byt ut illustrationerna: klicka på en bild på sidan →
+   Ersätt → Mediabibliotek / Ladda upp.
+   Startsidans stora bild: klicka på den mörka ytan → "Lägg till media".
+
+6. Policyer
+   Sidor → öppna varje utkast (Integritetspolicy, Köpvillkor …), fyll i det som står
+   inom [hakparenteser] och klicka Publicera.
+
+7. Kontaktformuläret
+   Inställningar → Wolf: kontrollera e-postadressen. Skicka ett testmeddelande.
+   Alla meddelanden sparas även under "Meddelanden" i vänstermenyn.
+   Kommer e-posten inte fram: installera tillägget "WP Mail SMTP" och ange
+   e-postkontot hos one.com.
+
+8. Produkter (valfritt)
+   Tillägg → Lägg till nytt → WooCommerce → Installera → Aktivera.
+   Skapa produktkategorierna "WOLF" och "Samsonite" (Produkter → Kategorier).
+   Produkter i dem visas automatiskt på sidorna WOLF och Samsonite.
+   Samsonite-produkter får texten "Rek. utpris". Utan bock för "Webbutik" under
+   Inställningar → Wolf visas priser men ingen köpknapp, bara "Fråga om produkten".
+
+9. Företagskunder (valfritt, kräver WooCommerce)
+   Användare → Lägg till → roll "Företagskund". Öppna användaren och fyll i
+   "Rabatt för företagskund (%)". När kunden loggar in ser den sitt pris.
+
+10. Domänen
+   Om wolf.se i dag pekar på Shopify: ändra DNS hos one.com så att domänen pekar
+   på webbhotellet igen (ta bort Shopifys A-post 23.227.38.65 och CNAME
+   shops.myshopify.com). one.com:s support hjälper gärna till.
+   Säg upp Shopify först när den nya sidan fungerar.
+
+Redigera
+- Sidornas innehåll: Sidor → välj sida. Allt är vanliga block.
+- Sidhuvud, meny och sidfot: Utseende → Redigerare → Mönster → Malldelar.
+- Färdiga sektioner: klicka på + i redigeraren → Mönster → "Wolf – sektioner".
