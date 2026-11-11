@@ -6,11 +6,11 @@
         "eyebrow": "Stockholms Etui- & Koffertfabrik Wolf AB",
         "heading": "Väskor och etuier,",
         "heading_accent": "gjorda efter era behov.",
-        "text": "<p>Vi tar fram mjuka och hårda väskor för det ni behöver bära, skydda eller visa upp – från en enstaka väska till en hel serie.</p>",
+        "text": "<p>Vi tar fram mjuka och hårda väskor efter era behov. I vår webbshop finns även väskor och etuier från välkända märken.</p>",
         "button_1_label": "Skicka en förfrågan",
         "button_1_link": "/pages/kontakt?amne=Specialbeställning",
-        "button_2_label": "Så går det till",
-        "button_2_link": "/#sa-gar-det-till",
+        "button_2_label": "Till webbshopen",
+        "button_2_link": "/pages/sortiment",
         "show_media": true,
         "image": "shopify://shop_images/chiarugi-768x489_2.jpg",
         "media_position": "right",
@@ -31,122 +31,47 @@
         "hide_desktop": false
       }
     },
-    "examples": {
-      "type": "wolf-categories",
-      "settings": {
-        "eyebrow": "Exempel",
-        "heading": "Väskor för nästan allt som går att bära",
-        "text": "",
-        "link_label": "",
-        "link": "",
-        "background": "ivory",
-        "columns": "4"
-      },
-      "blocks": {
-        "c1": {
-          "type": "category",
-          "settings": {
-            "collection": "",
-            "title": "Demo- och säljväskor",
-            "tag": "",
-            "text": "För säljare som vill visa sina produkter ordnat och representativt.",
-            "brands": "",
-            "image": "shopify://shop_images/6d5b9bc8-5136-462b-8aa1-23ff7d4291cb.png",
-            "illustration": "demo",
-            "link": "",
-            "link_label": ""
-          }
-        },
-        "c2": {
-          "type": "category",
-          "settings": {
-            "collection": "",
-            "title": "Skyddande väskor",
-            "tag": "",
-            "text": "Vattentäta och stöttåliga, för känslig utrustning.",
-            "brands": "",
-            "image": "shopify://shop_images/3731f940-10de-44bd-bb9d-9d3a82e46b79.png",
-            "illustration": "hardcase",
-            "link": "",
-            "link_label": ""
-          }
-        },
-        "c3": {
-          "type": "category",
-          "settings": {
-            "collection": "",
-            "title": "Service- och verktygsväskor",
-            "tag": "",
-            "text": "Där varje verktyg och reservdel har sin plats.",
-            "brands": "",
-            "image": "shopify://shop_images/ChatGPT_Image_9_okt._2026_19_34_27.png",
-            "illustration": "toolcase",
-            "link": "",
-            "link_label": ""
-          }
-        },
-        "c4": {
-          "type": "category",
-          "settings": {
-            "collection": "",
-            "title": "Etuier och skrin",
-            "tag": "",
-            "text": "Som både presenterar och skyddar innehållet.",
-            "brands": "",
-            "image": "",
-            "illustration": "jewelry",
-            "link": "",
-            "link_label": ""
-          }
-        }
-      },
-      "block_order": [
-        "c1",
-        "c2",
-        "c3",
-        "c4"
-      ]
-    },
-    "process": {
-      "type": "wolf-process",
+    "paths": {
+      "type": "wolf-two-paths",
       "blocks": {
         "b1": {
-          "type": "step",
+          "type": "path",
           "settings": {
-            "title": "Berätta om era behov",
-            "text": "Beskriv vad väskan ska innehålla, hur den ska användas och vilka önskemål ni har om exempelvis storlek, material och antal."
+            "style": "dark",
+            "image": "shopify://shop_images/3731f940-10de-44bd-bb9d-9d3a82e46b79.png",
+            "illustration": "demo",
+            "eyebrow": "För företag och privatpersoner",
+            "heading": "Specialtillverkade väskor",
+            "text": "För er som behöver en väska eller ett etui anpassat efter specifika krav – mjukt eller hårt, med inredning efter innehållet.",
+            "brands": "",
+            "link_label": "Om specialtillverkning",
+            "link": "/pages/specialtillverkade-vaskor"
           }
         },
         "b2": {
-          "type": "step",
+          "type": "path",
           "settings": {
-            "title": "Vi diskuterar lösningen",
-            "text": "Vi går igenom era krav tillsammans för att förstå behovet och bedöma vilka utföranden som är rimliga."
-          }
-        },
-        "b3": {
-          "type": "step",
-          "settings": {
-            "title": "En lösning utifrån era krav",
-            "text": "Vi undersöker möjligheterna tillsammans med våra underleverantörer utifrån den önskade produkten och specifikationen."
+            "style": "light",
+            "image": "shopify://shop_images/Lyxig_klockuppdragare_i_roseguld.png",
+            "illustration": "suitcase",
+            "eyebrow": "Webbutik",
+            "heading": "Väskor från välkända varumärken",
+            "text": "Vinresväskor, serviceväskor, klockuppdragare och smyckeskrin i vår webbutik.",
+            "brands": "Wolf1834 · Samsonite · Parat",
+            "link_label": "Se hela sortimentet",
+            "link": "/pages/sortiment"
           }
         }
       },
       "block_order": [
         "b1",
-        "b2",
-        "b3"
+        "b2"
       ],
       "settings": {
-        "eyebrow": "Så går det till",
-        "heading": "Från behov till färdig väska",
-        "text": "<p>Vi börjar alltid med att förstå vad väskan ska klara av.</p>",
-        "button_label": "Skicka en förfrågan",
-        "button_link": "/pages/kontakt?amne=Specialbeställning",
-        "note": "",
-        "background": "bone",
-        "anchor": "sa-gar-det-till",
-        "step_background": "ivory",
+        "eyebrow": "Två vägar in",
+        "heading": "Vad söker ni?",
+        "text": "<p>En väska som är framtagen för just er uppgift – eller en väska från ett välkänt märke. Välj den väg som passar.</p>",
+        "background": "ivory",
         "spacing_top": "default",
         "spacing_bottom": "default",
         "bg": "default",
@@ -192,8 +117,7 @@
   },
   "order": [
     "hero",
-    "examples",
-    "process",
+    "paths",
     "about",
     "cta"
   ]
