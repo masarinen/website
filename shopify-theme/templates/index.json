@@ -4,13 +4,13 @@
       "type": "wolf-hero",
       "settings": {
         "eyebrow": "Stockholms Etui- & Koffertfabrik Wolf AB",
-        "heading": "Väskor efter era behov.",
-        "heading_accent": "Erfarenhet sedan generationer.",
-        "text": "<p>Vi tar fram mjuka eller hårda väskor och etuier efter era önskemål – med mångårig erfarenhet och ett nätverk av pålitliga underleverantörer. I vår webbutik finner ni även vinresväskor, serviceväskor och klockuppdragare från välkända märken.</p>",
-        "button_1_label": "Utforska våra lösningar",
-        "button_1_link": "/pages/specialtillverkade-vaskor",
-        "button_2_label": "Se hela sortimentet",
-        "button_2_link": "/pages/sortiment",
+        "heading": "Väskor och etuier,",
+        "heading_accent": "gjorda efter era behov.",
+        "text": "<p>Vi tar fram mjuka och hårda väskor för det ni behöver bära, skydda eller visa upp – från en enstaka väska till en hel serie.</p>",
+        "button_1_label": "Skicka en förfrågan",
+        "button_1_link": "/pages/kontakt?amne=Specialbeställning",
+        "button_2_label": "Så går det till",
+        "button_2_link": "/#sa-gar-det-till",
         "show_media": true,
         "image": "shopify://shop_images/chiarugi-768x489_2.jpg",
         "media_position": "right",
@@ -31,261 +31,81 @@
         "hide_desktop": false
       }
     },
-    "facts": {
-      "type": "wolf-facts",
-      "blocks": {
-        "b1": {
-          "type": "fact",
-          "settings": {
-            "value": "180+",
-            "label": "års erfarenhet i familjen Wolf"
-          }
-        },
-        "b2": {
-          "type": "fact",
-          "settings": {
-            "value": "1936",
-            "label": "grundades företaget i Stockholm"
-          }
-        },
-        "b3": {
-          "type": "fact",
-          "settings": {
-            "value": "60+",
-            "label": "år av demo- och säljväskor"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3"
-      ],
-      "settings": {
-        "spacing_top": "default",
-        "spacing_bottom": "default",
-        "bg": "default",
-        "content_width": "default",
-        "heading_size": "default",
-        "hide_mobile": false,
-        "hide_desktop": false
-      }
-    },
-    "paths": {
-      "type": "wolf-two-paths",
-      "blocks": {
-        "b1": {
-          "type": "path",
-          "settings": {
-            "style": "dark",
-            "image": "shopify://shop_images/3731f940-10de-44bd-bb9d-9d3a82e46b79.png",
-            "illustration": "demo",
-            "eyebrow": "För företag och privatpersoner",
-            "heading": "Specialtillverkade väskor",
-            "text": "För er som behöver en väska eller ett etui anpassat efter specifika krav – mjukt eller hårt, med inredning efter innehållet.",
-            "brands": "",
-            "link_label": "Om specialtillverkning",
-            "link": "/pages/specialtillverkade-vaskor"
-          }
-        },
-        "b2": {
-          "type": "path",
-          "settings": {
-            "style": "light",
-            "image": "shopify://shop_images/Lyxig_klockuppdragare_i_roseguld.png",
-            "illustration": "suitcase",
-            "eyebrow": "Webbutik",
-            "heading": "Väskor från välkända varumärken",
-            "text": "Vinresväskor, serviceväskor, klockuppdragare och smyckeskrin i vår webbutik.",
-            "brands": "Wolf1834 · Samsonite · Parat",
-            "link_label": "Se hela sortimentet",
-            "link": "/pages/sortiment"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2"
-      ],
-      "settings": {
-        "eyebrow": "Två vägar in",
-        "heading": "Vad söker ni?",
-        "text": "<p>En väska som är framtagen för just er uppgift – eller en väska från ett välkänt märke. Välj den väg som passar.</p>",
-        "background": "ivory",
-        "spacing_top": "default",
-        "spacing_bottom": "default",
-        "bg": "default",
-        "content_width": "default",
-        "heading_size": "default",
-        "hide_mobile": false,
-        "hide_desktop": false
-      }
-    },
-    "history": {
-      "type": "wolf-history",
-      "blocks": {
-        "b1": {
-          "type": "milestone",
-          "settings": {
-            "year": "1896",
-            "title": "Skandinaviska Etuifabriken i Malmö"
-          }
-        },
-        "b2": {
-          "type": "milestone",
-          "settings": {
-            "year": "1936",
-            "title": "Stockholms Etui- och koffertfabrik AB"
-          }
-        },
-        "b3": {
-          "type": "milestone",
-          "settings": {
-            "year": "1977",
-            "title": "Nästa generation tar över"
-          }
-        },
-        "b4": {
-          "type": "milestone",
-          "settings": {
-            "year": "1986",
-            "title": "Butiken på Atlasgatan"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4"
-      ],
-      "settings": {
-        "eyebrow": "Ett familjeföretag",
-        "heading": "Hantverk som gått i arv i över 180 år",
-        "text": "<p>Familjen Wolf har över 180 års erfarenhet av att tillverka etuier, skrin och väskor. Kunnandet har gått i arv från generation till generation – från en silversmedja i Tyskland till dagens verksamhet i Stockholmsområdet.</p>",
-        "link_label": "Läs om familjen Wolf",
-        "link": "/pages/om-oss",
-        "spacing_top": "default",
-        "spacing_bottom": "default",
-        "bg": "default",
-        "content_width": "default",
-        "heading_size": "default",
-        "hide_mobile": false,
-        "hide_desktop": false
-      }
-    },
-    "categories": {
+    "examples": {
       "type": "wolf-categories",
+      "settings": {
+        "eyebrow": "Exempel",
+        "heading": "Väskor för nästan allt som går att bära",
+        "text": "",
+        "link_label": "",
+        "link": "",
+        "background": "ivory",
+        "columns": "4"
+      },
       "blocks": {
-        "b1": {
+        "c1": {
           "type": "category",
           "settings": {
             "collection": "",
-            "title": "Specialväskor",
-            "tag": "Specialtillverkning",
-            "text": "Väskor för nästan allt som går att bära – även vattentäta och stöttåliga utföranden, mjuka eller hårda efter behov.",
-            "brands": "",
-            "image": "shopify://shop_images/3731f940-10de-44bd-bb9d-9d3a82e46b79.png",
-            "illustration": "hardcase",
-            "link": "/pages/specialtillverkade-vaskor",
-            "link_label": "Läs mer"
-          }
-        },
-        "b2": {
-          "type": "category",
-          "settings": {
-            "collection": "",
-            "title": "Demoväskor",
-            "tag": "Webbutik",
-            "text": "Kollektions-, försäljnings- och demoväskor för säljare. Vi har tillverkat dem i över 60 år, för allt från dammsugare till klockor och knivar.",
+            "title": "Demo- och säljväskor",
+            "tag": "",
+            "text": "För säljare som vill visa sina produkter ordnat och representativt.",
             "brands": "",
             "image": "shopify://shop_images/6d5b9bc8-5136-462b-8aa1-23ff7d4291cb.png",
             "illustration": "demo",
-            "link": "/pages/sortiment",
-            "link_label": "Läs mer"
+            "link": "",
+            "link_label": ""
           }
         },
-        "b5": {
+        "c2": {
           "type": "category",
           "settings": {
             "collection": "",
-            "title": "Serviceväskor",
-            "tag": "Webbutik",
-            "text": "Ett brett urval av service- och verktygsväskor för tekniker och hantverkare.",
-            "brands": "Parat",
+            "title": "Skyddande väskor",
+            "tag": "",
+            "text": "Vattentäta och stöttåliga, för känslig utrustning.",
+            "brands": "",
+            "image": "shopify://shop_images/3731f940-10de-44bd-bb9d-9d3a82e46b79.png",
+            "illustration": "hardcase",
+            "link": "",
+            "link_label": ""
+          }
+        },
+        "c3": {
+          "type": "category",
+          "settings": {
+            "collection": "",
+            "title": "Service- och verktygsväskor",
+            "tag": "",
+            "text": "Där varje verktyg och reservdel har sin plats.",
+            "brands": "",
             "image": "shopify://shop_images/ChatGPT_Image_9_okt._2026_19_34_27.png",
             "illustration": "toolcase",
-            "link": "/pages/sortiment",
-            "link_label": "Läs mer"
+            "link": "",
+            "link_label": ""
           }
         },
-        "b4": {
+        "c4": {
           "type": "category",
           "settings": {
             "collection": "",
-            "title": "Vinresväskor",
-            "tag": "Webbutik",
-            "text": "Vinväska för tolv flaskor med skal i polypropylen, hjul, utdragbart handtag och kombinationslås.",
-            "brands": "Samsonite",
-            "image": "shopify://shop_images/b300ef83-ea09-4eb5-9258-c4b05e742e11_1.png",
-            "illustration": "wine",
-            "link": "/pages/sortiment",
-            "link_label": "Se i sortimentet"
-          }
-        },
-        "b6": {
-          "type": "category",
-          "settings": {
-            "collection": "",
-            "title": "Watch winders",
-            "tag": "Webbutik",
-            "text": "Klockuppdragare som håller automatiska armbandsur i gång när de inte bärs.",
-            "brands": "Wolf1834",
-            "image": "shopify://shop_images/WOLF-British-Racing-Single-Watch-Winder-with-Storage-792102-2.avif",
-            "illustration": "winder",
-            "link": "/collections/wolf",
-            "link_label": "Se produkterna"
-          }
-        },
-        "b7": {
-          "type": "category",
-          "settings": {
-            "collection": "",
-            "title": "Smyckeskrin",
-            "tag": "Webbutik",
-            "text": "Skrin som både presenterar och skyddar smycken – en tradition som går tillbaka till familjens första verkstad.",
-            "brands": "Wolf1834",
-            "image": "shopify://shop_images/wolf-1834-heritage-large-jewelry-box-32356389584977_2048x_1.png",
+            "title": "Etuier och skrin",
+            "tag": "",
+            "text": "Som både presenterar och skyddar innehållet.",
+            "brands": "",
+            "image": "",
             "illustration": "jewelry",
-            "link": "/collections/wolf",
-            "link_label": "Se produkterna"
+            "link": "",
+            "link_label": ""
           }
         }
       },
       "block_order": [
-        "b1",
-        "b2",
-        "b5",
-        "b4",
-        "b6",
-        "b7"
-      ],
-      "settings": {
-        "eyebrow": "Våra lösningar",
-        "heading": "Från demoväska till klockuppdragare",
-        "text": "<p>Ett urval av det vi arbetar med. Specialväskor tas fram efter era behov – övriga kategorier finns i vårt sortiment.</p>",
-        "link_label": "Hela sortimentet",
-        "link": "/pages/sortiment",
-        "background": "ivory",
-        "columns": "3",
-        "spacing_top": "default",
-        "spacing_bottom": "default",
-        "bg": "default",
-        "content_width": "default",
-        "heading_size": "default",
-        "hide_mobile": false,
-        "hide_desktop": false
-      }
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
     },
     "process": {
       "type": "wolf-process",
@@ -318,12 +138,12 @@
         "b3"
       ],
       "settings": {
-        "eyebrow": "Specialbeställningar",
-        "heading": "Så går en förfrågan till",
-        "text": "<p>Varje uppdrag är olika. Vi börjar alltid med att förstå vad väskan ska klara av.</p>",
+        "eyebrow": "Så går det till",
+        "heading": "Från behov till färdig väska",
+        "text": "<p>Vi börjar alltid med att förstå vad väskan ska klara av.</p>",
         "button_label": "Skicka en förfrågan",
         "button_link": "/pages/kontakt?amne=Specialbeställning",
-        "note": "Vilka lösningar som är möjliga beror på produkt, specifikation och antal – det går vi igenom tillsammans.",
+        "note": "",
         "background": "bone",
         "anchor": "sa-gar-det-till",
         "step_background": "ivory",
@@ -336,14 +156,28 @@
         "hide_desktop": false
       }
     },
+    "about": {
+      "type": "wolf-split-text",
+      "settings": {
+        "eyebrow": "Om oss",
+        "heading": "Ett familjeföretag i generationer",
+        "lead": "Familjen Wolf har tillverkat etuier, skrin och väskor i över 180 år – sedan 1936 här i Stockholm.",
+        "text": "",
+        "button_1_label": "Läs mer om oss",
+        "button_1_link": "/pages/om-oss",
+        "button_2_label": "",
+        "button_2_link": "",
+        "background": "ivory"
+      }
+    },
     "cta": {
       "type": "wolf-contact-cta",
       "settings": {
         "eyebrow": "Förfrågningar",
         "heading": "Har ni ett projekt i åtanke?",
-        "text": "Berätta om vad som ska förvaras, bäras eller presenteras. Kontakta oss så diskuterar vi väskor och etuier anpassade efter era behov.",
-        "button_label": "Kontakta oss",
-        "button_link": "/pages/kontakt",
+        "text": "Berätta vad som ska förvaras, bäras eller presenteras, så återkommer vi med förslag.",
+        "button_label": "Skicka en förfrågan",
+        "button_link": "/pages/kontakt?amne=Specialbeställning",
         "show_contact": true,
         "show_art": true,
         "spacing_top": "default",
@@ -358,11 +192,9 @@
   },
   "order": [
     "hero",
-    "facts",
-    "paths",
-    "history",
-    "categories",
+    "examples",
     "process",
+    "about",
     "cta"
   ]
 }

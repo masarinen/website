@@ -2,7 +2,15 @@
   "type": "header",
   "name": "Sidhuvud",
   "sections": {
-    "header": { "type": "header", "settings": { "menu": "main-menu" } }
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "hide_account": true
+      }
+    }
   },
-  "order": ["header"]
+  "order": [
+    "header"
+  ]
 }

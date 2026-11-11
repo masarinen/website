@@ -2,7 +2,18 @@
   "type": "footer",
   "name": "Sidfot",
   "sections": {
-    "footer": { "type": "footer", "settings": {} }
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "about": "<p>Familjeföretag med över 180 års erfarenhet av etuier, skrin och väskor. Vi tar fram väskor efter era behov.</p>",
+        "heading_a": "Webbplatsen",
+        "menu_a": "main-menu",
+        "heading_b": "",
+        "menu_b": ""
+      }
+    }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }

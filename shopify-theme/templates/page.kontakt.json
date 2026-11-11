@@ -5,17 +5,17 @@
       "settings": {
         "eyebrow": "Kontakt",
         "heading": "Välkommen att höra av er",
-        "text": "<p>Har ni frågor om specialtillverkade väskor, vårt sortiment eller en reparation? Ring, mejla eller använd formuläret nedan.</p>"
+        "text": "<p>Berätta om er väska eller ert etui. Ring, mejla eller använd formuläret.</p>"
       }
     },
     "contact": {
       "type": "wolf-contact",
       "settings": {
         "details_heading": "Kontaktuppgifter",
-        "details_text": "<p>Söker ni en produkt ur vårt sortiment? Se <a href=\"/pages/sortiment\" title=\"Sortiment\">hela sortimentet</a>. Alla produkter kan levereras till adresser i hela Norden.</p>",
+        "details_text": "<p>Bra att berätta:</p><ul><li>Vad väskan ska innehålla, gärna med mått och vikt</li><li>Hur den ska användas och transporteras</li><li>Önskemål om material, färg eller logotyp</li><li>Ungefärligt antal och när ni behöver den</li></ul>",
         "form_heading": "Skicka ett meddelande",
         "form_text": "Vi besvarar förfrågningar via e-post eller telefon.",
-        "subjects": "Specialbeställning\nFråga om sortimentet\nReparation\nÖvrigt"
+        "subjects": "Specialbeställning\nReparation\nÖvrigt"
       }
     }
   },

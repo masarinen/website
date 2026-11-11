@@ -29,7 +29,7 @@
           </div>
           <div class="card__body">
             <div class="card__top">
-              <h3 class="card__title"><a href="{{ link }}">{{ c.title | default: c.collection.title }}</a></h3>
+              <h3 class="card__title">{% if link != blank %}<a href="{{ link }}">{{ c.title | default: c.collection.title }}</a>{% else %}{{ c.title | default: c.collection.title }}{% endif %}</h3>
               {%- if c.tag != blank -%}<span class="card__tag">{{ c.tag }}</span>{%- endif -%}
             </div>
             {%- if c.text != blank -%}<p class="card__text">{{ c.text }}</p>{%- endif -%}

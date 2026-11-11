@@ -12,38 +12,6 @@
         "button_2_link": ""
       }
     },
-    "facts": {
-      "type": "wolf-facts",
-      "blocks": {
-        "b1": {
-          "type": "fact",
-          "settings": {
-            "value": "180+",
-            "label": "års erfarenhet i familjen Wolf"
-          }
-        },
-        "b2": {
-          "type": "fact",
-          "settings": {
-            "value": "1936",
-            "label": "grundades företaget i Stockholm"
-          }
-        },
-        "b3": {
-          "type": "fact",
-          "settings": {
-            "value": "60+",
-            "label": "år av demo- och säljväskor"
-          }
-        }
-      },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3"
-      ],
-      "settings": {}
-    },
     "timeline": {
       "type": "wolf-timeline",
       "blocks": {
@@ -104,28 +72,14 @@
         "image_width": 100
       }
     },
-    "today": {
-      "type": "wolf-split-text",
-      "settings": {
-        "eyebrow": "I dag",
-        "heading": "Samma hantverkstradition, nya behov",
-        "lead": "Vår mångåriga erfarenhet och vårt breda nät av duktiga och pålitliga underleverantörer ger oss unika möjligheter att erbjuda er mjuka eller hårda väskor helt efter era behov och önskemål.",
-        "text": "<p>I dag tar vi fram specialväskor och demoväskor efter kundens behov, och säljer vinresväskor, serviceväskor, klockuppdragare, smyckeskrin och mer från välkända märken. Vi utför även reparationer av väskor.</p><p>Familjens etuitradition lever också vidare i varumärket Wolf1834, med etuier för klockor och smycken samt klockuppdragare – produkter som finns i vårt sortiment.</p>",
-        "button_1_label": "Specialtillverkade väskor",
-        "button_1_link": "/pages/specialtillverkade-vaskor",
-        "button_2_label": "Se sortimentet",
-        "button_2_link": "/pages/sortiment",
-        "background": "bone"
-      }
-    },
     "cta": {
       "type": "wolf-contact-cta",
       "settings": {
         "eyebrow": "Förfrågningar",
         "heading": "Har ni ett projekt i åtanke?",
-        "text": "Berätta om vad som ska förvaras, bäras eller presenteras. Kontakta oss så diskuterar vi väskor och etuier anpassade efter era behov.",
-        "button_label": "Kontakta oss",
-        "button_link": "/pages/kontakt",
+        "text": "Berätta vad som ska förvaras, bäras eller presenteras, så återkommer vi med förslag.",
+        "button_label": "Skicka en förfrågan",
+        "button_link": "/pages/kontakt?amne=Specialbeställning",
         "show_contact": true,
         "show_art": true
       }
@@ -133,9 +87,7 @@
   },
   "order": [
     "hero",
-    "facts",
     "timeline",
-    "today",
     "cta"
   ]
 }
