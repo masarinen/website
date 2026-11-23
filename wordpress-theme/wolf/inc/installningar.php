@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
 
 function wolf_defaults() {
 	return array(
-		'epost'       => 'robert@wolf.se',
+		'epost'       => 'info@wolf.se',
 		'amnen'       => "Specialbeställning\nFråga om sortimentet\nReparation\nÖvrigt",
 		'rrp_marken'  => 'Samsonite',
 		'rrp_etikett' => 'Rek. utpris',

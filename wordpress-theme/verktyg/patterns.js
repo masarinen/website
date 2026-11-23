@@ -226,7 +226,7 @@
         h(2, "Kontaktuppgifter", { fontSize: "large" }),
         stack([
           contactItem("Telefon", '<a href="tel:+4687360855">08-736 08 55</a>'),
-          contactItem("E-post", '<a href="mailto:robert@wolf.se">robert@wolf.se</a>'),
+          contactItem("E-post", '<a href="mailto:info@wolf.se">info@wolf.se</a>'),
           contactItem("Adress", "Stockholms Etui- &amp; Koffertfabrik Wolf AB<br>Roslagsvägen 120<br>184 91 Åkersberga"),
         ], { className: "wolf-contact__list", style: { spacing: { blockGap: "0" } } }),
         small(`Söker ni en produkt ur vårt sortiment? Se <a href="${U("/sortiment/")}">hela sortimentet</a>. Alla produkter kan levereras till adresser i hela Norden.`),
@@ -269,7 +269,7 @@
   const footer = () => group({ tagName: "div", className: "wolf-footer", backgroundColor: "navy", textColor: "ivory", layout: { type: "constrained" }, style: { spacing: { padding: { top: "0", bottom: "0" } } } }, [
     cols([
       col([p(`<a href="${U("/")}">WOLF</a>`, { className: "wolf-logo" }), p("Ett familjeföretag med över 180 års erfarenhet av etuier, skrin och väskor. Specialtillverkade lösningar och väskor från välkända märken.", { className: "wolf-footer__about" })], "36%"),
-      col([h(2, "Kontakt", { className: "wolf-footer__h" }), p("Stockholms Etui- &amp; Koffertfabrik Wolf AB<br>Roslagsvägen 120<br>184 91 Åkersberga"), p('Tele: <a href="tel:+4687360855">08-736 08 55</a><br>E-post: <a href="mailto:robert@wolf.se">robert@wolf.se</a>')], "28%"),
+      col([h(2, "Kontakt", { className: "wolf-footer__h" }), p("Stockholms Etui- &amp; Koffertfabrik Wolf AB<br>Roslagsvägen 120<br>184 91 Åkersberga"), p('Tele: <a href="tel:+4687360855">08-736 08 55</a><br>E-post: <a href="mailto:info@wolf.se">info@wolf.se</a>')], "28%"),
       col([h(2, "Webbplatsen", { className: "wolf-footer__h" }), flinks([["Startsida", U("/")], ["Specialtillverkade väskor", U("/specialtillverkade-vaskor/")], ["Sortiment", U("/sortiment/")], ["Om oss", U("/om-oss/")], ["Kontakt", U("/kontakt/")]])], "18%"),
       col([h(2, "Sortiment", { className: "wolf-footer__h" }), flinks([["WOLF", U("/wolf/")], ["Samsonite", U("/samsonite/")], ["Hela sortimentet", U("/sortiment/")]])], "18%"),
     ], { className: "wolf-footer__grid", style: { spacing: { blockGap: { left: "2rem" } } } }),

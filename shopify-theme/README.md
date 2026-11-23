@@ -100,7 +100,7 @@ dator och en utfällbar lista i mobilmenyn.
 ## 6. Kontaktformuläret
 
 Fungerar direkt. Meddelanden skickas till butikens e-postadress
-(**Inställningar → Butiksinformation → Kontakt-e-post**) – sätt den till robert@wolf.se.
+(**Inställningar → Butiksinformation → Kontakt-e-post**) – sätt den till info@wolf.se.
 Ämnena i rullistan ändras i sektionen *Kontaktformulär*.
 
 ## 7. Publicera

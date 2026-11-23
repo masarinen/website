@@ -48,7 +48,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"wolf-contact__value"} -->
-<p class="wolf-contact__value"><a href="mailto:robert@wolf.se">robert@wolf.se</a></p>
+<p class="wolf-contact__value"><a href="mailto:info@wolf.se">info@wolf.se</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 

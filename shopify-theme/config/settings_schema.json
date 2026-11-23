@@ -28,7 +28,7 @@
       { "type": "text", "id": "address_city", "label": "Ort", "default": "Åkersberga" },
       { "type": "text", "id": "phone", "label": "Telefon", "default": "08-736 08 55" },
       { "type": "text", "id": "phone_link", "label": "Telefon för länk (internationellt format)", "default": "+4687360855" },
-      { "type": "text", "id": "email", "label": "E-post", "default": "robert@wolf.se" },
+      { "type": "text", "id": "email", "label": "E-post", "default": "info@wolf.se" },
       { "type": "text", "id": "org_number", "label": "Organisationsnummer", "default": "556136-8373" }
     ]
   },

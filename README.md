@@ -56,7 +56,7 @@ Formuläret valideras både i webbläsaren och på servern (`src/lib/contact.ts`
   `src/app/api/contact/route.ts`. Nyckeln läses bara på servern. Avsändardomänen (t.ex. wolf.se)
   måste verifieras i Resend.
 - **Inte aktiverat (standard):** formuläret visar tydligt att det inte skickar direkt, och knappen
-  öppnar besökarens e-postprogram med meddelandet ifyllt till robert@wolf.se. Inget falskt
+  öppnar besökarens e-postprogram med meddelandet ifyllt till info@wolf.se. Inget falskt
   ”meddelandet har skickats” visas någonsin – bekräftelsen visas bara när servern faktiskt har
   skickat e-postmeddelandet.
 

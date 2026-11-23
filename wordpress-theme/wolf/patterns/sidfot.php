@@ -28,7 +28,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Tele: <a href="tel:+4687360855">08-736 08 55</a><br>E-post: <a href="mailto:robert@wolf.se">robert@wolf.se</a></p>
+<p>Tele: <a href="tel:+4687360855">08-736 08 55</a><br>E-post: <a href="mailto:info@wolf.se">info@wolf.se</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 

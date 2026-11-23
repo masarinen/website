@@ -22,7 +22,7 @@ export const company = {
     display: "08-736 08 55",
     href: "tel:+4687360855",
   },
-  email: "robert@wolf.se",
+  email: "info@wolf.se",
   social: [{ label: "Facebook", href: "https://www.facebook.com/sthlmsetui/" }],
 } as const;
 
