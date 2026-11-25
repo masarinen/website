@@ -9,6 +9,7 @@
   --bone: #efe9df;
   --sand: #e2d8c8;
   --line: #d8cfc0;
+  --field-border: #6f6a62;
   --navy: #17222f;
   --navy-soft: #24334a;
   --ink: #2b2a28;
@@ -384,11 +385,11 @@ em { font-style: italic; }
 @media (min-width: 640px) { .form__row { grid-template-columns: 1fr 1fr; } }
 .field label { display: block; font-size: .875rem; font-weight: 500; color: var(--navy); }
 .field input, .field select, .field textarea {
-  display: block; width: 100%; margin-top: .5rem; padding: .875rem 1rem; border: 1px solid var(--line); border-radius: 0;
+  display: block; width: 100%; margin-top: .5rem; padding: .875rem 1rem; border: 2px solid var(--field-border); border-radius: 0;
   background: var(--ivory); font-size: 1rem; color: var(--ink); transition: border-color .2s;
 }
-.field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(94, 90, 83, .6); }
-.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--leather); outline-offset: 0; border-color: var(--navy); }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: var(--navy); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--leather); outline-offset: 2px; border-color: var(--navy); }
 .field select {
   appearance: none; padding-right: 3rem;
   background: var(--ivory) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317222f' stroke-width='1.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 1rem center / 1.1rem;
@@ -435,7 +436,7 @@ em { font-style: italic; }
 @media (min-width: 1024px) { .product__info { position: sticky; top: 7rem; } }
 .product__title { font-size: clamp(2.25rem, 4vw, 3.25rem); }
 .product__form { display: grid; gap: 1.25rem; margin-top: 2rem; }
-.qty { display: inline-flex; align-items: center; border: 1px solid var(--line); }
+.qty { display: inline-flex; align-items: center; border: 2px solid var(--field-border); }
 .qty button { width: 2.75rem; height: 2.75rem; border: 0; background: none; cursor: pointer; color: var(--navy); }
 .qty input { width: 3.5rem; height: 2.75rem; border: 0; text-align: center; background: none; -moz-appearance: textfield; }
 .qty input::-webkit-outer-spin-button, .qty input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
@@ -465,7 +466,7 @@ em { font-style: italic; }
 .empty-state { padding: 3rem; border: 1px solid var(--line); background: var(--bone); text-align: center; color: var(--muted); }
 
 .search-form { display: flex; gap: .75rem; margin-top: 2rem; max-width: 36rem; }
-.search-form input { flex: 1; padding: .875rem 1rem; border: 1px solid var(--line); background: var(--ivory); }
+.search-form input { flex: 1; padding: .875rem 1rem; border: 2px solid var(--field-border); background: var(--ivory); }
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--navy); color: rgba(248, 245, 239, .8); }
