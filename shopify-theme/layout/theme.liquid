@@ -7,6 +7,9 @@
     <link rel="canonical" href="{{ canonical_url }}">
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">
+    {%- else -%}
+      <link rel="icon" type="image/png" sizes="64x64" href="{{ 'favicon-64.png' | asset_url }}">
+      <link rel="apple-touch-icon" href="{{ 'favicon-180.png' | asset_url }}">
     {%- endif -%}
 
     <title>
